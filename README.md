@@ -30,7 +30,7 @@ Set these in Vercel → Settings → Environment Variables (defaults in `src/dat
 | `FORM_ENDPOINT_PARTNER` | Partner application form |
 | `NEWSLETTER_ENDPOINT` | Newsletter sign-up |
 | `BOOKING_URL` | Booking page opened at step 4 of the business check |
-| `PREVIEW_MODE` | `true` by default: private preview. Every page is `noindex, nofollow`, `robots.txt` blocks all crawlers and no sitemap is published. Set to `false` to go public. |
+| `PREVIEW_MODE` | Off by default: the site is public. Set to `true` for a private preview: every page is `noindex, nofollow`, `robots.txt` blocks all crawlers and no sitemap is published. |
 
 A form with no endpoint opens the visitor's email app addressed to hello@greamhq.com.
 
@@ -47,3 +47,7 @@ npm run build                   # static site in out/
 Every push builds a Vercel preview, and that preview URL is where the new site is reviewed.
 
 `main` deploys greamhq.com. Leave greamhq.com unchanged until the team says to switch.
+
+## Illustrative examples
+
+Sample clients, figures, quotes, products and prices from the designs carry `example: true` in their content file, which shows an "Illustrative example" label on the page. When a real, approved case, figure or price replaces one, delete that line and the label disappears.

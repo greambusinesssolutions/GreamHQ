@@ -1,9 +1,9 @@
 // Writes out/sitemap.xml from the built pages, only when the site is public
-// (PREVIEW_MODE=false). In private preview no sitemap is published.
+// (PREVIEW_MODE is not "true"). In private preview no sitemap is published.
 import { readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 
-if (process.env.PREVIEW_MODE !== "false") {
+if (process.env.PREVIEW_MODE === "true") {
   console.log("Private preview: no sitemap published.");
   process.exit(0);
 }

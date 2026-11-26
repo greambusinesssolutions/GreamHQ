@@ -22,8 +22,8 @@ export const site = {
 };
 
 /** Private preview: noindex on every page, robots.txt blocks everything, no sitemap.
-    Set PREVIEW_MODE=false in Vercel to go public. Defaults to true. */
-export const previewMode = env.PREVIEW_MODE !== "false";
+    The site is public: set PREVIEW_MODE=true (Vercel → Environment Variables) to hide it again. */
+export const previewMode = env.PREVIEW_MODE === "true";
 
 
 export const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`;
