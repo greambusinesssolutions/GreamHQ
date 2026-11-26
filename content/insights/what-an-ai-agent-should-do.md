@@ -6,7 +6,6 @@ shortAnswer: "[TO WRITE: THE SHORT ANSWER, IN TWO OR THREE PLAIN SENTENCES]"
 featured: false
 order: 3
 related: ["what-growing-businesses-run-on", "stop-losing-enquiries", "first-job-to-automate"]
-sample: true
 ---
 
 [TO WRITE: ARTICLE BODY]

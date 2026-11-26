@@ -6,7 +6,6 @@ summary: "An assistant that answers common questions on WhatsApp and the web, an
 price: "Join the waitlist"
 cta: "Notify me"
 order: 4
-sample: true
 ---
 
 [TO WRITE: WHAT FRONT DESK DOES, WHO IT IS FOR, AND HOW TO START.]

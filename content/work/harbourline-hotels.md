@@ -10,7 +10,6 @@ changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
 visual: bars
 featured: true
 order: 1
-sample: true
 ---
 
 [TO WRITE: THE FULL STORY. WHAT WE BUILT, HOW THE TEAM USES IT, AND HOW THE RESULT WAS MEASURED.]

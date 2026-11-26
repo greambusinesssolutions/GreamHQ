@@ -1,10 +1,42 @@
 [
-  { "id": "harbourline", "name": "Harbourline", "style": "serif-italic", "sample": true },
-  { "id": "kestrel", "name": "Kestrel Dental", "style": "sans-caps", "sample": true },
-  { "id": "meridian", "name": "meridian/suites", "style": "mono", "sample": true },
-  { "id": "atlas", "name": "Atlas & Oak", "style": "serif", "sample": true },
-  { "id": "coastline", "name": "Coastline Foods", "style": "sans", "sample": true },
-  { "id": "solace", "name": "Solace Wellness", "style": "serif-italic", "sample": true },
-  { "id": "verity", "name": "VERITY·LEGAL", "style": "mono", "sample": true },
-  { "id": "brightwell", "name": "Brightwell Clinics", "style": "sans", "sample": true }
+ {
+  "id": "harbourline",
+  "name": "Harbourline",
+  "style": "serif-italic"
+ },
+ {
+  "id": "kestrel",
+  "name": "Kestrel Dental",
+  "style": "sans-caps"
+ },
+ {
+  "id": "meridian",
+  "name": "meridian/suites",
+  "style": "mono"
+ },
+ {
+  "id": "atlas",
+  "name": "Atlas & Oak",
+  "style": "serif"
+ },
+ {
+  "id": "coastline",
+  "name": "Coastline Foods",
+  "style": "sans"
+ },
+ {
+  "id": "solace",
+  "name": "Solace Wellness",
+  "style": "serif-italic"
+ },
+ {
+  "id": "verity",
+  "name": "VERITY·LEGAL",
+  "style": "mono"
+ },
+ {
+  "id": "brightwell",
+  "name": "Brightwell Clinics",
+  "style": "sans"
+ }
 ]

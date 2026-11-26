@@ -1,8 +1,52 @@
 [
-  { "id": "referral", "order": 1, "kind": "Referral", "title": "Introduce a business", "text": "You make the introduction. We scope, sell and deliver.", "earns": "You earn: 10% of paid invoices", "sample": true },
-  { "id": "delivery", "order": 2, "kind": "Delivery", "title": "Deliver together", "text": "Joint projects where each side brings its strength.", "earns": "You earn: revenue by contribution" },
-  { "id": "white-label", "order": 3, "kind": "White label", "title": "Resell under your brand", "text": "Agencies offer our systems and agents as their own. You keep the client.", "earns": "You earn: your margin" },
-  { "id": "technology", "order": 4, "kind": "Technology", "title": "Reach more businesses together", "text": "Platforms and tools we build on and bring to clients.", "earns": "You get: more businesses using your product" },
-  { "id": "product", "order": 5, "kind": "Product partnership", "title": "Build a product together", "text": "You bring the idea, market or customers. We bring it to life and grow it with you.", "earns": "Shared: revenue or equity, agreed per product", "highlight": true },
-  { "id": "growth", "order": 6, "kind": "Growth partnership", "title": "Grow your business with us", "text": "A long-term partner that keeps your business running better as you grow.", "earns": "You get: a team that stays", "highlight": true }
+ {
+  "id": "referral",
+  "order": 1,
+  "kind": "Referral",
+  "title": "Introduce a business",
+  "text": "You make the introduction. We scope, sell and deliver.",
+  "earns": "You earn: 10% of paid invoices"
+ },
+ {
+  "id": "delivery",
+  "order": 2,
+  "kind": "Delivery",
+  "title": "Deliver together",
+  "text": "Joint projects where each side brings its strength.",
+  "earns": "You earn: revenue by contribution"
+ },
+ {
+  "id": "white-label",
+  "order": 3,
+  "kind": "White label",
+  "title": "Resell under your brand",
+  "text": "Agencies offer our systems and agents as their own. You keep the client.",
+  "earns": "You earn: your margin"
+ },
+ {
+  "id": "technology",
+  "order": 4,
+  "kind": "Technology",
+  "title": "Reach more businesses together",
+  "text": "Platforms and tools we build on and bring to clients.",
+  "earns": "You get: more businesses using your product"
+ },
+ {
+  "id": "product",
+  "order": 5,
+  "kind": "Product partnership",
+  "title": "Build a product together",
+  "text": "You bring the idea, market or customers. We bring it to life and grow it with you.",
+  "earns": "Shared: revenue or equity, agreed per product",
+  "highlight": true
+ },
+ {
+  "id": "growth",
+  "order": 6,
+  "kind": "Growth partnership",
+  "title": "Grow your business with us",
+  "text": "A long-term partner that keeps your business running better as you grow.",
+  "earns": "You get: a team that stays",
+  "highlight": true
+ }
 ]

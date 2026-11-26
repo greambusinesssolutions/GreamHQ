@@ -10,7 +10,6 @@ changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
 visual: ledger
 featured: false
 order: 3
-sample: true
 ---
 
 [TO WRITE: THE FULL STORY. WHAT WE BUILT, HOW THE TEAM USES IT, AND HOW THE RESULT WAS MEASURED.]

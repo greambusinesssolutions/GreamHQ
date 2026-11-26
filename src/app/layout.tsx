@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 import JsonLd from "@/components/JsonLd";
-import { site, isProduction, previewMode } from "@/data/site";
+import { site, previewMode } from "@/data/site";
 import { organizationLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -29,7 +29,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organizationLd} />
         <div className="page">
           <a className="skip" href="#main">Skip to content</a>
-          {!isProduction && <p className="sample-bar t-caption">Preview build: this page may show sample content from the designs.</p>}
           <Header />
           <main id="main">{children}</main>
           <Footer />

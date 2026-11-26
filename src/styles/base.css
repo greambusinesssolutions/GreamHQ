@@ -348,13 +348,6 @@ textarea {
   gap: var(--space-3);
 }
 
-/* ---------- Preview-only sample notice ---------- */
-.sample-bar {
-  background: var(--status-due-bg);
-  color: var(--status-due-fg);
-  text-align: center;
-  padding: var(--space-2) var(--space-4);
-}
 .head-block { margin-bottom: var(--space-18); }
 @container page (max-width: 760px) { .head-block { margin-bottom: var(--space-12); } }
 

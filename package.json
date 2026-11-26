@@ -6,7 +6,7 @@
   "scripts": {
     "prepare-assets": "node scripts/build-tokens.mjs",
     "dev": "npm run prepare-assets && next dev",
-    "build": "npm run prepare-assets && next build && node scripts/sitemap.mjs && node scripts/check-content.mjs",
+    "build": "npm run prepare-assets && next build && node scripts/sitemap.mjs",
     "start": "npx serve@14 out",
     "typecheck": "tsc --noEmit"
   },

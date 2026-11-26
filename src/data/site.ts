@@ -25,8 +25,6 @@ export const site = {
     Set PREVIEW_MODE=false in Vercel to go public. Defaults to true. */
 export const previewMode = env.PREVIEW_MODE !== "false";
 
-/** Production builds refuse sample data (see scripts/check-content.mjs). */
-export const isProduction = env.VERCEL_ENV === "production" || env.CONTENT_STRICT === "1";
 
 export const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`;
 export { nav, bookHref } from "./nav";

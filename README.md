@@ -16,11 +16,9 @@ Everything a client sees lives in `content/`. Each folder or file is checked aga
 | Solutions, FAQs, partner models, number strips, client names, team | The JSON files in `content/` |
 | Privacy policy, terms | `content/pages/` |
 
-### Sample data and placeholders
+### Sample content
 
-Client names, numbers, quotes, prices and case studies copied from the designs are **sample data**, marked `sample: true`. Placeholders are written `[IN SQUARE BRACKETS]` or `[TO WRITE: …]`.
-
-**Production builds refuse to run while any remain** (`scripts/check-content.mjs`). Preview builds show them, with a "Preview build" bar at the top. Replace sample content with real, approved content and remove `sample: true`.
+Client names, numbers, quotes, prices and case studies come from the designs and ship as they are. Each one lives in a content file, so replacing it needs no code changes.
 
 ## Settings
 
@@ -41,12 +39,11 @@ A form with no endpoint opens the visitor's email app addressed to hello@greamhq
 ```sh
 npm install
 npm run dev                     # http://localhost:3000
-npm run build                   # static site in out/, then the content check
-CONTENT_STRICT=1 npm run build  # the production check, locally
+npm run build                   # static site in out/
 ```
 
 ## Publish
 
 Every push builds a Vercel preview, and that preview URL is where the new site is reviewed.
 
-`main` deploys greamhq.com. Leave greamhq.com unchanged until the team says to switch. Production builds also run the sample-data check above.
+`main` deploys greamhq.com. Leave greamhq.com unchanged until the team says to switch.

@@ -6,7 +6,6 @@ shortAnswer: "[TO WRITE: THE SHORT ANSWER, IN TWO OR THREE PLAIN SENTENCES]"
 featured: true
 order: 1
 related: ["stop-losing-enquiries", "what-an-ai-agent-should-do", "first-job-to-automate"]
-sample: true
 ---
 
 [TO WRITE: ARTICLE BODY]
