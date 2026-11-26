@@ -13,6 +13,7 @@ export default function ProductCard({ entry }: { entry: Product }) {
       </div>
       <h3 className={`t-section ${s.name}`}>{p.name}</h3>
       <p className="t-body muted">{p.summary}</p>
+      {p.ai && <p className={`t-label ${s.ai}`}>Powered by AI that gets smarter every month.</p>}
       <div className={s.foot}>
         <span className={`t-small ${s.price}`}>{p.price}</span>
         <Link className={`t-small ${s.link}`} href={`/products/${entry.slug}`}>

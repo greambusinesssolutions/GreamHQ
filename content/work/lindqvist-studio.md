@@ -7,6 +7,7 @@ region: "Germany"
 result: { value: "2×", label: "enquiries from the website" }
 problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
 changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
+improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
 visual: ledger
 featured: false
 order: 9

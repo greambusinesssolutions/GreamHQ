@@ -7,6 +7,7 @@ region: "United Kingdom"
 result: { value: "−72%", label: "time spent reconciling payments" }
 problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
 changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
+improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
 visual: bars
 featured: true
 order: 1

@@ -34,6 +34,7 @@ export default async function CasePage({ params }: Params) {
               <div className={s.fact} key={k}><dt className="t-label">{k}</dt><dd className="t-body">{v}</dd></div>
             ))}
           </dl>
+          <h2 className={`t-label ${s.resultLabel}`}>The result</h2>
           <p className={s.result}>
             <b className={`t-display ${s.resultValue}`}>{c.result.value}</b>
             <span className="t-lede">{c.result.label}</span>
@@ -44,18 +45,27 @@ export default async function CasePage({ params }: Params) {
       <section className="section tight-top" aria-label="The story">
         <div className="wrap">
           <div className={s.blocks}>
-            <div className={s.block}><h2 className="t-label">The problem</h2><p className="t-lede">{c.problem}</p></div>
-            <div className={s.block}><h2 className="t-label">What changed</h2><p className="t-lede">{c.changed}</p></div>
+            <div className={s.block}><h2 className="t-label">The cost</h2><p className="t-lede">{c.problem}</p></div>
+            <div className={s.block}><h2 className="t-label">The change</h2><p className="t-lede">{c.changed}</p></div>
           </div>
           <div className={`t-body ${s.prose}`} dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </section>
 
       {c.quote && (
-        <section className="section ground-sage" aria-label={`What ${c.client} says`}>
-          <div className="wrap"><Quote {...c.quote} /></div>
+        <section className="section ground-sage" aria-labelledby="words-h">
+          <div className="wrap">
+            <h2 className={`t-label ${s.wordsLabel}`} id="words-h">In their words</h2>
+            <Quote {...c.quote} />
+          </div>
         </section>
       )}
+
+      <section className="section" aria-labelledby="improving-h">
+        <div className="wrap">
+          <div className={s.block}><h2 className="t-label" id="improving-h">Still improving</h2><p className="t-lede">{c.improving}</p></div>
+        </div>
+      </section>
 
       <section className="section" aria-labelledby="rel-h">
         <div className="wrap">

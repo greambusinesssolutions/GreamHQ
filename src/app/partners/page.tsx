@@ -8,17 +8,17 @@ import { pageMeta } from "@/lib/seo";
 import s from "./partners.module.css";
 
 export const metadata = pageMeta({
-  title: "Partner programme · GREAM Business Solutions",
+  title: "Partnerships · GREAM Business Solutions",
   description: "Referral, delivery, white-label, technology, product and growth partnerships, with clear terms in writing from the first deal.",
   path: "/partners",
 });
 
 const who = [
-  { title: "Consultants, accountants and advisers", text: "Your clients ask how to run better. We build the answer." },
-  { title: "Marketing, design and web agencies", text: "You bring in the enquiries. We make sure they turn into payments." },
+  { title: "Advisers and accountants", text: "Your clients ask how to run better. We build the answer." },
+  { title: "Agencies", text: "You bring in the enquiries. We make sure they turn into payments." },
   { title: "Software companies", text: "Extra hands to deliver for your clients." },
   { title: "Platforms and payment providers", text: "We put your product to work in real businesses." },
-  { title: "Founders and business owners", text: "You have the idea or the market. We build the product with you." },
+  { title: "Founders with a product idea", text: "You have the idea or the market. We build the product with you." },
 ];
 
 const how = [
@@ -33,8 +33,8 @@ export default function Partners() {
     <>
       <section className={`ledger-grid ${s.hero}`} aria-labelledby="pt-h">
         <div className="wrap">
-          <SectionHeading eyebrow="Partner programme" heading="More for your clients. More for both of us." accent="More for both of us." level={1} size="display" id="pt-h" />
-          <p className={`t-lede ${s.lede}`}>Whether you advise businesses, run an agency, build software or offer a platform, we can deliver more value together than apart. Clear terms, in writing, from the first deal.</p>
+          <SectionHeading eyebrow="Partnerships" heading="More for your clients. More for both of us." accent="More for both of us." level={1} size="display" id="pt-h" />
+          <p className={`t-lede ${s.lede}`}>Whether you advise businesses, run an agency, have a platform or have an idea for a product, we create more value together, on clear terms, for the long term.</p>
           <a className={`btn btn-primary ${s.cta}`} href="#apply">Become a partner <span className="arr" aria-hidden="true">→</span></a>
           <NumberStrip items={getStats("partners")} className={s.strip} />
         </div>
