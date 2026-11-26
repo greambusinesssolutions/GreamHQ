@@ -1,4 +1,5 @@
 import { Arrow } from "./icons";
+import { site } from "@/lib/site";
 
 const packages = [
   {
@@ -106,7 +107,7 @@ export default function Packages() {
             <b>Fixed scope, fixed price, fixed timeline.</b> Agreed in writing before work begins. Not sure which fits? The
             free check will tell you.
           </p>
-          <a className="btn btn-ink" href="#assessment">
+          <a className="btn btn-ink" href={site.calUrl}>
             Find the right starting point <Arrow />
           </a>
         </div>
@@ -122,7 +123,7 @@ export default function Packages() {
               more specific needs. Same approach: we learn the business first, then agree the scope and a fixed price in
               writing.
             </p>
-            <a className="btn btn-line" href="#assessment">
+            <a className="btn btn-line" href={site.calUrl}>
               Talk to us about custom work <Arrow />
             </a>
           </div>

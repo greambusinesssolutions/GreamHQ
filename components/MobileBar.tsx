@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { contactHref, contactLinkProps, hasWhatsApp } from "@/lib/site";
+import { contactHref, contactLinkProps, hasWhatsApp, site } from "@/lib/site";
 import { ChatIcon } from "./icons";
 
 // One Vermilion button per view: hide the bar while another primary button or the form is on screen.
@@ -21,7 +21,7 @@ export default function MobileBar() {
 
   return (
     <div className={hidden ? "mbar is-hidden" : "mbar"}>
-      <a className="btn btn-primary" href="#assessment">
+      <a className="btn btn-primary" href={site.calUrl}>
         Book a free business check
       </a>
       <a

@@ -38,7 +38,7 @@ export default function Footer() {
             <h4>Talk to us</h4>
             <ul>
               <li>
-                <a href="#assessment">Free business check</a>
+                <a href={site.calUrl}>Free business check</a>
               </li>
               <li>
                 <a href={`mailto:${site.email}`}>{site.email}</a>

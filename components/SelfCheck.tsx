@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Arrow } from "./icons";
+import { site } from "@/lib/site";
 
 const questions = [
   "Is there one place where you can see every enquiry, wherever it arrived?",
@@ -83,7 +84,7 @@ export default function SelfCheck() {
             <p className="lede">
               You don&apos;t necessarily need more people or more software. You need the right systems working together.
             </p>
-            <a className="btn btn-primary" href="#assessment">
+            <a className="btn btn-primary" href={site.calUrl}>
               Book a free 20-minute business check <Arrow />
             </a>
           </div>
