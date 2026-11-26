@@ -1,14 +1,65 @@
 [
-  { "id": "home", "sample": true, "items": [
-    { "value": "140+", "label": "Projects delivered" }, { "value": "16", "label": "Countries served" },
-    { "value": "9 in 10", "label": "Clients stay on support" }, { "value": "4.9/5", "label": "Average client rating" } ] },
-  { "id": "about", "sample": true, "items": [
-    { "value": "140+", "label": "Projects delivered" }, { "value": "16", "label": "Countries" },
-    { "value": "4", "label": "Products" }, { "value": "9 in 10", "label": "Clients stay with us" } ] },
-  { "id": "work", "sample": true, "items": [
-    { "value": "142", "label": "Projects delivered" }, { "value": "16", "label": "Countries" },
-    { "value": "4", "label": "Continents" }, { "value": "9 in 10", "label": "Clients stay on support" } ] },
-  { "id": "partners", "sample": true, "items": [
-    { "value": "6", "label": "Ways to partner" }, { "value": "16", "label": "Countries" },
-    { "value": "10%", "label": "Referral share" }, { "value": "Day 1", "label": "Terms in writing" } ] }
+ {
+  "id": "home",
+  "items": [
+   {
+    "value": "[N]",
+    "label": "Countries served"
+   },
+   {
+    "value": "[N]+ years",
+    "label": "Average client relationship"
+   },
+   {
+    "value": "[N]",
+    "label": "Products in use"
+   },
+   {
+    "value": "100%",
+    "label": "Of what we make is yours"
+   }
+  ]
+ },
+ {
+  "id": "work",
+  "items": [
+   {
+    "value": "[N]",
+    "label": "Projects"
+   },
+   {
+    "value": "[N]",
+    "label": "Countries"
+   },
+   {
+    "value": "[N]",
+    "label": "Continents"
+   },
+   {
+    "value": "[N] years",
+    "label": "Average client relationship"
+   }
+  ]
+ },
+ {
+  "id": "partners",
+  "items": [
+   {
+    "value": "6",
+    "label": "Ways to partner"
+   },
+   {
+    "value": "Paid",
+    "label": "When your client pays"
+   },
+   {
+    "value": "Day 1",
+    "label": "Terms in writing"
+   },
+   {
+    "value": "[FIGURE]",
+    "label": "[REAL FIGURE OR PROMISE]"
+   }
+  ]
+ }
 ]

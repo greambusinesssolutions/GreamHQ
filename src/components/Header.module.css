@@ -1,3 +1,7 @@
+.util { border-bottom: 1px solid var(--line-on-dark); }
+.utilIn { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); min-height: 38px; }
+.utilIn a { color: var(--ink-on-dark); text-decoration: none; }
+.utilIn a:hover { color: var(--accent-on-dark); }
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(241, 243, 239, 0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); min-height: var(--nav-height); }
 .brand { color: var(--green); display: inline-flex; min-height: var(--touch-min); align-items: center; }
@@ -18,3 +22,4 @@
 }
 @container page (min-width: 1001px) { .mnav { display: none !important; } }
 @container page (max-width: 760px) { .in { min-height: 64px; } }
+@container page (max-width: 760px) { .utilIn > span { display: none; } .utilIn { justify-content: center; } }

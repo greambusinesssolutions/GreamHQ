@@ -5,6 +5,7 @@ status: "Coming soon"
 summary: "An assistant that answers common questions on WhatsApp and the web, any time."
 price: "Join the waitlist"
 cta: "Notify me"
+ai: true
 order: 4
 sample: true
 ---

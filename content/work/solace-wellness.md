@@ -7,6 +7,7 @@ region: "UAE"
 result: { value: "94%", label: "renewals paid on time" }
 problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
 changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
+improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
 visual: chat
 featured: false
 order: 5

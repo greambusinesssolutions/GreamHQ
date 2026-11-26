@@ -4,3 +4,4 @@
 .foot { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
 .price { font-weight: 600; }
 .link { display: inline-flex; align-items: center; min-height: var(--touch-min); font-weight: 600; }
+.ai { color: var(--accent-text); }

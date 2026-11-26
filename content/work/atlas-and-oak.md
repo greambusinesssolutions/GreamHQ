@@ -7,6 +7,7 @@ region: "Canada"
 result: { value: "2 hrs", label: "per quote, down from 2 days" }
 problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
 changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
+improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
 visual: bars
 featured: false
 order: 4

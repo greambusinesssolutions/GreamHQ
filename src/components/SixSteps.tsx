@@ -1,13 +1,13 @@
 import s from "./SixSteps.module.css";
 
-// The six-step delivery process: one list everywhere (design system README).
+// The six-step process, as worded in the website copy deck.
 const steps = [
-  ["Understand", "How your business runs today."],
-  ["Find the gaps", "Where customers and time are lost."],
-  ["Design", "What will change, and how it works for your team."],
-  ["Build and test", "So it works from day one."],
-  ["Get your team using it", "Training and adoption."],
-  ["Keep it working", "Support and improvement after launch."],
+  ["Find the cost", "We measure what missed customers, late payments and lost hours cost you."],
+  ["Agree the result", "You get a fixed price and a clear result, in writing."],
+  ["Design", "We plan what will change, and how your team will use it."],
+  ["Make it work", "It's built and tested before your team relies on it."],
+  ["Get your team using it", "Training, and help until it becomes how you work."],
+  ["Keep getting better", "Every month it improves, and so do your numbers."],
 ];
 
 export default function SixSteps() {

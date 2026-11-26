@@ -4,10 +4,11 @@ import s from "./Marquee.module.css";
 const style = { serif: s.serif, "serif-italic": s.serifItalic, sans: s.sans, "sans-caps": s.sansCaps, mono: s.mono };
 
 /** Client-name marquee. Stops (and wraps) when the visitor prefers reduced motion. */
-export default function Marquee() {
+export default function Marquee({ label }: { label?: string }) {
   const clients = getClients();
   return (
-    <section className={s.wrap} aria-label="Clients we've worked with">
+    <section className={s.wrap} aria-label={label ?? "Clients we've worked with"}>
+      {label && <p className={`t-label ${s.label}`}>{label}</p>}
       <ul className="sr-only">{clients.map((c) => <li key={c.id}>{c.name}</li>)}</ul>
       <div className={s.track} aria-hidden="true">
         {clients.map((c) => <span key={c.id} className={`${s.m} ${style[c.style]}`}>{c.name}</span>)}
