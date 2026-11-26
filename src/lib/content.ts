@@ -29,8 +29,8 @@ const serviceSchema = z.object({
     lede: z.string(),
     cta: z.string().default("Book a free business check"),
     secondary: z.object({ label: z.string(), href: z.string() }).optional(),
-    note: z.string().optional(), // line under the buttons
-    example: z.object({ label: z.string(), customer: z.string(), reply: z.string(), note: z.string(), tags: z.array(z.string()), caption: z.string().optional() }).optional(),
+    proof: z.string().optional(),
+    example: z.object({ label: z.string(), customer: z.string(), reply: z.string(), note: z.string(), tags: z.array(z.string()) }).optional(),
   }),
   stats: z.array(stat).optional(),
   stages: z
@@ -46,11 +46,10 @@ const serviceSchema = z.object({
       eyebrow: z.string(),
       heading: z.string(),
       accent: z.string().optional(),
-      asideLabel: z.string().default("What you still approve"),
-      items: z.array(z.object({ title: z.string(), text: z.string().default(""), approves: z.string().optional() })),
+      items: z.array(z.object({ title: z.string(), text: z.string(), approves: z.string().optional() })),
     })
     .optional(),
-  steps: z.object({ eyebrow: z.string(), heading: z.string(), accent: z.string().optional(), items: z.array(z.object({ label: z.string(), text: z.string(), gets: z.string() })) }).optional(),
+  steps: z.object({ eyebrow: z.string(), heading: z.string(), items: z.array(z.object({ label: z.string(), text: z.string(), gets: z.string() })) }).optional(),
   shortAnswer: z.object({ heading: z.string(), text: z.string(), checks: z.array(z.object({ label: z.string(), text: z.string() })).default([]) }).optional(),
   story: z.string().optional(),
   questions: z.object({ heading: z.string(), items: z.array(z.string()) }).optional(),
@@ -67,9 +66,8 @@ const workSchema = z.object({
   industry: z.string(),
   region: z.string(),
   result: stat,
-  problem: z.string(), // the cost: what they were losing
-  changed: z.string(), // the change: what we did, in plain words
-  improving: z.string(), // still improving: what has got better since
+  problem: z.string(),
+  changed: z.string(),
   quote: z.object({ text: z.string(), name: z.string(), role: z.string(), since: z.string().optional() }).optional(),
   visual: z.enum(["bars", "chat", "ledger"]),
   featured: z.boolean().default(false),
@@ -84,12 +82,11 @@ const productSchema = z.object({
   summary: z.string(),
   price: z.string(),
   cta: z.string(),
-  ai: z.boolean().default(false), // adds "Powered by AI that gets smarter every month."
   order: z.number().default(99),
   sample,
 });
 
-export const insightTypes = ["Guide", "Costs and pricing", "Getting paid", "Customers", "Report"] as const;
+export const insightTypes = ["Guide", "AI agents", "Report", "Case notes", "Talks"] as const;
 const insightSchema = z.object({
   title: z.string(),
   type: z.enum(insightTypes),
@@ -115,6 +112,7 @@ const partnerModelSchema = z.object({
 });
 const statsSchema = z.object({ id: z.string(), items: z.array(stat), sample });
 const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]), sample });
+const teamSchema = z.object({ id: z.string(), order: z.number(), name: z.string(), owns: z.string(), photo: z.string(), sample });
 const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })), sample });
 const listSchema = z.object({ id: z.string(), items: z.array(z.string()), sample });
 
@@ -156,6 +154,7 @@ export const getInsights = () => loadMarkdown("insights", insightSchema).sort(by
 export const getSolutions = () => loadJson("solutions.json", solutionSchema).sort(byOrder);
 export const getPartnerModels = () => loadJson("partner-models.json", partnerModelSchema).sort(byOrder);
 export const getClients = () => loadJson("clients.json", clientSchema);
+export const getTeam = () => loadJson("team.json", teamSchema).sort(byOrder);
 
 function one<T extends { id: string }>(list: T[], id: string, file: string): T {
   const found = list.find((x) => x.id === id);

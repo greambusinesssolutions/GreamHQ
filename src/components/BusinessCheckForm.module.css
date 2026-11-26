@@ -35,7 +35,3 @@
 /* The card is a light surface, even inside a dark section: keep labels at light-ground contrast. */
 .card .prog .progLabel, .card .body .stepOf, .card .done .stepOf { color: var(--text-muted); }
 .card .prog .cur .progLabel { color: var(--green); }
-.cardTitle { padding: 28px 36px 0; margin: 0; }
-.cardTitle + .prog { padding-top: var(--space-4); }
-.result { padding: var(--space-4); background: var(--field); border-left: 2px solid var(--action); color: var(--green); }
-@container page (max-width: 760px) { .cardTitle { padding: 22px 20px 0; } }

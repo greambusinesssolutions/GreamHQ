@@ -44,4 +44,3 @@
   .story, .questions { padding: var(--space-6); }
 }
 .qHead { color: var(--green); }
-.caption { margin-top: var(--space-4); color: var(--text-on-dark); }

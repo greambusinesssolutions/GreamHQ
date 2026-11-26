@@ -9,7 +9,7 @@ export const site = {
   url: "https://www.greamhq.com",
   email: "hello@greamhq.com",
   tagline: "Your Business. Greater Possibilities.",
-  descriptor: "Products · Solutions · Partnerships",
+  descriptor: "Products · Solutions · Services",
   bookingUrl: env.BOOKING_URL ?? "https://cal.com/greamhq/business-check",
   endpoints: {
     check: env.FORM_ENDPOINT_CHECK ?? "https://formspree.io/f/maeovrbp",

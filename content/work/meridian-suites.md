@@ -8,7 +8,6 @@ result: { value: "0", label: "unpaid stays since launch" }
 problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
 quote: { text: "For the first time, I can see every enquiry, every order and every payment in one place. Nothing slips anymore.", name: "Daniel Okafor", role: "Managing Director, Meridian Suites", since: "Two years and counting" }
 changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
-improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
 visual: ledger
 featured: false
 order: 6

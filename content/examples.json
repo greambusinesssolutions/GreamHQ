@@ -1,29 +1,7 @@
 [
- {
-  "id": "home-ledger",
-  "label": "Today · Example",
-  "sample": true,
-  "rows": [
-   {
-    "who": "Amara O. · WhatsApp",
-    "what": "Quote sent",
-    "status": "New"
-   },
-   {
-    "who": "Lindqvist Studio · Email",
-    "what": "Follow-up 10:00",
-    "status": "Due today"
-   },
-   {
-    "who": "Order 2041 · Web",
-    "what": "$1,240 matched",
-    "status": "Paid"
-   },
-   {
-    "who": "Order 2038 · Phone",
-    "what": "Balance $380",
-    "status": "Part paid"
-   }
-  ]
- }
+  { "id": "home-ledger", "label": "Today · Live ledger", "sample": true, "rows": [
+    { "who": "Amara O. · WhatsApp", "what": "Quote sent", "status": "New" },
+    { "who": "Lindqvist Studio · Email", "what": "Follow-up 10:00", "status": "Due today" },
+    { "who": "Order 2041 · Web", "what": "$1,240 matched", "status": "Paid" },
+    { "who": "Order 2038 · Phone", "what": "Balance $380", "status": "Part paid" } ] }
 ]

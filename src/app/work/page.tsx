@@ -9,7 +9,7 @@ import s from "./work.module.css";
 
 export const metadata = pageMeta({
   title: "Work · GREAM Business Solutions",
-  description: "Real results, around the world: what each business was losing, what changed, and what it's worth now.",
+  description: "Real results, around the world: what we built, who for, and what changed.",
   path: "/work",
 });
 
@@ -20,7 +20,7 @@ export default function Work() {
       <section className={`ledger-grid ${s.hero}`} aria-labelledby="work-h">
         <div className="wrap">
           <SectionHeading eyebrow="Work" heading="Real results, around the world." accent="around the world." level={1} size="display" id="work-h" />
-          <p className={`t-lede ${s.lede}`}>What each business was losing, what changed, and what it&apos;s worth now.</p>
+          <p className={`t-lede ${s.lede}`}>What we built, who for, and what changed.</p>
           <NumberStrip items={getStats("work")} className={s.strip} />
         </div>
       </section>

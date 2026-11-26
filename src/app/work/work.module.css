@@ -17,6 +17,3 @@
   .strip { margin-top: var(--space-18); }
   .grid, .related, .blocks { grid-template-columns: minmax(0, 1fr); }
 }
-.resultLabel { margin-top: var(--space-12); }
-.resultLabel + .result { margin-top: var(--space-3); }
-.wordsLabel { margin-bottom: var(--space-8); }
