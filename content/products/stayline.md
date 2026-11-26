@@ -8,4 +8,6 @@ cta: "Request access"
 order: 2
 ---
 
-[TO WRITE: WHAT STAYLINE DOES, WHO IT IS FOR, AND HOW TO START.]
+Stayline keeps every booking, room charge and restaurant bill on the guest's account, so everything is settled before they leave. Your front desk sees the balance at a glance.
+
+Stayline is in early access. Request access and we'll set it up with you.

@@ -8,4 +8,6 @@ cta: "Request access"
 order: 3
 ---
 
-[TO WRITE: WHAT NUDGE DOES, WHO IT IS FOR, AND HOW TO START.]
+Nudge sends reminders and follow-ups on time, so customers come back, book again and pay. You choose the messages; Nudge makes sure they go out.
+
+Nudge is in early access. Request access and we'll set it up with you.

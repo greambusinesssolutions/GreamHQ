@@ -8,4 +8,6 @@ cta: "Start free trial"
 order: 1
 ---
 
-[TO WRITE: WHAT PAIDUP DOES, WHO IT IS FOR, AND HOW TO START.]
+PaidUp shows what you sold today, what's left on the shelf and which customers still owe you, all from your phone. Add a sale in seconds, and see your numbers whenever you want them.
+
+Start with a free trial, then a simple monthly plan. Cancel any time, and your data stays yours.
