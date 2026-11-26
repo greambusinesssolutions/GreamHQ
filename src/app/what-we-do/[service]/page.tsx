@@ -34,7 +34,7 @@ export default async function ServicePage({ params }: Params) {
     <>
       <section className={`ledger-grid ${s.hero}`} aria-labelledby="svc-h">
         <div className="wrap">
-          <div className={s.heroGrid}>
+          <div className={`${s.heroGrid} ${h.example ? "" : s.heroSolo}`}>
             <div>
               <p className="eyebrow">{h.eyebrow}</p>
               <h1 className="t-display" id="svc-h"><Accent text={h.heading} accent={h.accent} /></h1>

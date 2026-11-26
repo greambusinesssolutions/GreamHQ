@@ -44,3 +44,5 @@
   .story, .questions { padding: var(--space-6); }
 }
 .qHead { color: var(--green); }
+.heroSolo { grid-template-columns: minmax(0, 1fr); }
+.heroSolo .lede { max-width: 660px; }
