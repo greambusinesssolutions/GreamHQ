@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 import JsonLd from "@/components/JsonLd";
-import { site, isProduction } from "@/data/site";
+import { site, isProduction, previewMode } from "@/data/site";
 import { organizationLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s` },
   description: "GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they are really doing.",
   icons: { icon: "/favicon.svg" },
+  // Private preview: keep every page out of search engines until PREVIEW_MODE=false.
+  robots: previewMode ? { index: false, follow: false } : undefined,
 };
 
 export const viewport: Viewport = { themeColor: "#0d2b23" };

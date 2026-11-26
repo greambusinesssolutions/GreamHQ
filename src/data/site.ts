@@ -21,6 +21,10 @@ export const site = {
   whatsappMessage: "Hi, I'd like to find out more about a free business check.",
 };
 
+/** Private preview: noindex on every page, robots.txt blocks everything, no sitemap.
+    Set PREVIEW_MODE=false in Vercel to go public. Defaults to true. */
+export const previewMode = env.PREVIEW_MODE !== "false";
+
 /** Production builds refuse sample data (see scripts/check-content.mjs). */
 export const isProduction = env.VERCEL_ENV === "production" || env.CONTENT_STRICT === "1";
 
