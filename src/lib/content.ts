@@ -68,7 +68,7 @@ const workSchema = z.object({
   result: stat,
   problem: z.string(),
   changed: z.string(),
-  quote: z.object({ text: z.string(), name: z.string(), role: z.string() }).optional(),
+  quote: z.object({ text: z.string(), name: z.string(), role: z.string(), since: z.string().optional() }).optional(),
   visual: z.enum(["bars", "chat", "ledger"]),
   featured: z.boolean().default(false),
   order: z.number().default(99),
@@ -113,6 +113,7 @@ const partnerModelSchema = z.object({
 const statsSchema = z.object({ id: z.string(), items: z.array(stat), sample });
 const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]), sample });
 const teamSchema = z.object({ id: z.string(), order: z.number(), name: z.string(), owns: z.string(), photo: z.string(), sample });
+const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })), sample });
 const listSchema = z.object({ id: z.string(), items: z.array(z.string()), sample });
 
 // ---------- Loaders ----------
@@ -161,6 +162,7 @@ function one<T extends { id: string }>(list: T[], id: string, file: string): T {
   return found;
 }
 export const getStats = (id: string) => one(loadJson("stats.json", statsSchema), id, "stats.json").items;
+export const getExample = (id: string) => one(loadJson("examples.json", exampleSchema), id, "examples.json");
 export const getList = (id: string) => one(loadJson("lists.json", listSchema), id, "lists.json").items;
 export function getFaqs(ids: string[]) {
   const all = loadJson("faqs.json", faqSchema);
