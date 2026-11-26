@@ -1,0 +1,5 @@
+.card { background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-card); padding: var(--space-8); display: flex; flex-direction: column; gap: 18px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.ok { padding: var(--space-4); background: var(--status-paid-bg); color: var(--status-paid-fg); font: 500 15px/1.55 var(--font-sans); }
+.ok:focus { outline: none; }
+@container page (max-width: 760px) { .two { grid-template-columns: minmax(0, 1fr); } .card { padding: var(--space-6); } }
