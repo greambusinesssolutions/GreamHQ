@@ -1,0 +1,4 @@
+.h { max-width: 1100px; }
+.txt { margin-top: 28px; }
+.row { margin-top: var(--space-12); gap: var(--space-6); }
+.mail { font-weight: 600; display: inline-flex; align-items: center; min-height: var(--touch-min); }

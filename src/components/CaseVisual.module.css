@@ -1,0 +1,15 @@
+.vis { height: 200px; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: var(--space-6); }
+.large { height: 300px; padding: 40px; }
+.bars { background-color: var(--green); justify-content: flex-end; background-image: repeating-linear-gradient(90deg, rgba(241, 243, 239, 0.06) 0 1px, transparent 1px 48px); }
+.bar { display: block; height: 14px; width: 40%; background: var(--mist); }
+.bar:nth-child(2) { width: 64%; }
+.bar:nth-child(3) { width: 90%; background: var(--action); }
+.large .bar { height: 22px; }
+.chat { background: var(--sage); }
+.bubble { padding: 10px 14px; font-size: 13.5px; line-height: 1.45; max-width: 80%; }
+.large .bubble { font-size: 15px; padding: 12px 16px; }
+.in { align-self: flex-start; background: var(--paper); border-radius: var(--radius-bubble) var(--radius-bubble) var(--radius-bubble) 3px; color: var(--green); }
+.out { align-self: flex-end; background: var(--green); color: var(--ink-on-dark); border-radius: var(--radius-bubble) var(--radius-bubble) 3px var(--radius-bubble); }
+.ledger { background: var(--paper); border-bottom: 1px solid var(--line); gap: var(--space-2); font-size: 13.5px; color: var(--green); }
+.line { display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-2); border-bottom: 1px solid var(--line); }
+.line:last-child { border-bottom: 0; padding-bottom: 0; }

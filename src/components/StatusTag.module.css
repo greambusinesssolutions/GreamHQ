@@ -1,0 +1,6 @@
+.tag { display: inline-flex; align-items: center; white-space: nowrap; padding: 6px 8px; border-radius: var(--radius-sm); font: 500 11.5px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.new { background: var(--status-new-bg); color: var(--status-new-fg); }
+.neutral { background: var(--status-neutral-bg); color: var(--status-neutral-fg); }
+.due { background: var(--status-due-bg); color: var(--status-due-fg); }
+.overdue { background: var(--status-overdue-bg); color: var(--status-overdue-fg); }
+.paid { background: var(--status-paid-bg); color: var(--status-paid-fg); }
