@@ -16,7 +16,7 @@ export const site = {
   bookingUrl: "",
   // Where form answers are sent, e.g. a Formspree or Basin endpoint.
   // Empty = the form opens the visitor's email app with their answers addressed to `email`.
-  formEndpoint: "",
+  formEndpoint: "https://formspree.io/f/maeovrbp",
 };
 /* ================================================== */
 

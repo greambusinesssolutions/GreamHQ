@@ -137,7 +137,7 @@ export default function BusinessCheck() {
         const r = await fetch(site.formEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ ...data, _subject: `Free business check request: ${data.business}` }),
         });
         if (!r.ok) throw new Error("Request failed");
       } else {
