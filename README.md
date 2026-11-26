@@ -32,6 +32,7 @@ Set these in Vercel → Settings → Environment Variables (defaults in `src/dat
 | `FORM_ENDPOINT_PARTNER` | Partner application form |
 | `NEWSLETTER_ENDPOINT` | Newsletter sign-up |
 | `BOOKING_URL` | Booking page opened at step 4 of the business check |
+| `PREVIEW_MODE` | `true` by default: private preview. Every page is `noindex, nofollow`, `robots.txt` blocks all crawlers and no sitemap is published. Set to `false` to go public. |
 
 A form with no endpoint opens the visitor's email app addressed to hello@greamhq.com.
 
@@ -46,4 +47,6 @@ CONTENT_STRICT=1 npm run build  # the production check, locally
 
 ## Publish
 
-Every push builds a Vercel preview. Merging to `main` deploys greamhq.com (production rules apply).
+Every push builds a Vercel preview, and that preview URL is where the new site is reviewed.
+
+`main` deploys greamhq.com. Leave greamhq.com unchanged until the team says to switch. Production builds also run the sample-data check above.
