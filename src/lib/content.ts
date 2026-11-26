@@ -173,3 +173,7 @@ export function bySlug<T>(list: Entry<T>[], slug: string, dir: string): Entry<T>
   if (!found) throw new Error(`content/${dir}: no file named ${slug}.md`);
   return found;
 }
+
+const pageSchema = z.object({ title: z.string(), description: z.string() });
+/** Simple text pages (privacy, terms) from content/pages/<slug>.md. */
+export const getTextPage = (slug: string) => bySlug(loadMarkdown("pages", pageSchema), slug, "pages");

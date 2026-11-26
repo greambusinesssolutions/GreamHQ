@@ -1,5 +1,5 @@
 .wrap { padding: 40px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: var(--mist-deep); }
-.track { display: flex; align-items: center; gap: var(--space-18); width: max-content; animation: mq 40s linear infinite; color: var(--green); }
+.track { display: flex; align-items: center; gap: var(--space-18); width: max-content; animation: mq 40s linear infinite; color: var(--green); will-change: transform; }
 @keyframes mq { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; padding: 0 var(--space-6); gap: var(--space-6) var(--space-12); }

@@ -360,3 +360,7 @@ textarea {
 
 /* Vertical rhythm for simple stacked content */
 .stack > * + * { margin-top: var(--space-8); }
+.show-more { display: flex; justify-content: center; margin-top: var(--space-12); }
+.text-page { max-width: 720px; }
+.text-page > * + * { margin-top: var(--space-4); }
+.text-page h2 { font: 400 clamp(28px, 2.4cqi, 34px) / 1.15 var(--font-display); margin-top: var(--space-8); }

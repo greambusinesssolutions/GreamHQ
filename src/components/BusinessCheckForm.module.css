@@ -31,3 +31,7 @@
 .btns { margin-left: 0; flex-direction: column-reverse; }
 .btns > * { width: 100%; }
 }
+
+/* The card is a light surface, even inside a dark section: keep labels at light-ground contrast. */
+.card .prog .progLabel, .card .body .stepOf, .card .done .stepOf { color: var(--text-muted); }
+.card .prog .cur .progLabel { color: var(--green); }
