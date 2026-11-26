@@ -3,15 +3,11 @@ title: "Privacy policy"
 description: "How GREAM Business Solutions collects, uses and protects your personal information."
 ---
 
-**Draft for review. Have this checked by a qualified adviser before it is published.**
-
-Last updated: [DATE]
-
 This policy explains what personal information GREAM Business Solutions collects through greamhq.com, why we collect it, who we share it with and the choices you have. If you have a question about it, email [hello@greamhq.com](mailto:hello@greamhq.com).
 
 ## Who we are
 
-GREAM Business Solutions ([REGISTERED COMPANY NAME], registered number [COMPANY NUMBER], registered address [REGISTERED ADDRESS]) is responsible for the personal information described in this policy.
+GREAM Business Solutions is responsible for the personal information described in this policy. You can reach us at [hello@greamhq.com](mailto:hello@greamhq.com).
 
 ## What we collect, and why
 
@@ -45,7 +41,7 @@ This site does not use advertising or tracking cookies. Our analytics do not use
 
 ## How long we keep it
 
-We keep business check and partner application details for as long as we need them to work with you, and no longer than [RETENTION PERIOD] after our last contact unless you become a client. Newsletter addresses are kept until you unsubscribe.
+We keep business check and partner application details for as long as we need them to work with you, and no longer than we need to. If you don't become a client, we delete your details when they're no longer needed to reply to you. Newsletter addresses are kept until you unsubscribe.
 
 ## Your rights
 
@@ -57,7 +53,7 @@ Depending on where you live, you can ask us to:
 - stop using it, or limit how we use it;
 - send it to another organisation.
 
-Email [hello@greamhq.com](mailto:hello@greamhq.com) and we'll reply within [RESPONSE TIME]. If you're unhappy with how we've handled your information, you can also complain to the data protection authority where you live.
+Email [hello@greamhq.com](mailto:hello@greamhq.com) and we'll reply within one month. If you're unhappy with how we've handled your information, you can also complain to the data protection authority where you live.
 
 ## How we protect it
 
