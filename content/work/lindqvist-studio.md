@@ -10,6 +10,7 @@ changed: "A clearer website with a simple enquiry flow, and every enquiry lands 
 visual: ledger
 featured: false
 order: 9
+example: true
 ---
 
 Lindqvist Studio's website wasn't bringing in work. We rebuilt it around what their clients ask before they buy, with a simple way to get in touch, and made sure every enquiry is logged and followed up. Enquiries from the website doubled.

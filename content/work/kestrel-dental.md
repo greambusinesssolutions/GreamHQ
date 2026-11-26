@@ -11,6 +11,7 @@ homeChat: ["Can I move my appointment to Friday?", "Done. Friday 2:30 PM with Dr
 visual: chat
 featured: true
 order: 2
+example: true
 ---
 
 Kestrel Dental's patients wanted to book and reschedule outside office hours. We set up an agent that handles routine requests on the channels patients already use and passes anything clinical or unusual to the team. Replies went from hours to minutes, three times faster than before, and 1 in 5 bookings are now made outside office hours.

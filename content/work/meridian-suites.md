@@ -11,6 +11,7 @@ changed: "Every booking, room charge and restaurant bill is in one place, and th
 visual: ledger
 featured: false
 order: 6
+example: true
 ---
 
 Meridian Suites ran bookings, rooms and the restaurant on separate systems. We brought them into one place so every charge follows the guest, and the front desk sees what is owed before check-out. There have been no unpaid stays since launch.

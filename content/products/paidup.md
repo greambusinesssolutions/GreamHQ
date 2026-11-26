@@ -6,6 +6,7 @@ summary: "Know what you sold, what is left on the shelf and who still owes you, 
 price: "From $9 a month"
 cta: "Start free trial"
 order: 1
+example: true
 ---
 
 PaidUp shows what you sold today, what's left on the shelf and which customers still owe you, all from your phone. Add a sale in seconds, and see your numbers whenever you want them.

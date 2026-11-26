@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CaseVisual from "./CaseVisual";
+import ExampleTag from "./ExampleTag";
 import type { CaseStudy } from "@/lib/content";
 import s from "./CaseCard.module.css";
 
@@ -18,6 +19,7 @@ export default function CaseCard({ entry, variant = "grid", dark = false, level 
     return (
       <Link className={s.compact} href={href}>
         <span className="t-label">{meta}</span>
+        {c.example && <ExampleTag />}
         <H className={`t-title ${s.compactTitle}`}>{c.title}</H>
         <span className="t-small muted"><b className={s.acc}>{result.value}</b> {result.label}</span>
       </Link>
@@ -28,6 +30,7 @@ export default function CaseCard({ entry, variant = "grid", dark = false, level 
       <CaseVisual kind={c.visual} size={variant === "featured" ? "large" : "small"} chat={home ? c.homeChat : undefined} />
       <span className={s.body}>
         <span className={`t-label ${s.meta}`}>{meta}</span>
+        {c.example && <ExampleTag className={s.tag} />}
         <H className="t-title">{c.title}</H>
         <span className={s.res}>
           <b className={`t-section ${s.big}`}>{result.value}</b>

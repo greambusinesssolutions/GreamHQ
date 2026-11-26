@@ -10,6 +10,7 @@ changed: "Orders, invoices and payments are connected, and the team starts each 
 visual: ledger
 featured: false
 order: 3
+example: true
 ---
 
 Coastline Foods supplies shops on credit. We connected orders, invoices and payments and set up a morning list of every overdue balance, so the team knows exactly who to call. Overdue invoices collected rose by 41%.

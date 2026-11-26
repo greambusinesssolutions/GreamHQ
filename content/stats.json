@@ -19,7 +19,8 @@
     "label": "Average client rating",
     "suffix": "/5"
    }
-  ]
+  ],
+  "example": true
  },
  {
   "id": "about",
@@ -40,7 +41,8 @@
     "value": "9 in 10",
     "label": "Clients stay with us"
    }
-  ]
+  ],
+  "example": true
  },
  {
   "id": "work",
@@ -61,7 +63,8 @@
     "value": "9 in 10",
     "label": "Clients stay on support"
    }
-  ]
+  ],
+  "example": true
  },
  {
   "id": "partners",
@@ -82,6 +85,7 @@
     "value": "Day 1",
     "label": "Terms in writing"
    }
-  ]
+  ],
+  "example": true
  }
 ]

@@ -11,6 +11,7 @@ homeResult: { value: "2 days → 2 hours", label: "per quote" }
 visual: bars
 featured: false
 order: 4
+example: true
 ---
 
 Atlas & Oak's quotes depended on one person and a set of spreadsheets. We built a quoting tool around how they price, with their products, options and margins built in. A quote that took two days now takes about two hours.

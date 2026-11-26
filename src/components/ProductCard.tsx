@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StatusTag from "./StatusTag";
+import ExampleTag from "./ExampleTag";
 import type { Product } from "@/lib/content";
 import s from "./ProductCard.module.css";
 
@@ -9,7 +10,7 @@ export default function ProductCard({ entry }: { entry: Product }) {
     <article className={s.card}>
       <div className={s.top}>
         <span className="t-label">{p.audience}</span>
-        <StatusTag status={p.status} />
+        <span className={s.tags}>{p.example && <ExampleTag />}<StatusTag status={p.status} /></span>
       </div>
       <h3 className={`t-section ${s.name}`}>{p.name}</h3>
       <p className="t-body muted">{p.summary}</p>

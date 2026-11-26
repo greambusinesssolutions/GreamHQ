@@ -11,6 +11,7 @@ homeResult: { value: "94%", label: "renewals on time" }
 visual: chat
 featured: false
 order: 5
+example: true
 ---
 
 Solace Wellness lost revenue every month to late renewals. We set up an agent that reminds members before their renewal date and follows up if needed, with the team approving the messages. 94% of renewals are now paid on time.

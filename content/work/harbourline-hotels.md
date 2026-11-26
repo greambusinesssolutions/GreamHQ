@@ -10,6 +10,7 @@ changed: "Every booking and payment now sits in one place, and each payment is m
 visual: bars
 featured: true
 order: 1
+example: true
 ---
 
 Harbourline's team used to reconcile payments by hand at the end of each week. We brought bookings from every channel into one system, connected the payment accounts and set up a daily view of what has been paid and what is still owed. Time spent reconciling payments fell by 72%, and the team now spends that time with guests.

@@ -6,6 +6,7 @@ summary: "Every booking, room charge and restaurant bill settled before the gues
 price: "From $49 a month"
 cta: "Request access"
 order: 2
+example: true
 ---
 
 Stayline keeps every booking, room charge and restaurant bill on the guest's account, so everything is settled before they leave. Your front desk sees the balance at a glance.

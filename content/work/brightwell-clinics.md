@@ -10,6 +10,7 @@ changed: "Patients get timely reminders and can confirm or rebook in a reply, wi
 visual: chat
 featured: false
 order: 8
+example: true
 ---
 
 Brightwell Clinics wanted fewer empty slots. We set up an agent that sends reminders at the right time and lets patients confirm or rebook straight away. Missed appointments fell by 38%.

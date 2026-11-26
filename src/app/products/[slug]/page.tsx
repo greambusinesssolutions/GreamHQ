@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import StatusTag from "@/components/StatusTag";
+import ExampleTag from "@/components/ExampleTag";
 import DarkCta from "@/components/DarkCta";
 import JsonLd from "@/components/JsonLd";
 import { bySlug, getProducts } from "@/lib/content";
@@ -29,7 +30,7 @@ export default async function ProductPage({ params }: Params) {
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Product", name: p.name, description: p.summary, brand: { "@type": "Organization", name: site.name }, url: `${site.url}/products/${slug}` }} />
       <section className={`ledger-grid ${s.detailHero}`} aria-labelledby="p-h">
         <div className="wrap">
-          <div className={s.detailTop}><span className="t-label">Products · {p.audience}</span><StatusTag status={p.status} /></div>
+          <div className={s.detailTop}><span className="t-label">Products · {p.audience}</span><StatusTag status={p.status} />{p.example && <ExampleTag label="Illustrative example product" />}</div>
           <SectionHeading heading={p.name} level={1} size="display" id="p-h" />
           <p className={`t-lede ${s.lede}`}>{p.summary}</p>
           <div className={s.meta}>

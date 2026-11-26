@@ -82,4 +82,5 @@ cta:
   accent: "automating."
   text: "A free 20-minute workflow check. We'll tell you honestly if an agent is worth it."
   button: "Book a free workflow check"
+example: true
 ---
