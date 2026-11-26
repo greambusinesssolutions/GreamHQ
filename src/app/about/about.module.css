@@ -1,0 +1,44 @@
+.hero { padding: var(--space-24) 0 0; }
+.lede { margin-top: 36px; max-width: 660px; }
+.strip { margin-top: 88px; }
+.story { display: flex; flex-direction: column; gap: 20px; }
+.tree { margin-top: var(--space-18); }
+.parent { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); flex-wrap: wrap; padding: var(--space-6) 0; border-top: 2px solid var(--action); border-bottom: 1px solid var(--line-on-dark); }
+.parentName { color: var(--ink-on-dark); }
+.arms { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.arm { position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--space-12) var(--space-6) var(--space-6); border-right: 1px solid var(--line-on-dark); }
+.arm:first-child { padding-left: 0; }
+.arm:last-child { border-right: 0; }
+.arm::before { content: ""; position: absolute; top: 0; left: var(--space-6); width: 1px; height: var(--space-8); background: var(--line-on-dark); }
+.arm:first-child::before { left: 0; }
+.armState { color: var(--accent-on-dark); }
+.future .armState { color: var(--label-on-dark); }
+.future .armName { color: var(--text-on-dark); }
+.future::before { background: none; border-left: 1px dashed var(--line-on-dark); }
+.armText { color: var(--text-on-dark); }
+.table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.scroll { overflow-x: auto; border-top: 2px solid var(--line-strong); }
+.table th, .table td { text-align: left; padding: 20px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table thead th { padding: 16px; }
+.us { color: var(--accent-text); }
+.them { color: var(--text-muted); }
+.ours { font-weight: 600; }
+.teamHead { margin-bottom: var(--space-12); }
+.links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+.linkCard { display: flex; flex-direction: column; gap: var(--space-3); padding: 40px; border: 1px solid var(--line); color: var(--green); text-decoration: none; transition: border-color 0.2s, background-color 0.2s; }
+.linkCard:hover { color: var(--green); border-color: var(--green); background: var(--mist-deep); }
+.linkGo { color: var(--accent-text); font-weight: 600; }
+.cardTop { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); }
+@container page (max-width: 1100px) {
+  .arms { grid-template-columns: minmax(0, 1fr); }
+  .arm, .arm:first-child { padding: var(--space-8) 0 var(--space-6) var(--space-6); border-right: 0; border-left: 1px solid var(--line-on-dark); }
+  .arm::before, .arm:first-child::before { left: 0; top: var(--space-8); width: var(--space-4); height: 1px; }
+  .future { border-left-style: dashed; }
+  .future::before { border-left: 0; border-top: 1px dashed var(--line-on-dark); }
+}
+@container page (max-width: 760px) {
+  .hero { padding-top: var(--space-12); }
+  .strip { margin-top: var(--space-18); }
+  .links { grid-template-columns: minmax(0, 1fr); }
+  .linkCard { padding: var(--space-6); }
+}

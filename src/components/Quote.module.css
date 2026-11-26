@@ -1,0 +1,7 @@
+.q { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-24); align-items: center; }
+.quote { font-style: italic; font-size: clamp(40px, 3.4cqi, 48px); line-height: 1.12; }
+.who { border-left: 1px solid var(--line); padding-left: 40px; }
+.name { font-weight: 600; }
+.sinceLabel { margin: var(--space-6) 0 var(--space-2); }
+.since { font-size: 40px; line-height: 1; }
+@container page (max-width: 1100px) { .q { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); } }
