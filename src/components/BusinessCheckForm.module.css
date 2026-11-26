@@ -1,0 +1,33 @@
+.card { background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-card); color: var(--green); }
+.prog { list-style: none; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); padding: 28px 36px 0; }
+.progItem { display: flex; flex-direction: column; gap: 10px; }
+.prog i { display: block; height: 3px; background: var(--line); }
+.cur i, .past i { background: var(--action); }
+.cur .progLabel { color: var(--green); }
+.body, .done { padding: var(--space-8) 36px 36px; }
+.stepOf { margin-bottom: var(--space-3); }
+.fs { border: 0; margin: 0; padding: 0; min-width: 0; }
+.legend { padding: 0; }
+.sub { color: var(--text-muted); margin-top: var(--space-2); }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) 20px; margin-top: 28px; }
+.full { grid-column: 1 / -1; }
+.sum { margin-top: 20px; }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); }
+.hint { color: var(--text-muted); }
+.btns { display: flex; gap: 10px; margin-left: auto; }
+.back { background: none; border: 0; min-height: var(--touch-min); padding: 0 var(--space-3); font: 600 15px var(--font-sans); color: var(--green); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.privacy { color: var(--text-muted); margin-top: 18px; }
+.book { margin-top: var(--space-6); }
+.fine { margin-top: var(--space-4); color: var(--text-muted); }
+.next { list-style: none; padding: 0; margin-bottom: 0; margin-top: var(--space-8); border-top: 1px solid var(--line); }
+.nextItem { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--space-3); padding: var(--space-4) 0; border-bottom: 1px solid var(--line); }
+.nextNum { color: var(--accent-text); line-height: 1.9; }
+@container page (max-width: 760px) {
+.prog { padding: 22px 20px 0; }
+.progLabel { font-size: 11px; }
+.body, .done { padding: 26px 20px; }
+.grid { grid-template-columns: minmax(0, 1fr); }
+.foot { flex-direction: column-reverse; align-items: stretch; }
+.btns { margin-left: 0; flex-direction: column-reverse; }
+.btns > * { width: 100%; }
+}
