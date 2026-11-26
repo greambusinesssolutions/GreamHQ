@@ -1,6 +1,6 @@
 # GREAM Business Solutions website
 
-Next.js site, exported as static files and hosted on GitHub Pages.
+Next.js site, exported as static files and hosted on Vercel at greamhq.com.
 
 ## Edit the site
 
@@ -18,5 +18,4 @@ npm run build      # static site in out/
 
 ## Publish
 
-Push to `main`. The GitHub Actions workflow in `.github/workflows/deploy.yml` builds the site and deploys it to GitHub Pages
-(Settings → Pages → Source must be **GitHub Actions**).
+Push to `main`. Vercel builds the site and deploys it to greamhq.com automatically.
