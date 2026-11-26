@@ -1,4 +1,4 @@
-import { contactHref, contactLinkProps, hasWhatsApp } from "@/lib/site";
+import { contactHref, contactLinkProps, hasWhatsApp, site } from "@/lib/site";
 import { Arrow, ChatIcon } from "./icons";
 
 const sources = ["WhatsApp", "Instagram", "Phone call", "Email", "Website"];
@@ -31,7 +31,7 @@ export default function Hero() {
             one organised system, so you always know who asked, what happens next and what has been paid.
           </p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#assessment">
+            <a className="btn btn-primary" href={site.calUrl}>
               Book a free 20-minute business check <Arrow />
             </a>
             <a className="btn btn-line" href={contactHref} {...contactLinkProps}>

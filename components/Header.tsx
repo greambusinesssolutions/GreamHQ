@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { site } from "@/lib/site";
 import { Mark } from "./icons";
 
 const links = [
@@ -42,7 +43,7 @@ export default function Header() {
               {l.label}
             </a>
           ))}
-          <a className="btn btn-ink nav-cta" href="#assessment">
+          <a className="btn btn-ink nav-cta" href={site.calUrl}>
             Book a free business check
           </a>
         </nav>
@@ -72,7 +73,7 @@ export default function Header() {
             {l.label} <span>0{i + 1}</span>
           </a>
         ))}
-        <a className="btn btn-primary" href="#assessment" onClick={() => setOpen(false)}>
+        <a className="btn btn-primary" href={site.calUrl} onClick={() => setOpen(false)}>
           Book a free 20-minute business check
         </a>
       </nav>
