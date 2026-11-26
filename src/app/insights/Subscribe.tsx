@@ -8,7 +8,7 @@ export default function Subscribe() {
         <div>
           <p className="eyebrow">Newsletter</p>
           <h2 className="t-section" id="sub-h">One useful idea, <em>once a month.</em></h2>
-          <p className={`t-body muted ${s.subText}`}>Guides and real lessons. No spam.</p>
+          <p className={`t-body muted ${s.subText}`}>Guides and lessons from real projects. No spam, unsubscribe any time.</p>
         </div>
         <NewsletterForm id="insights-nl" primary />
       </div>

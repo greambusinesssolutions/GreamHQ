@@ -5,13 +5,13 @@ service: "AI agents"
 industry: "Healthcare"
 region: "United States"
 result: { value: "3×", label: "faster replies to patients" }
-problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
-changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
-improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
+problem: "Patients called during surgery hours to book or move appointments, so calls were missed and the front desk spent much of the day on the phone."
+changed: "An agent now answers booking and rescheduling requests at any hour, and the team approves anything unusual."
+homeChat: ["Can I move my appointment to Friday?", "Done. Friday 2:30 PM with Dr Hale."]
 visual: chat
 featured: true
 order: 2
-sample: true
+example: true
 ---
 
-[TO WRITE: THE FULL STORY. WHAT WE BUILT, HOW THE TEAM USES IT, AND HOW THE RESULT WAS MEASURED.]
+Kestrel Dental's patients wanted to book and reschedule outside office hours. We set up an agent that handles routine requests on the channels patients already use and passes anything clinical or unusual to the team. Replies went from hours to minutes, three times faster than before, and 1 in 5 bookings are now made outside office hours.

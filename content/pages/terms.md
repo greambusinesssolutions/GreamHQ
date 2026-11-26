@@ -3,15 +3,11 @@ title: "Terms of use"
 description: "The terms for using greamhq.com, the website of GREAM Business Solutions."
 ---
 
-**Draft for review. Have this checked by a qualified adviser before it is published.**
-
-Last updated: [DATE]
-
 These terms apply to your use of greamhq.com. By using the site you accept them. They don't cover work we do for clients, which is always agreed separately, in writing.
 
 ## Who we are
 
-This site is run by GREAM Business Solutions ([REGISTERED COMPANY NAME], registered number [COMPANY NUMBER], registered address [REGISTERED ADDRESS]). You can reach us at [hello@greamhq.com](mailto:hello@greamhq.com).
+This site is run by GREAM Business Solutions. You can reach us at [hello@greamhq.com](mailto:hello@greamhq.com).
 
 ## Using the site
 
@@ -41,6 +37,6 @@ We provide this site as it is. To the extent the law allows, we aren't liable fo
 
 We may update these terms from time to time. The latest version will always be on this page.
 
-## Law
+## Questions
 
-These terms are governed by the laws of [GOVERNING LAW]. Any dispute will be handled by the courts of [JURISDICTION].
+If you have a question about these terms, email [hello@greamhq.com](mailto:hello@greamhq.com).

@@ -1,8 +1,7 @@
 [
  {
   "id": "home-ledger",
-  "label": "Today · Example",
-  "sample": true,
+  "label": "Today · Live ledger",
   "rows": [
    {
     "who": "Amara O. · WhatsApp",

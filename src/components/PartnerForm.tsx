@@ -6,7 +6,7 @@ const models = ["Referral", "Delivery", "White label", "Technology", "Product pa
 
 const Field = ({ id, label, type = "text", auto, required = true }: { id: string; label: string; type?: string; auto?: string; required?: boolean }) => (
   <div className="field">
-    <label htmlFor={`pa-${id}`}>{label}{!required && <span className="opt"> (optional)</span>}</label>
+    <label htmlFor={`pa-${id}`}>{label}</label>
     <input className="inp" id={`pa-${id}`} name={id} type={type} autoComplete={auto} required={required} />
   </div>
 );
@@ -31,7 +31,7 @@ export default function PartnerForm() {
       </div>
       <label className="consent">
         <input type="checkbox" name="consent" required />
-        <span>I agree to GREAM Business Solutions using these details to respond to my application. See the <a href="/privacy">privacy policy</a>.</span>
+        <span>I agree to GREAM Business Solutions <a href="/privacy">using these details</a> to respond to my application.</span>
       </label>
       <button className="btn btn-ink" type="submit">Send application <span className="arr" aria-hidden="true">→</span></button>
     </SimpleForm>

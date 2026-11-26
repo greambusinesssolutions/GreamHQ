@@ -4,34 +4,34 @@
   "order": 1,
   "title": "Enquiry to payment",
   "audience": "For businesses that sell through chats and calls",
-  "outcome": "Every enquiry answered, followed up and paid."
+  "outcome": "Every enquiry answered, followed up and paid, in one place."
  },
  {
-  "id": "hospitality",
+  "id": "hospitality-suite",
   "order": 2,
-  "title": "Hospitality",
+  "title": "Hospitality suite",
   "audience": "For hotels, guesthouses and restaurants",
-  "outcome": "Every booking and bill settled before guests leave."
+  "outcome": "Bookings, rooms, restaurant and payments working as one."
  },
  {
-  "id": "bookings",
+  "id": "clinic-bookings",
   "order": 3,
-  "title": "Bookings and appointments",
-  "audience": "For clinics, salons and practices",
-  "outcome": "Fewer no-shows, fuller calendars."
+  "title": "Clinic bookings",
+  "audience": "For clinics and practices",
+  "outcome": "Fewer missed appointments and no-shows, with reminders that work."
  },
  {
   "id": "orders-and-credit",
   "order": 4,
   "title": "Orders and credit",
   "audience": "For distributors and wholesalers",
-  "outcome": "Know who owes what every morning, and collect sooner."
+  "outcome": "Know who owes what every morning, and collect it sooner."
  },
  {
   "id": "memberships",
   "order": 5,
   "title": "Memberships and renewals",
   "audience": "For gyms, studios and clubs",
-  "outcome": "Renewals paid on time, without chasing."
+  "outcome": "Renewals paid on time, without anyone chasing."
  }
 ]

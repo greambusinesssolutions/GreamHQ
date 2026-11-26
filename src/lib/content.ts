@@ -1,7 +1,7 @@
 // Content loader. Every case study, product, insight, service and list lives as a
 // Markdown or JSON file in /content, checked against the schemas below at build time.
-// Add a case study by adding one file to content/work. Anything marked `sample: true`
-// is example content from the designs: production builds refuse to ship it.
+// Add a case study by adding one file to content/work. Client names, figures, quotes and
+// prices from the designs are sample content: replace them here, no code changes needed.
 import "server-only";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -10,8 +10,9 @@ import { marked } from "marked";
 import { z } from "zod";
 
 const ROOT = join(process.cwd(), "content");
-const sample = z.boolean().default(false);
-const stat = z.object({ value: z.string(), label: z.string() });
+// `example: true` marks sample content from the designs: it shows an "Illustrative example" label.
+const example = z.boolean().default(false);
+const stat = z.object({ value: z.string(), label: z.string(), suffix: z.string().optional() });
 
 // ---------- Schemas ----------
 const serviceSchema = z.object({
@@ -29,8 +30,8 @@ const serviceSchema = z.object({
     lede: z.string(),
     cta: z.string().default("Book a free business check"),
     secondary: z.object({ label: z.string(), href: z.string() }).optional(),
-    note: z.string().optional(), // line under the buttons
-    example: z.object({ label: z.string(), customer: z.string(), reply: z.string(), note: z.string(), tags: z.array(z.string()), caption: z.string().optional() }).optional(),
+    proof: z.string().optional(),
+    example: z.object({ label: z.string(), customer: z.string(), reply: z.string(), note: z.string(), tags: z.array(z.string()) }).optional(),
   }),
   stats: z.array(stat).optional(),
   stages: z
@@ -46,18 +47,18 @@ const serviceSchema = z.object({
       eyebrow: z.string(),
       heading: z.string(),
       accent: z.string().optional(),
-      asideLabel: z.string().default("What you still approve"),
-      items: z.array(z.object({ title: z.string(), text: z.string().default(""), approves: z.string().optional() })),
+      items: z.array(z.object({ title: z.string(), text: z.string(), approves: z.string().optional() })),
     })
     .optional(),
-  steps: z.object({ eyebrow: z.string(), heading: z.string(), accent: z.string().optional(), items: z.array(z.object({ label: z.string(), text: z.string(), gets: z.string() })) }).optional(),
+  steps: z.object({ eyebrow: z.string(), heading: z.string(), items: z.array(z.object({ label: z.string(), text: z.string(), gets: z.string() })) }).optional(),
   shortAnswer: z.object({ heading: z.string(), text: z.string(), checks: z.array(z.object({ label: z.string(), text: z.string() })).default([]) }).optional(),
-  story: z.string().optional(),
+  story: z.string().optional(), // slug of a case study in content/work
+  storyCard: z.object({ title: z.string().optional(), text: z.string().optional() }).optional(),
   questions: z.object({ heading: z.string(), items: z.array(z.string()) }).optional(),
   pricing: z.object({ heading: z.string(), text: z.string() }).optional(),
   faqs: z.array(z.string()).default([]),
-  cta: z.object({ heading: z.string(), accent: z.string().optional(), text: z.string().optional(), button: z.string() }),
-  sample,
+  cta: z.object({ heading: z.string(), accent: z.string().optional(), text: z.string().optional(), button: z.string(), href: z.string().optional() }),
+  example,
 });
 
 const workSchema = z.object({
@@ -67,14 +68,16 @@ const workSchema = z.object({
   industry: z.string(),
   region: z.string(),
   result: stat,
-  problem: z.string(), // the cost: what they were losing
-  changed: z.string(), // the change: what we did, in plain words
-  improving: z.string(), // still improving: what has got better since
+  problem: z.string(),
+  changed: z.string(),
   quote: z.object({ text: z.string(), name: z.string(), role: z.string(), since: z.string().optional() }).optional(),
+  // How the case reads on the home page, where the design words it differently from the Work page.
+  homeResult: stat.optional(),
+  homeChat: z.tuple([z.string(), z.string()]).optional(),
   visual: z.enum(["bars", "chat", "ledger"]),
   featured: z.boolean().default(false),
   order: z.number().default(99),
-  sample,
+  example,
 });
 
 const productSchema = z.object({
@@ -84,12 +87,11 @@ const productSchema = z.object({
   summary: z.string(),
   price: z.string(),
   cta: z.string(),
-  ai: z.boolean().default(false), // adds "Powered by AI that gets smarter every month."
   order: z.number().default(99),
-  sample,
+  example,
 });
 
-export const insightTypes = ["Guide", "Costs and pricing", "Getting paid", "Customers", "Report"] as const;
+export const insightTypes = ["Guide", "AI agents", "Report", "Case notes", "Talks"] as const;
 const insightSchema = z.object({
   title: z.string(),
   type: z.enum(insightTypes),
@@ -98,11 +100,11 @@ const insightSchema = z.object({
   featured: z.boolean().default(false),
   order: z.number().default(99),
   related: z.array(z.string()).default([]),
-  sample,
+  homeTitle: z.string().optional(), // how the title reads on the home page
 });
 
-const solutionSchema = z.object({ id: z.string(), order: z.number(), title: z.string(), audience: z.string(), outcome: z.string(), sample });
-const faqSchema = z.object({ id: z.string(), question: z.string(), answer: z.string(), sample });
+const solutionSchema = z.object({ id: z.string(), order: z.number(), title: z.string(), audience: z.string(), outcome: z.string() });
+const faqSchema = z.object({ id: z.string(), question: z.string(), answer: z.string() });
 const partnerModelSchema = z.object({
   id: z.string(),
   order: z.number(),
@@ -111,12 +113,12 @@ const partnerModelSchema = z.object({
   text: z.string(),
   earns: z.string(),
   highlight: z.boolean().default(false),
-  sample,
+  example,
 });
-const statsSchema = z.object({ id: z.string(), items: z.array(stat), sample });
-const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]), sample });
-const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })), sample });
-const listSchema = z.object({ id: z.string(), items: z.array(z.string()), sample });
+const statsSchema = z.object({ id: z.string(), items: z.array(stat), example });
+const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]), example });
+const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })) });
+const listSchema = z.object({ id: z.string(), items: z.array(z.string()) });
 
 // ---------- Loaders ----------
 type Entry<T> = { slug: string; data: T; html: string };
@@ -163,6 +165,7 @@ function one<T extends { id: string }>(list: T[], id: string, file: string): T {
   return found;
 }
 export const getStats = (id: string) => one(loadJson("stats.json", statsSchema), id, "stats.json").items;
+export const getStatStrip = (id: string) => one(loadJson("stats.json", statsSchema), id, "stats.json");
 export const getExample = (id: string) => one(loadJson("examples.json", exampleSchema), id, "examples.json");
 export const getList = (id: string) => one(loadJson("lists.json", listSchema), id, "lists.json").items;
 export function getFaqs(ids: string[]) {

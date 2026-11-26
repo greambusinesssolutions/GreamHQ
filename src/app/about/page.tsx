@@ -1,44 +1,46 @@
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import NumberStrip from "@/components/NumberStrip";
 import IndexRows from "@/components/IndexRows";
-import StatusTag from "@/components/StatusTag";
 import DarkCta from "@/components/DarkCta";
+import { getStatStrip } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import s from "./about.module.css";
 
 export const metadata = pageMeta({
-  title: "About GREAM Business Solutions · We build what businesses run on",
-  description: "GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they're really doing, with products, solutions and partnerships that get better over time.",
+  title: "About us · GREAM Business Solutions",
+  description: "GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they are really doing, through products, solutions and long-term partnerships.",
   path: "/about",
 });
 
 const directions = [
-  ["Products", "Start this week."],
-  ["Solutions", "Fitted to you."],
-  ["Partnerships", "Grow together."],
+  { label: "Products", title: "Start this week", text: "Ready-made products for the problems every growing business has." },
+  { label: "Solutions", title: "Fitted to you", text: "Proven answers, set up around how your business runs." },
+  { label: "Partnerships", title: "Grow together", text: "Long-term partners who build products and grow with you." },
 ];
 
 const promises = [
-  { title: "Results, not hours", text: "We're priced on what changes for you." },
-  { title: "What we make is yours", text: "Your system and your data belong to you." },
-  { title: "We'll tell you if you don't need us", text: "Honest advice comes before any sale." },
-  { title: "It gets better", text: "We keep improving what we've built." },
-  { title: "Progress you can see", text: "Early and often." },
+  { title: "Results, not hours", text: "We measure success by what changes in your business." },
+  { title: "What we make is yours", text: "Your systems and your data belong to you." },
+  { title: "We tell you if you don't need us", text: "Honest advice comes before any sale." },
+  { title: "Fresh thinking", text: "We look beyond how things have always been done to find what works better." },
+  { title: "Progress you can see", text: "You see working results early, then they keep getting better." },
 ];
 
 const comparison = [
-  ["Charges for", "Hours", "The result"],
-  ["After it's built", "Moves on", "Keeps improving it"],
-  ["Over time", "It gets older", "It gets better"],
+  ["What it sells", "Hours and projects", "Results, products and partnerships"],
+  ["After launch", "Moves on to the next client", "Stays, measures and keeps improving"],
+  ["Judged on", "Delivering the brief", "What changes for your business"],
 ];
 
 const team = [
   { title: "Product and engineering", text: "Turns how your business works into products and tools that people enjoy using." },
   { title: "Design and experience", text: "Makes every screen, message and step clear for your customers and your team." },
-  { title: "Reliability and support", text: "Keeps everything running, safe and improving long after it's up and running." },
+  { title: "Reliability and support", text: "Keeps everything running, safe and improving long after launch." },
   { title: "Growth and partnerships", text: "Finds where we can help most, and builds partnerships that last." },
 ];
 
+/** About page, built from design/About.dc.html. */
 export default function About() {
   return (
     <>
@@ -46,17 +48,19 @@ export default function About() {
         <div className="wrap">
           <SectionHeading eyebrow="About us" heading="We build what businesses run on." accent="run on." level={1} size="display" id="about-h" />
           <p className={`t-lede ${s.lede}`}>
-            GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they&apos;re really doing, with products, solutions and partnerships that get better over time.
+            GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they are really doing, through products, solutions and long-term partnerships.
           </p>
+          <NumberStrip items={getStatStrip("about").items} example={getStatStrip("about").example} className={s.strip} />
         </div>
       </section>
 
       <section className="section" aria-labelledby="why-h">
         <div className="wrap cols-2">
           <SectionHeading eyebrow="Why we exist" heading="Built from real business problems." accent="business problems." id="why-h" />
-          <p className="t-lede">
-            In every market we work in, we saw the same leaks: customers lost between the first message and the payment, teams chasing information, owners who couldn&apos;t see the whole picture. So we fix exactly that, and we keep making it better.
-          </p>
+          <div className={`t-lede ${s.story}`}>
+            <p>Across every market we work in, we saw the same thing. Customers lost between the first message and the payment. Teams chasing information instead of serving people. Owners unable to see how their business was really doing.</p>
+            <p>So we focus on fixing exactly that, with products you can start using this week, solutions set up around how you work, and partners who stay for the long run.</p>
+          </div>
         </div>
       </section>
 
@@ -64,15 +68,15 @@ export default function About() {
         <div className="wrap">
           <p className="eyebrow">Where we&apos;re going</p>
           <h2 className="t-display" id="going-h">Every ambitious business, in any market, running as well as <em>the best in the world.</em></h2>
-          <ul className={s.directions}>
-            {directions.map(([k, v], i) => (
-              <li key={k} className={i === 0 ? s.first : undefined}>
-                <p className={`t-label ${s.dirLabel}`}>{k}</p>
-                <h3 className="t-title">{v}</h3>
-              </li>
+          <div className={s.directions}>
+            {directions.map((d, i) => (
+              <article key={d.label} className={i === 0 ? s.first : undefined}>
+                <p className={`t-label ${s.dirLabel}`}>{d.label}</p>
+                <h3 className="t-title">{d.title}</h3>
+                <p className="t-small muted">{d.text}</p>
+              </article>
             ))}
-          </ul>
-          <p className={`t-lede ${s.closing}`}>As AI and the technology around it improve, so does everything we&apos;ve built for you.</p>
+          </div>
         </div>
       </section>
 
@@ -114,28 +118,23 @@ export default function About() {
         <div className="wrap">
           <div className={`head-split ${s.teamHead}`}>
             <SectionHeading eyebrow="The team" heading="The people behind the work." accent="the work." id="team-h" />
-            <p className="t-lede">A focused team working across time zones, using the best tools available to move faster without cutting corners. You speak directly to the people doing the work.</p>
+            <p className="t-lede">A focused team that works across time zones and uses the best tools available, including AI, to move faster without cutting corners. You speak directly to the people doing the work.</p>
           </div>
           <IndexRows rows={team} />
         </div>
       </section>
 
-      <section className="section tight-top" aria-label="Work with us">
-        <div className={`wrap ${s.links}`}>
+      <section className="section tight-top" aria-label="Partners">
+        <div className="wrap">
           <Link className={s.linkCard} href="/partners">
             <span className="t-label">Partners</span>
             <span className="t-section">Build products and grow with us</span>
             <span className={s.linkGo}>Become a partner →</span>
           </Link>
-          <Link className={s.linkCard} href="/careers">
-            <span className={s.cardTop}><span className="t-label">Careers</span><StatusTag status="Coming soon" /></span>
-            <span className="t-section">Build what businesses run on</span>
-            <span className={s.linkGo}>See careers →</span>
-          </Link>
         </div>
       </section>
 
-      <DarkCta heading="Let's build what comes next, together." accent="together." />
+      <DarkCta heading="Build what comes next with us." accent="with us." />
     </>
   );
 }

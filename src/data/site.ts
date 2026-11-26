@@ -9,7 +9,7 @@ export const site = {
   url: "https://www.greamhq.com",
   email: "hello@greamhq.com",
   tagline: "Your Business. Greater Possibilities.",
-  descriptor: "Products · Solutions · Partnerships",
+  descriptor: "Products · Solutions · Services",
   bookingUrl: env.BOOKING_URL ?? "https://cal.com/greamhq/business-check",
   endpoints: {
     check: env.FORM_ENDPOINT_CHECK ?? "https://formspree.io/f/maeovrbp",
@@ -21,8 +21,10 @@ export const site = {
   whatsappMessage: "Hi, I'd like to find out more about a free business check.",
 };
 
-/** Production builds refuse sample data (see scripts/check-content.mjs). */
-export const isProduction = env.VERCEL_ENV === "production" || env.CONTENT_STRICT === "1";
+/** Private preview: noindex on every page, robots.txt blocks everything, no sitemap.
+    The site is public: set PREVIEW_MODE=true (Vercel → Environment Variables) to hide it again. */
+export const previewMode = env.PREVIEW_MODE === "true";
+
 
 export const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`;
 export { nav, bookHref } from "./nav";

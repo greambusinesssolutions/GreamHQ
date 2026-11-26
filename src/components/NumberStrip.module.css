@@ -9,3 +9,5 @@
   .item:nth-child(2n) { border-right: 0; padding-left: var(--space-4); }
   .item:nth-child(n + 3) { border-bottom: 0; }
 }
+.suffix { font-size: 0.5em; color: var(--text-muted); }
+.note { margin-top: var(--space-3); }

@@ -3,15 +3,17 @@ import NewsletterForm from "./NewsletterForm";
 import { site } from "@/data/site";
 import s from "./Footer.module.css";
 
+// Footer link names as worded in the home design.
 const whatWeDo = [
-  { href: "/what-we-do/never-lose-a-customer", label: "Never lose a customer" },
-  { href: "/what-we-do/reply-faster", label: "Reply faster, chase less" },
-  { href: "/products", label: "Products" },
-  { href: "/partners", label: "Partnerships" },
+  { href: "/what-we-do/business-systems", label: "Never lose a customer" },
+  { href: "/what-we-do/ai-agents", label: "Reply faster, chase less" },
+  { href: "/what-we-do/custom-software", label: "Tools that fit" },
+  { href: "/what-we-do/products-built-together", label: "Products, built together" },
 ];
 
 const company = [
   { href: "/about", label: "About" },
+  { href: "/products", label: "Products and solutions" },
   { href: "/work", label: "Work" },
   { href: "/partners", label: "Partners" },
   { href: "/insights", label: "Insights" },
@@ -44,8 +46,8 @@ export default function Footer() {
           </nav>
           <div>
             <p className={`t-label ${s.h}`}>Newsletter</p>
-            <p className={`t-small muted ${s.intro}`}>One useful idea a month.</p>
-            <NewsletterForm id="footer-nl" />
+            <p className={`t-small muted ${s.intro}`}>One useful idea, once a month.</p>
+            <NewsletterForm id="footer-nl" button="Subscribe →" />
           </div>
         </div>
         <div className={`t-caption ${s.base}`}>
@@ -53,7 +55,6 @@ export default function Footer() {
           <span className={s.legal}>
             <Link href="/privacy">Privacy policy</Link>
             <Link href="/terms">Terms</Link>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
           </span>
         </div>
       </div>

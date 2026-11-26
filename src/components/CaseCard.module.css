@@ -17,3 +17,6 @@
 .compact:hover .compactTitle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .acc { color: var(--accent-text); font-weight: 600; }
 @container page (max-width: 760px) { .featured .body { padding: var(--space-6); } }
+.tag { align-self: flex-start; }
+.dark .tag { color: var(--label-on-dark); }
+.compact > span:nth-child(2) { align-self: flex-start; }

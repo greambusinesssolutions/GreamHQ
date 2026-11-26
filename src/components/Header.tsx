@@ -27,13 +27,6 @@ export default function Header() {
   const current = (match: string) => (path.startsWith(match) ? "page" : undefined);
 
   return (
-    <>
-    <div className={`dark ${s.util}`}>
-      <div className={`wrap ${s.utilIn}`}>
-        <span className="t-label">Products · Solutions · Partnerships</span>
-        <a className="t-label" href="mailto:hello@greamhq.com">hello@greamhq.com</a>
-      </div>
-    </div>
     <header className={s.nav}>
       <div className={`wrap ${s.in}`}>
         <Link className={s.brand} href="/" aria-label="GREAM Business Solutions, home">
@@ -65,6 +58,5 @@ export default function Header() {
         ))}
       </nav>
     </header>
-    </>
   );
 }

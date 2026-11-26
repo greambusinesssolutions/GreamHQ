@@ -5,13 +5,12 @@ service: "Business systems"
 industry: "Distribution"
 region: "South Africa"
 result: { value: "+41%", label: "overdue invoices collected" }
-problem: "[TO WRITE: THE PROBLEM, IN THE CLIENT'S TERMS]"
-changed: "[TO WRITE: WHAT CHANGED FOR THEIR TEAM AND CUSTOMERS]"
-improving: "[TO WRITE: WHAT HAS GOT BETTER SINCE]"
+problem: "Orders went out on credit to dozens of shops, and nobody could say each morning who owed what or how late it was."
+changed: "Orders, invoices and payments are connected, and the team starts each day with a clear list of who owes what."
 visual: ledger
 featured: false
 order: 3
-sample: true
+example: true
 ---
 
-[TO WRITE: THE FULL STORY. WHAT WE BUILT, HOW THE TEAM USES IT, AND HOW THE RESULT WAS MEASURED.]
+Coastline Foods supplies shops on credit. We connected orders, invoices and payments and set up a morning list of every overdue balance, so the team knows exactly who to call. Overdue invoices collected rose by 41%.

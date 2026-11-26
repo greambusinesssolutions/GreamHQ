@@ -1,5 +1,7 @@
 .hero { padding: var(--space-24) 0 0; }
 .lede { margin-top: 36px; max-width: 660px; }
+.strip { margin-top: 88px; }
+.story { display: flex; flex-direction: column; gap: 20px; }
 .table { width: 100%; border-collapse: collapse; min-width: 640px; }
 .scroll { overflow-x: auto; border-top: 2px solid var(--line-strong); }
 .table th, .table td { text-align: left; padding: 20px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -8,22 +10,20 @@
 .them { color: var(--text-muted); }
 .ours { font-weight: 600; }
 .teamHead { margin-bottom: var(--space-12); }
-.links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
 .linkCard { display: flex; flex-direction: column; gap: var(--space-3); padding: 40px; border: 1px solid var(--line); color: var(--green); text-decoration: none; transition: border-color 0.2s, background-color 0.2s; }
 .linkCard:hover { color: var(--green); border-color: var(--green); background: var(--mist-deep); }
 .linkGo { color: var(--accent-text); font-weight: 600; }
-.cardTop { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); }
 @container page (max-width: 1100px) {
 }
 @container page (max-width: 760px) {
   .hero { padding-top: var(--space-12); }
-  .links { grid-template-columns: minmax(0, 1fr); }
+  .strip { margin-top: var(--space-18); }
   .linkCard { padding: var(--space-6); }
 }
 
-.directions { list-style: none; margin: var(--space-18) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
-.directions li { border-top: 2px solid var(--line-on-dark); padding-top: var(--space-6); }
+.directions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); margin-top: var(--space-18); }
+.directions article { display: flex; flex-direction: column; gap: 10px; border-top: 2px solid rgba(241, 243, 239, 0.4); padding-top: var(--space-6); }
 .directions .first { border-top-color: var(--action); }
-.dirLabel { color: var(--accent-on-dark); margin-bottom: 10px; }
-.closing { margin-top: var(--space-12); }
-@container page (max-width: 760px) { .directions { grid-template-columns: minmax(0, 1fr); } }
+.dirLabel { color: var(--label-on-dark); }
+.first .dirLabel { color: var(--accent-on-dark); }
+@container page (max-width: 1100px) { .directions { grid-template-columns: minmax(0, 1fr); } }
