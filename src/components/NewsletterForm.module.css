@@ -1,0 +1,11 @@
+.form { display: flex; flex-direction: column; gap: var(--space-3); }
+.row { display: flex; gap: var(--space-3); align-items: flex-end; flex-wrap: wrap; }
+.field { flex: 1 1 220px; display: flex; flex-direction: column; gap: var(--space-2); }
+.field label { font: 600 13.5px/1.45 var(--font-sans); }
+.input { min-height: var(--button-height); padding: 0 14px; border-radius: var(--radius-sm); border: 1px solid rgba(241, 243, 239, 0.32); background: var(--green-raised); color: var(--ink-on-dark); font: 400 16px var(--font-sans); }
+.input[aria-invalid="true"] { border-color: var(--accent-on-dark); }
+.consent { display: flex; gap: 10px; align-items: flex-start; font: 400 13.5px/1.45 var(--font-sans); color: var(--text-on-dark); }
+.consent input { margin-top: 2px; width: 20px; height: 20px; flex: 0 0 20px; accent-color: var(--action); }
+.err { font: 500 13.5px/1.45 var(--font-sans); color: var(--accent-on-dark); }
+.err:empty { display: none; }
+.ok { font: 400 13.5px/1.45 var(--font-sans); color: var(--ink-on-dark); }
