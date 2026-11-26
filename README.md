@@ -1,21 +1,49 @@
 # GREAM Business Solutions website
 
-Next.js site, exported as static files and hosted on Vercel at greamhq.com.
+Next.js (App Router), exported as static HTML and hosted on Vercel at greamhq.com.
+Design system: GREAM · The Ledger system (`src/styles/tokens.json`).
 
-## Edit the site
+## Edit content
 
-- **Contact details, WhatsApp, form, booking and legal links:** `lib/site.ts`
-- **Page sections:** `components/` (one file per section, in page order in `app/page.tsx`)
-- **Styles:** `app/globals.css`
+Everything a client sees lives in `content/`. Each folder or file is checked against a schema at build time, so a typo fails the build and names the file.
+
+| To add or change | Edit |
+|---|---|
+| A case study | Add one Markdown file to `content/work/` |
+| A product | Add one Markdown file to `content/products/` |
+| An insight (article) | Add one Markdown file to `content/insights/` |
+| A service page | `content/services/<slug>.md` |
+| Solutions, FAQs, partner models, number strips, client names, team | The JSON files in `content/` |
+| Privacy policy, terms | `content/pages/` |
+
+### Sample data and placeholders
+
+Client names, numbers, quotes, prices and case studies copied from the designs are **sample data**, marked `sample: true`. Placeholders are written `[IN SQUARE BRACKETS]` or `[TO WRITE: …]`.
+
+**Production builds refuse to run while any remain** (`scripts/check-content.mjs`). Preview builds show them, with a "Preview build" bar at the top. Replace sample content with real, approved content and remove `sample: true`.
+
+## Settings
+
+Set these in Vercel → Settings → Environment Variables (defaults in `src/data/site.ts`):
+
+| Variable | What it does |
+|---|---|
+| `FORM_ENDPOINT_CHECK` | Where the free business check form sends answers (Formspree) |
+| `FORM_ENDPOINT_PARTNER` | Partner application form |
+| `NEWSLETTER_ENDPOINT` | Newsletter sign-up |
+| `BOOKING_URL` | Booking page opened at step 4 of the business check |
+
+A form with no endpoint opens the visitor's email app addressed to hello@greamhq.com.
 
 ## Run it locally
 
 ```sh
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # static site in out/
+npm run dev                     # http://localhost:3000
+npm run build                   # static site in out/, then the content check
+CONTENT_STRICT=1 npm run build  # the production check, locally
 ```
 
 ## Publish
 
-Push to `main`. Vercel builds the site and deploys it to greamhq.com automatically.
+Every push builds a Vercel preview. Merging to `main` deploys greamhq.com (production rules apply).
