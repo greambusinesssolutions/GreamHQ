@@ -17,7 +17,7 @@ export default function IndexRows({ rows, size = "medium" }: { rows: IndexRow[];
               <span className={`t-section ${s.title}`}><Accent text={r.title} accent={r.accent} /></span>
               {r.meta && <span className={`t-label ${s.meta}`}>{r.meta}</span>}
             </span>
-            <span className={`t-small ${s.text}`}>{r.text}</span>
+            {r.text ? <span className={`t-small ${s.text}`}>{r.text}</span> : <span />}
             {r.aside && (
               <span className={`t-small ${s.text}`}>
                 <span className={`t-label ${s.asideLabel}`}>{r.aside.label}</span>

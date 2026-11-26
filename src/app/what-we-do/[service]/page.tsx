@@ -43,7 +43,7 @@ export default async function ServicePage({ params }: Params) {
                 <Link className="btn btn-primary" href={bookHref}>{h.cta} <span className="arr" aria-hidden="true">→</span></Link>
                 {h.secondary && <a className="btn btn-line" href={h.secondary.href}>{h.secondary.label}</a>}
               </div>
-              {h.proof && <p className={`t-label ${s.proof}`}>{h.proof}</p>}
+              {h.note && <p className={`t-small muted ${s.proof}`}>{h.note}</p>}
             </div>
             {h.example && (
               <figure className={`dark ${s.example}`} aria-label={`Example: ${h.example.label}`}>
@@ -54,6 +54,7 @@ export default async function ServicePage({ params }: Params) {
                   <p className={`t-label ${s.note}`}>{h.example.note}</p>
                 </div>
                 <div className={s.tags}>{h.example.tags.map((t) => <span key={t} className="t-label">{t}</span>)}</div>
+                {h.example.caption && <figcaption className={`t-caption ${s.caption}`}>{h.example.caption}</figcaption>}
               </figure>
             )}
           </div>
@@ -82,7 +83,7 @@ export default async function ServicePage({ params }: Params) {
         <section className="section" id={d.rows.id} aria-labelledby="rows-h">
           <div className="wrap">
             <SectionHeading eyebrow={d.rows.eyebrow} heading={d.rows.heading} accent={d.rows.accent} id="rows-h" className="head-block" />
-            <IndexRows rows={d.rows.items.map((r) => ({ title: r.title, text: r.text, aside: r.approves ? { label: "A person approves", text: r.approves } : undefined }))} />
+            <IndexRows rows={d.rows.items.map((r) => ({ title: r.title, text: r.text, aside: r.approves ? { label: d.rows!.asideLabel, text: r.approves } : undefined }))} />
           </div>
         </section>
       )}
@@ -90,7 +91,7 @@ export default async function ServicePage({ params }: Params) {
       {d.steps && (
         <section className="section dark" aria-labelledby="steps-h">
           <div className="wrap">
-            <SectionHeading eyebrow={d.steps.eyebrow} heading={d.steps.heading} id="steps-h" className="head-block" />
+            <SectionHeading eyebrow={d.steps.eyebrow} heading={d.steps.heading} accent={d.steps.accent} id="steps-h" className="head-block" />
             <ol className={s.steps}>
               {d.steps.items.map((x) => (
                 <li key={x.label} className={s.step}>
