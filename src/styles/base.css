@@ -47,10 +47,10 @@ a {
 a:hover {
   color: var(--green);
 }
-.dark a:not(.btn) {
+.dark :where(a:not(.btn)) {
   color: var(--accent-on-dark);
 }
-.dark a:not(.btn):hover {
+.dark :where(a:not(.btn)):hover {
   color: var(--ink-on-dark);
 }
 button,
@@ -357,3 +357,6 @@ textarea {
 }
 .head-block { margin-bottom: var(--space-18); }
 @container page (max-width: 760px) { .head-block { margin-bottom: var(--space-12); } }
+
+/* Vertical rhythm for simple stacked content */
+.stack > * + * { margin-top: var(--space-8); }
