@@ -2,39 +2,45 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import NumberStrip from "@/components/NumberStrip";
 import IndexRows from "@/components/IndexRows";
-import TeamList from "@/components/TeamList";
-import StatusTag from "@/components/StatusTag";
 import DarkCta from "@/components/DarkCta";
 import { getStats } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import s from "./about.module.css";
 
 export const metadata = pageMeta({
-  title: "About GREAM Business Solutions · We build what businesses run on",
-  description: "GREAM Business Solutions is a company, not an agency: we own products, form long-term partnerships and are judged on results, not hours.",
+  title: "About us · GREAM Business Solutions",
+  description: "GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they are really doing, through products, solutions and long-term partnerships.",
   path: "/about",
 });
 
-const beliefs = [
-  { title: "Outcomes over hours", text: "We measure success by what changes in your business, not by the time we spend." },
-  { title: "What we make for you is yours", text: "Your systems and your data belong to you." },
+const directions = [
+  { label: "Products", title: "Start this week", text: "Ready-made products for the problems every growing business has." },
+  { label: "Solutions", title: "Fitted to you", text: "Proven answers, set up around how your business runs." },
+  { label: "Partnerships", title: "Grow together", text: "Long-term partners who build products and grow with you." },
+];
+
+const promises = [
+  { title: "Results, not hours", text: "We measure success by what changes in your business." },
+  { title: "What we make is yours", text: "Your systems and your data belong to you." },
   { title: "We tell you if you don't need us", text: "Honest advice comes before any sale." },
-  { title: "Think beyond what exists", text: "We look past how things have always been done to find what works better." },
-  { title: "Build, don't just discuss", text: "You see working results early, then they keep getting better." },
+  { title: "Fresh thinking", text: "We look beyond how things have always been done to find what works better." },
+  { title: "Progress you can see", text: "You see working results early, then they keep getting better." },
 ];
 
 const comparison = [
-  ["Who owns the products", "Owns none. Sells time on someone else's.", "We own and run our own products, and what we build for you is yours."],
-  ["How long we stay", "Moves on to the next client after launch.", "We stay as a long-term partner: measuring, supporting and improving."],
-  ["What we're judged on", "Hours worked and delivering the brief.", "Results: what changes for your business."],
+  ["What it sells", "Hours and projects", "Results, products and partnerships"],
+  ["After launch", "Moves on to the next client", "Stays, measures and keeps improving"],
+  ["Judged on", "Delivering the brief", "What changes for your business"],
 ];
 
-const arms = [
-  { name: "GREAM Business Solutions", state: "Now", text: "Works with businesses today: products, solutions and long-term partnerships that help them stop losing customers and get paid on time." },
-  { name: "GREAM Labs", state: "Exploring", text: "Explores what comes next, so the businesses we serve are ready for it." },
-  { name: "More to come", state: "Next", text: "New arms will follow, each built around a problem worth solving.", future: true },
+const team = [
+  { title: "Product and engineering", text: "Turns how your business works into products and tools that people enjoy using." },
+  { title: "Design and experience", text: "Makes every screen, message and step clear for your customers and your team." },
+  { title: "Reliability and support", text: "Keeps everything running, safe and improving long after launch." },
+  { title: "Growth and partnerships", text: "Finds where we can help most, and builds partnerships that last." },
 ];
 
+/** About page, built from design/About.dc.html. */
 export default function About() {
   return (
     <>
@@ -48,57 +54,49 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="story-h">
+      <section className="section" aria-labelledby="why-h">
         <div className="wrap cols-2">
-          <SectionHeading eyebrow="Our story" heading="One builder, then a company." accent="a company." id="story-h" />
+          <SectionHeading eyebrow="Why we exist" heading="Built from real business problems." accent="business problems." id="why-h" />
           <div className={`t-lede ${s.story}`}>
-            <p>GREAMHQ began with one person building for businesses around the world, fixing what was lost between the first message and the payment, one business at a time.</p>
-            <p>The work grew, and so did what we could offer. Today it is a company with its own products, solutions set up around how businesses run, and partners who build with us for the long term.</p>
+            <p>Across every market we work in, we saw the same thing. Customers lost between the first message and the payment. Teams chasing information instead of serving people. Owners unable to see how their business was really doing.</p>
+            <p>So we focus on fixing exactly that, with products you can start using this week, solutions set up around how you work, and partners who stay for the long run.</p>
           </div>
         </div>
       </section>
 
-      <section className="section dark ledger-grid" aria-labelledby="arms-h">
+      <section className="section dark ledger-grid" aria-labelledby="going-h">
         <div className="wrap">
-          <div className="head-split">
-            <SectionHeading eyebrow="How we're organised" heading="One company, built to grow arms." accent="grow arms." id="arms-h" />
-            <p className="t-lede">GREAMHQ is the parent company. Each arm has one focus, and shares the same standards.</p>
-          </div>
-          <div className={s.tree}>
-            <div className={s.parent}>
-              <p className={`t-section ${s.parentName}`}>GREAMHQ</p>
-              <p className="t-label">Parent company</p>
-            </div>
-            <ul className={s.arms}>
-              {arms.map((a) => (
-                <li key={a.name} className={`${s.arm} ${a.future ? s.future : ""}`}>
-                  <p className={`t-label ${s.armState}`}>{a.state}</p>
-                  <h3 className={`t-title ${s.armName}`}>{a.name}</h3>
-                  <p className={`t-small ${s.armText}`}>{a.text}</p>
-                </li>
-              ))}
-            </ul>
+          <p className="eyebrow">Where we&apos;re going</p>
+          <h2 className="t-display" id="going-h">Every ambitious business, in any market, running as well as <em>the best in the world.</em></h2>
+          <div className={s.directions}>
+            {directions.map((d, i) => (
+              <article key={d.label} className={i === 0 ? s.first : undefined}>
+                <p className={`t-label ${s.dirLabel}`}>{d.label}</p>
+                <h3 className="t-title">{d.title}</h3>
+                <p className="t-small muted">{d.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="believe-h">
+      <section className="section" aria-labelledby="count-h">
         <div className="wrap">
-          <SectionHeading eyebrow="What we believe" heading="Five things we hold to, every time." accent="every time." id="believe-h" className="head-block" />
-          <IndexRows rows={beliefs} />
+          <SectionHeading eyebrow="What you can count on" heading="Five promises, every time." accent="every time." id="count-h" className="head-block" />
+          <IndexRows rows={promises} />
         </div>
       </section>
 
-      <section className="section ground-sage" aria-labelledby="agency-h">
+      <section className="section ground-sage" aria-labelledby="choose-h">
         <div className="wrap">
-          <SectionHeading eyebrow="Not another agency" heading="A company, not an agency." accent="not an agency." id="agency-h" className="head-block" />
+          <SectionHeading eyebrow="Why businesses choose us" heading="More than a supplier." accent="supplier." id="choose-h" className="head-block" />
           <div className={s.scroll}>
             <table className={`t-body ${s.table}`}>
-              <caption className="sr-only">How GREAM Business Solutions differs from a typical agency</caption>
+              <caption className="sr-only">How GREAM Business Solutions differs from a typical supplier</caption>
               <thead>
                 <tr>
                   <td />
-                  <th scope="col" className="t-label">A typical agency</th>
+                  <th scope="col" className="t-label">A typical supplier</th>
                   <th scope="col" className={`t-label ${s.us}`}>GREAM Business Solutions</th>
                 </tr>
               </thead>
@@ -120,23 +118,18 @@ export default function About() {
         <div className="wrap">
           <div className={`head-split ${s.teamHead}`}>
             <SectionHeading eyebrow="The team" heading="The people behind the work." accent="the work." id="team-h" />
-            <p className="t-lede">You speak directly to the people doing the work. We don&apos;t use titles: each of us is known by what we own.</p>
+            <p className="t-lede">A focused team that works across time zones and uses the best tools available, including AI, to move faster without cutting corners. You speak directly to the people doing the work.</p>
           </div>
-          <TeamList />
+          <IndexRows rows={team} />
         </div>
       </section>
 
-      <section className="section tight-top" aria-label="Work with us">
-        <div className={`wrap ${s.links}`}>
+      <section className="section tight-top" aria-label="Partners">
+        <div className="wrap">
           <Link className={s.linkCard} href="/partners">
             <span className="t-label">Partners</span>
             <span className="t-section">Build products and grow with us</span>
             <span className={s.linkGo}>Become a partner →</span>
-          </Link>
-          <Link className={s.linkCard} href="/careers">
-            <span className={s.cardTop}><span className="t-label">Careers</span><StatusTag status="Coming soon" /></span>
-            <span className="t-section">Build what businesses run on</span>
-            <span className={s.linkGo}>See careers →</span>
           </Link>
         </div>
       </section>

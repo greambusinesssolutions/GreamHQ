@@ -112,7 +112,6 @@ const partnerModelSchema = z.object({
 });
 const statsSchema = z.object({ id: z.string(), items: z.array(stat), sample });
 const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]), sample });
-const teamSchema = z.object({ id: z.string(), order: z.number(), name: z.string(), owns: z.string(), photo: z.string(), sample });
 const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })), sample });
 const listSchema = z.object({ id: z.string(), items: z.array(z.string()), sample });
 
@@ -154,7 +153,6 @@ export const getInsights = () => loadMarkdown("insights", insightSchema).sort(by
 export const getSolutions = () => loadJson("solutions.json", solutionSchema).sort(byOrder);
 export const getPartnerModels = () => loadJson("partner-models.json", partnerModelSchema).sort(byOrder);
 export const getClients = () => loadJson("clients.json", clientSchema);
-export const getTeam = () => loadJson("team.json", teamSchema).sort(byOrder);
 
 function one<T extends { id: string }>(list: T[], id: string, file: string): T {
   const found = list.find((x) => x.id === id);
