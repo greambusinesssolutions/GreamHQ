@@ -10,7 +10,7 @@ import Faq from "@/components/Faq";
 import StatusTag from "@/components/StatusTag";
 import BusinessCheckForm from "@/components/BusinessCheckForm";
 import { getExample, getFaqs, getInsights, getServices, getStats, getWork } from "@/lib/content";
-import { site, whatsappHref } from "@/data/site";
+import { site } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 import s from "./home.module.css";
 
@@ -20,20 +20,15 @@ export const metadata = pageMeta({
   path: "/",
 });
 
-const fit = [
-  "You receive regular enquiries but struggle to follow up consistently.",
-  "Customers are managed through chats, spreadsheets or apps that don't connect.",
-  "You need a clearer view of sales and outstanding payments.",
-  "You are growing, and your current process is getting hard to manage.",
-];
-
 export default function Home() {
   const services = getServices();
   const work = getWork();
   const featured = work.filter((w) => w.data.featured).slice(0, 2);
   const compact = work.filter((w) => !w.data.featured).slice(0, 3);
   const quoted = work.find((w) => w.data.quote);
-  const insights = getInsights().slice(0, 3);
+  // The three insights the home design shows, in its order.
+  const all = getInsights();
+  const insights = ["what-growing-businesses-run-on", "what-an-ai-agent-should-do", "stop-losing-enquiries"].map((slug) => all.find((x) => x.slug === slug)).filter((x): x is (typeof all)[number] => !!x);
   const ledger = getExample("home-ledger");
 
   return (
@@ -86,10 +81,10 @@ export default function Home() {
             <Link className="text-link" href="/work">All work →</Link>
           </div>
           <div className={s.featured}>
-            {featured.map((w, i) => <CaseCard key={w.slug} entry={w} variant="featured" dark={i === 0} />)}
+            {featured.map((w, i) => <CaseCard key={w.slug} entry={w} variant="featured" dark={i === 0} home />)}
           </div>
           <div className={s.compact}>
-            {compact.map((w) => <CaseCard key={w.slug} entry={w} variant="compact" />)}
+            {compact.map((w) => <CaseCard key={w.slug} entry={w} variant="compact" home />)}
           </div>
         </div>
       </section>
@@ -149,7 +144,7 @@ export default function Home() {
             {insights.map((x) => (
               <Link className={s.insight} key={x.slug} href={`/insights/${x.slug}`}>
                 <span className="t-label">{x.data.type}</span>
-                <span className="t-title">{x.data.title}</span>
+                <span className="t-title">{x.data.homeTitle ?? x.data.title}</span>
               </Link>
             ))}
           </div>
@@ -167,26 +162,10 @@ export default function Home() {
         <div className="wrap">
           <p className="eyebrow">Your next step</p>
           <h2 className="t-display" id="contact-h">Let&apos;s find what&apos;s costing you <em>customers.</em></h2>
-          <div className={s.contactGrid}>
-            <div className={s.contactAside}>
-              <p className="t-lede">Book a free 20-minute business check. Two minutes of questions now, so the call starts with your business. We&apos;ll tell you honestly whether we can help.</p>
-              <div className={s.fit}>
-                <p className="t-label">This is probably for you if</p>
-                <ul className={s.fitList}>
-                  {fit.map((f) => (
-                    <li key={f} className="t-small">
-                      <svg className={s.tick} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 10.5l4 4 8-9" /></svg>
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className={`t-small ${s.alt}`}>
-                Rather talk first? <a href={whatsappHref} target="_blank" rel="noopener">Message us on WhatsApp</a> or email <a href={`mailto:${site.email}`}>{site.email}</a>.
-              </p>
-            </div>
+          <div className={s.contactForm}>
             <BusinessCheckForm endpoint={site.endpoints.check} email={site.email} bookingUrl={site.bookingUrl} />
           </div>
+          <p className={s.contactMail}><a href={`mailto:${site.email}`}>{site.email}</a></p>
         </div>
       </section>
     </>

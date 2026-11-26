@@ -61,6 +61,9 @@ shortAnswer:
     - { label: "Costly when missed", text: "A slip loses a customer or money." }
     - { label: "Easy to check", text: "A person can see if it's right." }
 story: "kestrel-dental"
+storyCard:
+  title: "Kestrel Dental: an agent that books and reschedules, day and night"
+  text: "Replies went from hours to minutes. 3× faster responses, and 1 in 5 bookings now made outside office hours."
 questions:
   heading: "Six questions to ask any AI provider"
   items:

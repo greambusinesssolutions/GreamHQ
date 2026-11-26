@@ -41,7 +41,7 @@ export default async function ServicePage({ params }: Params) {
               <p className={`t-lede ${s.lede}`}>{h.lede}</p>
               <div className={`actions ${s.actions}`}>
                 <Link className="btn btn-primary" href={bookHref}>{h.cta} <span className="arr" aria-hidden="true">→</span></Link>
-                {h.secondary && <a className="btn btn-line" href={h.secondary.href}>{h.secondary.label}</a>}
+                {h.secondary && <Link className="btn btn-line" href={h.secondary.href}>{h.secondary.label}</Link>}
               </div>
               {h.proof && <p className={`t-label ${s.proof}`}>{h.proof}</p>}
             </div>
@@ -128,8 +128,8 @@ export default async function ServicePage({ params }: Params) {
             {story && (
               <article className={s.story}>
                 <p className="t-label">Client story · {story.data.industry} · {story.data.region}</p>
-                <h2 className="t-title">{story.data.title}</h2>
-                <p className="t-small muted"><b>{story.data.result.value}</b> {story.data.result.label}.</p>
+                <h2 className="t-title">{d.storyCard?.title ?? story.data.title}</h2>
+                <p className="t-small muted">{d.storyCard?.text ?? <><b>{story.data.result.value}</b> {story.data.result.label}</>}</p>
                 <Link className={`t-small ${s.storyLink}`} href={`/work/${story.slug}`}>Read the case →</Link>
               </article>
             )}
@@ -155,7 +155,7 @@ export default async function ServicePage({ params }: Params) {
         </section>
       )}
 
-      <DarkCta id="contact" heading={d.cta.heading} accent={d.cta.accent} text={d.cta.text} button={d.cta.button} />
+      <DarkCta id="contact" heading={d.cta.heading} accent={d.cta.accent} text={d.cta.text} button={d.cta.button} href={d.cta.href} />
     </>
   );
 }

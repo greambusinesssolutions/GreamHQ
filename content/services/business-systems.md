@@ -9,10 +9,9 @@ hero:
   eyebrow: "What we do · Business systems"
   heading: "Know who asked, what happens next and who has paid."
   accent: "who has paid."
-  lede: "Enquiries from every channel, follow-ups that happen on time, orders and invoices typed once, and payments you can see at a glance. One place, set up around how your business already runs."
+  lede: "Every enquiry, order and payment in one place, with numbers you can trust."
   cta: "Book a free business check"
-  secondary: { label: "See what's included", href: "#included" }
-  proof: "140+ projects · 16 countries · Yours to keep"
+  secondary: { label: "See our work", href: "/work" }
 stats:
   - { value: "−72%", label: "Time reconciling payments" }
   - { value: "+41%", label: "Overdue invoices collected" }
@@ -28,15 +27,15 @@ stages:
     - { label: "Stage 4 · Where we build", title: "Routine work handled for you", text: "Your team spends its time on customers.", ours: true }
 rows:
   id: "included"
-  eyebrow: "What's included"
+  eyebrow: "What you get"
   heading: "Everything between the first message and the money in the bank."
   accent: "the money in the bank."
   items:
     - { title: "Every enquiry in one place", text: "WhatsApp, Instagram, email, phone and website enquiries land in one list, with nothing to copy across.", approves: "Who handles each one" }
-    - { title: "Follow-ups on time", text: "The right person is reminded at the right time, so interested customers don't go quiet.", approves: "When and how often" }
+    - { title: "Follow-ups that happen on time", text: "The right person is reminded at the right time, so interested customers don't go quiet.", approves: "When and how often" }
     - { title: "Orders and invoices, typed once", text: "Quotes become orders and invoices without retyping the same details.", approves: "Prices and terms" }
     - { title: "Who has paid, at a glance", text: "Paid, part paid and overdue, for every customer, without scrolling through screenshots.", approves: "Anything that doesn't match" }
-    - { title: "Numbers you can trust", text: "Sales, income and what you're owed, whenever you need them.", approves: "What goes in your reports" }
+    - { title: "Your numbers, without asking anyone", text: "Sales, income and what you're owed, whenever you need them.", approves: "What goes in your reports" }
 steps:
   eyebrow: "How it works"
   heading: "From scattered chats to one clear system."

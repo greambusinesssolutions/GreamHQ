@@ -16,7 +16,7 @@ export default function ProductCard({ entry }: { entry: Product }) {
       <div className={s.foot}>
         <span className={`t-small ${s.price}`}>{p.price}</span>
         <Link className={`t-small ${s.link}`} href={`/products/${entry.slug}`}>
-          {p.cta}<span className="sr-only">: {p.name}</span>&nbsp;→
+          {`${p.cta} →`}<span className="sr-only"> for {p.name}</span>
         </Link>
       </div>
     </article>

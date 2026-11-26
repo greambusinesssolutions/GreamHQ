@@ -1,8 +1,15 @@
 import Link from "next/link";
 import NewsletterForm from "./NewsletterForm";
 import { site } from "@/data/site";
-import { getServices } from "@/lib/content";
 import s from "./Footer.module.css";
+
+// Footer link names as worded in the home design.
+const whatWeDo = [
+  { href: "/what-we-do/business-systems", label: "Never lose a customer" },
+  { href: "/what-we-do/ai-agents", label: "Reply faster, chase less" },
+  { href: "/what-we-do/custom-software", label: "Tools that fit" },
+  { href: "/what-we-do/products-built-together", label: "Products, built together" },
+];
 
 const company = [
   { href: "/about", label: "About" },
@@ -13,7 +20,6 @@ const company = [
 ];
 
 export default function Footer() {
-  const services = getServices();
   return (
     <footer className={`dark ${s.foot}`}>
       <div className="wrap">
@@ -25,8 +31,8 @@ export default function Footer() {
           <nav aria-label="What we do">
             <p className={`t-label ${s.h}`}>What we do</p>
             <ul className={s.list}>
-              {services.map((x) => (
-                <li key={x.slug}><Link href={`/what-we-do/${x.slug}`}>{x.data.short}</Link></li>
+              {whatWeDo.map((l) => (
+                <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
               ))}
             </ul>
           </nav>
@@ -41,7 +47,7 @@ export default function Footer() {
           <div>
             <p className={`t-label ${s.h}`}>Newsletter</p>
             <p className={`t-small muted ${s.intro}`}>One useful idea, once a month.</p>
-            <NewsletterForm id="footer-nl" />
+            <NewsletterForm id="footer-nl" button="Subscribe →" />
           </div>
         </div>
         <div className={`t-caption ${s.base}`}>
@@ -49,7 +55,6 @@ export default function Footer() {
           <span className={s.legal}>
             <Link href="/privacy">Privacy policy</Link>
             <Link href="/terms">Terms</Link>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
           </span>
         </div>
       </div>

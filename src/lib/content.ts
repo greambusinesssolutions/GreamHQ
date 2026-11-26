@@ -10,7 +10,7 @@ import { marked } from "marked";
 import { z } from "zod";
 
 const ROOT = join(process.cwd(), "content");
-const stat = z.object({ value: z.string(), label: z.string() });
+const stat = z.object({ value: z.string(), label: z.string(), suffix: z.string().optional() });
 
 // ---------- Schemas ----------
 const serviceSchema = z.object({
@@ -50,11 +50,12 @@ const serviceSchema = z.object({
     .optional(),
   steps: z.object({ eyebrow: z.string(), heading: z.string(), items: z.array(z.object({ label: z.string(), text: z.string(), gets: z.string() })) }).optional(),
   shortAnswer: z.object({ heading: z.string(), text: z.string(), checks: z.array(z.object({ label: z.string(), text: z.string() })).default([]) }).optional(),
-  story: z.string().optional(),
+  story: z.string().optional(), // slug of a case study in content/work
+  storyCard: z.object({ title: z.string().optional(), text: z.string().optional() }).optional(),
   questions: z.object({ heading: z.string(), items: z.array(z.string()) }).optional(),
   pricing: z.object({ heading: z.string(), text: z.string() }).optional(),
   faqs: z.array(z.string()).default([]),
-  cta: z.object({ heading: z.string(), accent: z.string().optional(), text: z.string().optional(), button: z.string() }),
+  cta: z.object({ heading: z.string(), accent: z.string().optional(), text: z.string().optional(), button: z.string(), href: z.string().optional() }),
 });
 
 const workSchema = z.object({
@@ -67,6 +68,9 @@ const workSchema = z.object({
   problem: z.string(),
   changed: z.string(),
   quote: z.object({ text: z.string(), name: z.string(), role: z.string(), since: z.string().optional() }).optional(),
+  // How the case reads on the home page, where the design words it differently from the Work page.
+  homeResult: stat.optional(),
+  homeChat: z.tuple([z.string(), z.string()]).optional(),
   visual: z.enum(["bars", "chat", "ledger"]),
   featured: z.boolean().default(false),
   order: z.number().default(99),
@@ -91,6 +95,7 @@ const insightSchema = z.object({
   featured: z.boolean().default(false),
   order: z.number().default(99),
   related: z.array(z.string()).default([]),
+  homeTitle: z.string().optional(), // how the title reads on the home page
 });
 
 const solutionSchema = z.object({ id: z.string(), order: z.number(), title: z.string(), audience: z.string(), outcome: z.string() });

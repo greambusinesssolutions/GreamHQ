@@ -7,12 +7,11 @@ seoTitle: "Products, built together · GREAM Business Solutions"
 description: "You bring the idea, the market or the customers. We bring it to life and grow it with you, on terms agreed up front."
 hero:
   eyebrow: "What we do · Products, built together"
-  heading: "Have an idea your market needs? Let's build it together."
-  accent: "Let's build it together."
-  lede: "You bring the idea, the market or the customers. We bring it to life, get it into people's hands and keep growing it with you, as a long-term partner, on terms agreed in writing up front."
+  heading: "Have an idea your market needs? We bring it to life and grow it with you."
+  accent: "grow it with you."
+  lede: "You bring the idea, the market or the customers. We design, build, launch and keep improving it, as a long-term partner."
   cta: "Talk to us about your idea"
-  secondary: { label: "How it works", href: "#how" }
-  proof: "Terms in writing from day 1 · Revenue or equity, agreed per product"
+  secondary: { label: "See partnership models", href: "/partners#ways" }
 stats:
   - { value: "6", label: "Ways to partner" }
   - { value: "Day 1", label: "Terms in writing" }
@@ -67,7 +66,8 @@ pricing:
   text: "Every product partnership is agreed per product: revenue share, equity or a mix, written down before any work begins."
 faqs: ["product-with-us", "ownership", "time-zones"]
 cta:
-  heading: "Let's see what we can build together."
-  accent: "build together."
-  button: "Talk to us about your idea"
+  heading: "Build what comes next with us."
+  accent: "with us."
+  button: "Become a partner"
+  href: "/partners#apply"
 ---

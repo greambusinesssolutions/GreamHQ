@@ -7,12 +7,11 @@ seoTitle: "Custom software · GREAM Business Solutions"
 description: "When nothing off the shelf fits how your business works, we build the tool that does, and keep it running."
 hero:
   eyebrow: "What we do · Custom software"
-  heading: "When nothing off the shelf fits, we make it fit."
-  accent: "we make it fit."
-  lede: "Quoting, onboarding, booking or reporting: if a ready-made app forces your team into workarounds, we build the tool around how you actually work, and stay to keep it running."
+  heading: "When nothing off the shelf fits, we make it fit your business."
+  accent: "we make it fit your business."
+  lede: "Built around how you work, and kept running after launch."
   cta: "Book a free business check"
-  secondary: { label: "See what we build", href: "#build" }
-  proof: "140+ projects · 16 countries · Yours to keep"
+  secondary: { label: "See our work", href: "/work" }
 stats:
   - { value: "2 hrs", label: "Per quote, down from 2 days" }
   - { value: "−60%", label: "Admin time per new client" }
@@ -54,6 +53,8 @@ shortAnswer:
     - { label: "Specific", text: "No ready-made app does it well." }
     - { label: "Clear", text: "You can describe how it should work." }
 story: "atlas-and-oak"
+storyCard:
+  text: "2 days → 2 hours per quote"
 questions:
   heading: "Six questions to ask before you build"
   items:
@@ -68,7 +69,7 @@ pricing:
   text: "We start with the one job that costs the most, so you see value early. You get a fixed price and timeline in writing after the free check."
 faqs: ["ownership", "existing-tools", "cost", "time-zones"]
 cta:
-  heading: "Find the job worth building for."
-  accent: "building for."
+  heading: "Tell us what doesn't fit."
+  accent: "doesn't fit."
   button: "Book a free business check"
 ---

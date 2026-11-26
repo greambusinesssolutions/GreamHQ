@@ -15,8 +15,9 @@
     "label": "Clients stay on support"
    },
    {
-    "value": "4.9/5",
-    "label": "Average client rating"
+    "value": "4.9",
+    "label": "Average client rating",
+    "suffix": "/5"
    }
   ]
  },
