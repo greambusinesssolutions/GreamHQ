@@ -1,14 +1,13 @@
 [
-  { "id": "where-clients", "question": "Where are your clients?", "answer": "Across Africa, Europe, North America and the Middle East. We work remotely, on your time zone." },
-  { "id": "what-agent", "question": "What does an AI agent actually do?", "answer": "It takes one routine job off your team, such as answering common questions or checking payments. A person approves anything that matters." },
-  { "id": "cost", "question": "How much does it cost?", "answer": "It depends on what you need. After the free check you get a fixed price, in writing." },
-  { "id": "product-with-us", "question": "Can you build a product with us?", "answer": "Yes. Through our product partnerships we bring products to market together, on terms agreed up front." },
-  { "id": "ownership", "question": "Who owns what you build?", "answer": "For client work, you do. Everything we make for you is yours." },
-  { "id": "agent-alone", "question": "Will an agent talk to my customers without us?", "answer": "Only for what you've approved. Anything else waits for a person." },
-  { "id": "existing-tools", "question": "Does it work with the tools we already use?", "answer": "Usually, yes. We connect to your existing channels and apps where we can." },
-  { "id": "agent-ownership", "question": "Who owns the agent and the data?", "answer": "You do." },
-  { "id": "time-zones", "question": "Do you work across time zones?", "answer": "Yes. We work with clients across Africa, Europe, North America and the Middle East." },
+  { "id": "pricing", "question": "How do you price?", "answer": "On the result. In the free check we measure what the problem costs you each month, and our fee is a fraction of that. Most clients earn it back within a few months." },
+  { "id": "gets-better", "question": "What does “gets better every month” mean?", "answer": "What we build runs on modern AI, so as AI improves, so does your system: faster replies, smarter follow-ups, clearer numbers, at no extra cost to you. We keep refining it every month as well." },
+  { "id": "channels", "question": "Does it work with WhatsApp and the tools we already use?", "answer": "Yes. It works with WhatsApp, Instagram, email, your website and [PAYMENT AND ACCOUNTING TOOLS YOU SUPPORT]." },
+  { "id": "data-safe", "question": "Is our data safe?", "answer": "Your data is [ENCRYPTED, BACKED UP DAILY: CONFIRM WHAT IS TRUE], and it's yours to take with you at any time." },
+  { "id": "change-how-we-work", "question": "Do I need to change how my team works?", "answer": "Very little. It works with what you already use, and we train your team." },
+  { "id": "ownership", "question": "Who owns what you build?", "answer": "You do. Your system and your data are yours." },
+  { "id": "regions", "question": "Do you work with businesses like mine, where I am?", "answer": "We work with businesses across [REGIONS], remotely and on your hours." },
+  { "id": "ai-alone", "question": "Will it talk to my customers without us?", "answer": "Only for what you've approved. Anything unusual, like prices or discounts, waits for a person." },
   { "id": "referral-paid", "question": "When do referral partners get paid?", "answer": "When your client pays us, on the terms we agree in writing." },
-  { "id": "client-relationship", "question": "Who owns the client relationship?", "answer": "It depends on the model. In white label, you do. We agree it before the first deal." },
+  { "id": "client-relationship", "question": "Who owns the client relationship?", "answer": "It depends on the model. When you offer it as your own, you do. We agree it before the first deal." },
   { "id": "partners-worldwide", "question": "Can partners be anywhere in the world?", "answer": "Yes. We partner and deliver worldwide." }
 ]
