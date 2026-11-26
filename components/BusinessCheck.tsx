@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { site } from "@/lib/site";
-import { Tick } from "./icons";
+import { contactHref, contactLinkProps, hasWhatsApp, site } from "@/lib/site";
+import { Arrow, Tick } from "./icons";
 
 const industries = [
   "Retail and e-commerce",
@@ -37,11 +37,7 @@ const fitList = [
 const hasBooking = !!site.bookingUrl;
 const TOTAL = hasBooking ? 4 : 3;
 const SEND_LABEL = hasBooking ? "Continue to choose a time →" : "Request my free business check →";
-const hints = [
-  `Step 1 of ${TOTAL} · about two minutes in total`,
-  `Step 2 of ${TOTAL} · nearly there`,
-  hasBooking ? "Step 3 of 4 · then choose a time" : "Last step",
-];
+const hints = ["About two minutes in total", "Nearly there", hasBooking ? "Then choose a time" : "Last step"];
 const stepNames = ["About you", "Your business", "What to improve", "Choose a time"];
 
 type Fields = { name: string; business: string; email: string; phone: string; industry: string; improve: string };
@@ -183,18 +179,20 @@ export default function BusinessCheck() {
   );
 
   return (
-    <section className="sec" id="assessment" aria-labelledby="as-title">
+    <section className="sec as-sec" id="assessment" aria-labelledby="as-title">
       <div className="wrap as-grid">
-        <div className="as-intro">
+        <div className="as-head">
           <p className="eyebrow">Free business check</p>
           <h2 className="h-section" id="as-title">
             Book your free 20-minute <em>business check.</em>
           </h2>
           <p className="lede">
-            Tell us a little about your business. It takes about two minutes, and it helps us make the 20 minutes count.
-            We&apos;ll talk through how enquiries and sales work today, spot the gaps, and tell you honestly whether GREAM
-            can help.
+            Two minutes of questions now, so the call starts with your business. On the call we look at how enquiries and
+            sales work today, spot the gaps, and tell you honestly whether GREAM can help.
           </p>
+        </div>
+
+        <div className="as-fit">
           <div className="fit">
             <h3>This is probably for you if:</h3>
             <ul>
@@ -208,7 +206,18 @@ export default function BusinessCheck() {
             <p className="after">If it isn&apos;t a fit, we&apos;ll tell you.</p>
           </div>
           <p className="as-mail">
-            Not ready to talk yet? Send a question to <a href={`mailto:${site.email}`}>{site.email}</a>.
+            Rather talk first?{" "}
+            {hasWhatsApp ? (
+              <>
+                <a href={contactHref} {...contactLinkProps}>
+                  Message us on WhatsApp
+                </a>{" "}
+                or email
+              </>
+            ) : (
+              "Email"
+            )}{" "}
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
           </p>
         </div>
 
@@ -230,15 +239,8 @@ export default function BusinessCheck() {
               </div>
             </div>
             <form ref={formRef} className="card-body" noValidate aria-labelledby="fs-title-1" onSubmit={onSubmit}>
-              <p
-                className="mono"
-                style={{ fontSize: 12, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}
-              >
-                Step {step} of {TOTAL}
-              </p>
-
-              <fieldset data-step="1" hidden={step !== 1} style={{ border: 0, margin: 0, padding: 0, minWidth: 0 }}>
-                <legend className="fs-t" id="fs-title-1" style={{ padding: 0 }}>
+              <fieldset className="fs" data-step="1" hidden={step !== 1}>
+                <legend className="fs-t" id="fs-title-1">
                   First, about you.
                 </legend>
                 <p className="fs-s">So we know who we&apos;re speaking with and how to reach you.</p>
@@ -268,8 +270,8 @@ export default function BusinessCheck() {
                 </div>
               </fieldset>
 
-              <fieldset data-step="2" hidden={step !== 2} style={{ border: 0, margin: 0, padding: 0, minWidth: 0 }}>
-                <legend className="fs-t" style={{ padding: 0 }}>
+              <fieldset className="fs" data-step="2" hidden={step !== 2}>
+                <legend className="fs-t">
                   Now, your business.
                 </legend>
                 <p className="fs-s">This helps us come to the call prepared.</p>
@@ -315,8 +317,8 @@ export default function BusinessCheck() {
                 </div>
               </fieldset>
 
-              <fieldset data-step="3" hidden={step !== 3} style={{ border: 0, margin: 0, padding: 0, minWidth: 0 }}>
-                <legend className="fs-t" style={{ padding: 0 }}>
+              <fieldset className="fs" data-step="3" hidden={step !== 3}>
+                <legend className="fs-t">
                   What should work better?
                 </legend>
                 <p className="fs-s">Choose any that apply. There are no wrong answers.</p>
@@ -377,10 +379,7 @@ export default function BusinessCheck() {
                   )}
                   {step < 3 ? (
                     <button type="submit" className="btn btn-ink">
-                      Continue{" "}
-                      <span className="arr" aria-hidden="true">
-                        →
-                      </span>
+                      Continue <Arrow />
                     </button>
                   ) : (
                     <button type="submit" className="btn btn-primary" disabled={sending}>
@@ -435,17 +434,16 @@ export default function BusinessCheck() {
                 <p className="fine">
                   Anything to add in the meantime? Email <a href={`mailto:${site.email}`}>{site.email}</a>.
                 </p>
-                {done.bookHref && (
-                  <a className="btn btn-primary" href={done.bookHref} style={{ marginTop: 24 }}>
-                    Choose a time for your call{" "}
-                    <span className="arr" aria-hidden="true">
-                      →
-                    </span>
-                  </a>
-                )}
-                <button type="button" className="link-btn" style={{ marginTop: 12, paddingLeft: 0 }} onClick={reset}>
-                  Submit another request
-                </button>
+                <div className="done-actions">
+                  {done.bookHref && (
+                    <a className="btn btn-primary" href={done.bookHref}>
+                      Choose a time for your call <Arrow />
+                    </a>
+                  )}
+                  <button type="button" className="link-btn" onClick={reset}>
+                    Submit another request
+                  </button>
+                </div>
               </>
             )}
           </div>

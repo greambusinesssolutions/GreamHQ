@@ -119,7 +119,7 @@ const tabs: { title: string; desc: string; stage: string; heading: string; body:
     stage: "Automation",
     heading: "Let the system do the repeat work.",
     body: (
-      <div className="ui rule-ch">
+      <div className="ui">
         {[
           ["When", "A customer pays an invoice"],
           ["Then", "Mark the order as paid and send the receipt"],
@@ -162,7 +162,7 @@ export default function Solutions() {
   return (
     <section className="sec" id="solutions" aria-labelledby="sol-title">
       <div className="wrap">
-        <div className="sol-head">
+        <div className="sec-head">
           <div>
             <p className="eyebrow">What we do</p>
             <h2 className="h-section" id="sol-title">
@@ -198,10 +198,10 @@ export default function Solutions() {
                 >
                   <span className="n">0{i + 1}</span>
                   <span>
-                    <span className="tt" style={{ display: "block" }}>
+                    <span className="tt">
                       {t.title}
                     </span>
-                    <span className="td" style={{ display: "block" }} hidden={!on}>
+                    <span className="td" hidden={!on}>
                       {t.desc}
                     </span>
                   </span>

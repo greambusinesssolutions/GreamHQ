@@ -15,7 +15,7 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="sec" id="questions" aria-labelledby="faq-title" style={{ paddingTop: 40 }}>
+    <section className="sec" id="questions" aria-labelledby="faq-title">
       <div className="wrap faq-grid">
         <div>
           <p className="eyebrow">Questions</p>
@@ -28,7 +28,7 @@ export default function Faq() {
             const on = open === i;
             return (
               <div key={q} className={on ? "fq open" : "fq"}>
-                <h3 style={{ margin: 0 }}>
+                <h3>
                   <button type="button" aria-expanded={on} aria-controls={`faq-${i}`} onClick={() => setOpen(on ? null : i)}>
                     {q}
                     <span className="pm" aria-hidden="true">

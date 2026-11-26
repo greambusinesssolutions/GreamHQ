@@ -17,11 +17,11 @@ function verdictFor(answers: Record<number, Answer>) {
   const vals = Object.values(answers);
   const answered = vals.length;
   const unsure = vals.filter((v) => v === "ns").length;
-  const tally = answered ? `Not sure about ${unsure} of ${answered} answered` : "";
+  const tally = answered ? `${answered} of ${questions.length} answered · ${unsure} not sure` : "";
   let verdict = "If any answer is “I'm not sure”, that is where we start.";
   if (unsure === 1) verdict = "One “I'm not sure”. That is where we start.";
   else if (unsure > 1) verdict = `${unsure} answers of “I'm not sure”. That is where we start.`;
-  if (answered === questions.length && unsure === 0)
+  else if (answered === questions.length)
     verdict = "Sounds well organised. A free check can confirm it, and we'll tell you honestly if you don't need us.";
   return { tally, verdict };
 }

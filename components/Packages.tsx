@@ -61,7 +61,7 @@ export default function Packages() {
   return (
     <section className="sec" id="packages" aria-labelledby="pk-title">
       <div className="wrap">
-        <div className="pk-head">
+        <div className="sec-head">
           <div>
             <p className="eyebrow">Ways to start</p>
             <h2 className="h-section" id="pk-title">
@@ -93,23 +93,27 @@ export default function Packages() {
                   <li key={it}>{it}</li>
                 ))}
               </ul>
-              <dl className="pk-meta">
-                <div>
-                  <dt>Support</dt>
-                  <dd>{p.support}</dd>
-                </div>
-                <div>
-                  <dt>Price</dt>
-                  <dd>Fixed, after your free check</dd>
-                </div>
+              <dl className="pk-support">
+                <dt>Support</dt>
+                <dd>{p.support}</dd>
               </dl>
             </article>
           ))}
         </div>
 
-        <div className="custom" id="custom">
+        <div className="pk-foot">
+          <p>
+            <b>Fixed scope, fixed price, fixed timeline.</b> Agreed in writing before work begins. Not sure which fits? The
+            free check will tell you.
+          </p>
+          <a className="btn btn-ink" href="#assessment">
+            Find the right starting point <Arrow />
+          </a>
+        </div>
+
+        <div className="custom dark" id="custom">
           <div>
-            <p className="pk-k" style={{ color: "var(--accent-on-dark)" }}>
+            <p className="pk-k">
               Custom work
             </p>
             <h3 className="cu-t">Need something a package doesn&apos;t cover?</h3>
@@ -118,7 +122,7 @@ export default function Packages() {
               more specific needs. Same approach: we learn the business first, then agree the scope and a fixed price in
               writing.
             </p>
-            <a className="btn btn-primary" href="#assessment" style={{ marginTop: 28 }}>
+            <a className="btn btn-line" href="#assessment">
               Talk to us about custom work <Arrow />
             </a>
           </div>
@@ -133,16 +137,6 @@ export default function Packages() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="pk-foot">
-          <p>
-            <b>Fixed scope, fixed price, fixed timeline.</b> Agreed in writing before work begins. Not sure which fits? The
-            free check will tell you.
-          </p>
-          <a className="btn btn-ink" href="#assessment">
-            Find the right starting point <Arrow />
-          </a>
         </div>
       </div>
     </section>
