@@ -1,0 +1,7 @@
+[
+  { "id": "enquiry-to-payment", "order": 1, "title": "Enquiry to payment", "audience": "For businesses that sell through chats and calls", "outcome": "Every enquiry answered, followed up and paid, in one place.", "sample": true },
+  { "id": "hospitality-suite", "order": 2, "title": "Hospitality suite", "audience": "For hotels, guesthouses and restaurants", "outcome": "Bookings, rooms, restaurant and payments working as one.", "sample": true },
+  { "id": "clinic-bookings", "order": 3, "title": "Clinic bookings", "audience": "For clinics and practices", "outcome": "Fewer missed appointments and no-shows, with reminders that work.", "sample": true },
+  { "id": "orders-and-credit", "order": 4, "title": "Orders and credit", "audience": "For distributors and wholesalers", "outcome": "Know who owes what every morning, and collect it sooner.", "sample": true },
+  { "id": "memberships", "order": 5, "title": "Memberships and renewals", "audience": "For gyms, studios and clubs", "outcome": "Renewals paid on time, without anyone chasing.", "sample": true }
+]

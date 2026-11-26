@@ -1,0 +1,3 @@
+[
+  { "id": "platforms", "sample": true, "items": ["Cloudflare", "Paystack", "GitHub", "Vercel", "Zoho"] }
+]
