@@ -9,17 +9,40 @@ import s from "./BusinessCheckForm.module.css";
 
 const industries = ["Retail and e-commerce", "Food and hospitality", "Health and wellness", "Beauty and personal care", "Professional services", "Property and real estate", "Logistics and distribution", "Manufacturing", "Education and training", "Something else"];
 const sizes = ["Just me", "2–10", "11–50", "51–200", "More than 200"];
-const challengeOptions = ["Missed or slow replies to enquiries", "Inconsistent follow-up", "Orders tracked by hand", "Not sure who has paid", "No clear view of sales", "Too much repetitive admin", "Something else"];
-const steps = ["About you", "Your business", "What to improve", "Choose a time"];
+const currencies = ["USD", "GBP", "EUR", "NGN", "ZAR", "KES", "GHS", "AED", "CAD", "AUD", "INR"];
+const steps = ["About you", "Your business", "What it's costing", "Choose a time"];
 const hints = ["About two minutes in total", "Nearly there", "Then choose a time"];
 
-type Key = "name" | "business" | "email" | "phone" | "industry" | "size" | "challenges" | "improve" | "consent";
+function CostResult({ cost, currency, className }: { cost: Record<CostKey, string>; currency: string; className: string }) {
+  const e = estimate(cost);
+  if (!e.monthly && !e.late && !e.hours) return <p className={`t-small ${className}`} aria-live="polite">Fill in what you can and we&apos;ll show a rough monthly figure here.</p>;
+  return (
+    <p className={`t-small ${className}`} aria-live="polite">
+      {e.monthly > 0 && <>Missed customers may be costing you around <b>{money(e.monthly, currency)} a month</b>. </>}
+      {e.late > 0 && <><b>{money(e.late, currency)}</b> is waiting to be collected. </>}
+      {e.hours > 0 && <>Your team spends about <b>{e.hours} hours a month</b> chasing information. </>}
+      We&apos;ll check this with you on the call.
+    </p>
+  );
+}
+
+type Key = "name" | "business" | "email" | "phone" | "industry" | "size" | "consent";
+type CostKey = "enquiries" | "missed" | "sale" | "late" | "hours";
+
+const num = (x: string) => { const n = Number(x.replace(/[^0-9.]/g, "")); return Number.isFinite(n) ? n : 0; };
+const money = (n: number, currency: string) => new Intl.NumberFormat("en-GB", { style: "currency", currency, maximumFractionDigits: 0 }).format(n);
+
+/** Monthly estimate: enquiries that get no reply or follow-up, times an average sale. */
+export function estimate(c: Record<CostKey, string>) {
+  return { monthly: num(c.missed) * num(c.sale), late: num(c.late), hours: Math.round(num(c.hours) * 4.33) };
+}
 type Errors = Partial<Record<Key, string>>;
 
 export default function BusinessCheckForm({ endpoint, email, bookingUrl }: { endpoint: string; email: string; bookingUrl: string }) {
   const [step, setStep] = useState(1);
-  const [v, setV] = useState({ name: "", business: "", email: "", phone: "", industry: "", size: "", improve: "" });
-  const [challenges, setChallenges] = useState<string[]>([]);
+  const [v, setV] = useState({ name: "", business: "", email: "", phone: "", industry: "", size: "" });
+  const [cost, setCost] = useState<Record<CostKey, string>>({ enquiries: "", missed: "", sale: "", late: "", hours: "" });
+  const [currency, setCurrency] = useState("USD");
   const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [summary, setSummary] = useState("");
@@ -56,8 +79,6 @@ export default function BusinessCheckForm({ endpoint, email, bookingUrl }: { end
       if (!v.size) e.size = "Please choose your team size.";
     }
     if (n === 3) {
-      if (!challenges.length) e.challenges = "Choose at least one challenge.";
-      if (v.improve.trim().length < 3) e.improve = "Tell us briefly what you would like to improve.";
       if (!consent) e.consent = "Please tick the box so we can use your details for the call.";
     }
     const count = Object.keys(e).length;
@@ -78,7 +99,12 @@ export default function BusinessCheckForm({ endpoint, email, bookingUrl }: { end
     if (busy || !validate(step)) return;
     if (step < 3) return go(step + 1);
     if ((ev.currentTarget.elements.namedItem("_gotcha") as HTMLInputElement).value) return; // honeypot
-    const data = { ...v, name: v.name.trim(), business: v.business.trim(), email: v.email.trim(), phone: v.phone.trim(), improve: v.improve.trim(), challenges: challenges.join(", ") };
+    const est = estimate(cost);
+    const data = {
+      ...v, name: v.name.trim(), business: v.business.trim(), email: v.email.trim(), phone: v.phone.trim(),
+      currency, enquiriesPerMonth: cost.enquiries, missedPerMonth: cost.missed, averageSale: cost.sale, lateOwed: cost.late, hoursChasingPerWeek: cost.hours,
+      estimatedMonthlyCost: est.monthly ? money(est.monthly, currency) : "Not given",
+    };
     setBusy(true);
     try {
       const how = await sendForm(endpoint, email, `Free business check request: ${data.business}`, data);
@@ -99,6 +125,7 @@ export default function BusinessCheckForm({ endpoint, email, bookingUrl }: { end
 
   return (
     <div className={s.card}>
+      <p className={`t-title ${s.cardTitle}`}>Find out what it&apos;s costing you.</p>
       <ol className={s.prog} aria-hidden="true">
         {steps.map((name, i) => (
           <li key={name} className={`${s.progItem} ${i + 1 === current ? s.cur : ""} ${i + 1 < current ? s.past : ""}`}>
@@ -151,32 +178,28 @@ export default function BusinessCheckForm({ endpoint, email, bookingUrl }: { end
           </fieldset>
 
           <fieldset className={s.fs} data-step="3" hidden={step !== 3}>
-            <legend className={`t-title ${s.legend}`}>What should work better?</legend>
-            <p className={`t-small ${s.sub}`}>Choose any that apply. There are no wrong answers.</p>
+            <legend className={`t-title ${s.legend}`}>What it&apos;s costing.</legend>
+            <p className={`t-small ${s.sub}`}>All optional. Rough numbers are fine: we&apos;ll check them with you on the call.</p>
             <div className={s.grid}>
-              <div className={`field ${s.full}`}>
-                <fieldset className="chips" {...field("challenges")}>
-                  <legend>Your current challenges</legend>
-                  {challengeOptions.map((c) => (
-                    <label className="chip" key={c}>
-                      <input
-                        type="checkbox" name="challenges" value={c} checked={challenges.includes(c)}
-                        onChange={(e) => {
-                          setChallenges((l) => (e.target.checked ? [...l, c] : l.filter((x) => x !== c)));
-                          setErrors((er) => ({ ...er, challenges: undefined }));
-                        }}
-                      />
-                      <span>{c}</span>
-                    </label>
-                  ))}
-                </fieldset>
-                <Err k="challenges" />
+              {([
+                ["enquiries", "How many enquiries do you get a month?", "numeric", false],
+                ["missed", "Roughly how many get no reply or no follow-up?", "numeric", false],
+                ["sale", "What's an average sale worth?", "decimal", true],
+                ["late", "How much do customers owe you right now that's late?", "decimal", true],
+                ["hours", "How many hours a week does your team spend chasing information?", "decimal", false],
+              ] as const).map(([k, label, mode, isMoney]) => (
+                <div className="field" key={k}>
+                  <label htmlFor={`bc-${k}`}>{label}{isMoney && <span className="opt"> ({currency})</span>}</label>
+                  <input className="inp" id={`bc-${k}`} name={k} inputMode={mode} value={cost[k]} onChange={(e) => setCost((c) => ({ ...c, [k]: e.target.value }))} />
+                </div>
+              ))}
+              <div className="field">
+                <label htmlFor="bc-currency">Currency</label>
+                <select className="inp" id="bc-currency" name="currency" value={currency} onChange={(e) => setCurrency(e.target.value)}>
+                  {currencies.map((c) => <option key={c}>{c}</option>)}
+                </select>
               </div>
-              <div className={`field ${s.full}`}>
-                <label htmlFor="bc-improve">What would you most like to improve?</label>
-                <textarea className="inp" id="bc-improve" name="improve" placeholder="For example: every enquiry answered the same day, and a clear list of who still owes us." value={v.improve} onChange={(e) => set("improve", e.target.value)} {...field("improve")} />
-                <Err k="improve" />
-              </div>
+              <CostResult cost={cost} currency={currency} className={`${s.full} ${s.result}`} />
               <div className={`field ${s.full}`}>
                 <label className="consent">
                   <input type="checkbox" name="consent" checked={consent} onChange={(e) => { setConsent(e.target.checked); setErrors((er) => ({ ...er, consent: undefined })); }} {...field("consent")} />
@@ -204,13 +227,13 @@ export default function BusinessCheckForm({ endpoint, email, bookingUrl }: { end
         <div ref={doneRef} className={s.done} tabIndex={-1} role="status">
           <p className={`t-label ${s.stepOf}`}>Step 4 of 4 · Choose a time</p>
           <h3 className="t-title">Thank you, {done.first}. Now choose a time.</h3>
-          <p className={`t-small ${s.sub}`}>Your answers are in. Pick a 20-minute slot that suits you.</p>
+          <p className={`t-small ${s.sub}`}>We&apos;ll go through your number together on the call and show you what would change it fastest.</p>
           <a className={`btn btn-primary ${s.book}`} href={done.book}>Choose a time for your call <span className="arr" aria-hidden="true">→</span></a>
           {done.mail && <p className={`t-caption ${s.fine}`}>Your email app should have opened with your answers. Press send so they reach us, then choose a time.</p>}
           <ol className={s.next}>
             <li className={s.nextItem}><b className={`t-label ${s.nextNum}`}>01</b><span className="t-small">We read your answers before we speak, so the call starts with your business.</span></li>
-            <li className={s.nextItem}><b className={`t-label ${s.nextNum}`}>02</b><span className="t-small">On the call, we look at how your business runs today and where customers or time are lost.</span></li>
-            <li className={s.nextItem}><b className={`t-label ${s.nextNum}`}>03</b><span className="t-small">Afterwards, you get a one-page summary and a suggested next step. No obligation.</span></li>
+            <li className={s.nextItem}><b className={`t-label ${s.nextNum}`}>02</b><span className="t-small">On the call, we work out what missed customers, late payments and lost time cost you each month.</span></li>
+            <li className={s.nextItem}><b className={`t-label ${s.nextNum}`}>03</b><span className="t-small">You leave knowing your number, whether you work with us or not.</span></li>
           </ol>
         </div>
       )}
