@@ -46,7 +46,7 @@ export default async function ServicePage({ params }: Params) {
               {h.proof && <p className={`t-label ${s.proof}`}>{h.proof}</p>}
             </div>
             {h.example && (
-              <figure className={s.example} aria-label={`Example: ${h.example.label}`}>
+              <figure className={`dark ${s.example}`} aria-label={`Example: ${h.example.label}`}>
                 <div className={s.exHead}><span className="t-label">{h.example.label}</span><span className={s.exBadge}>Example</span></div>
                 <div className={`t-small ${s.chat}`}>
                   <p className={s.in}>{h.example.customer}</p>
