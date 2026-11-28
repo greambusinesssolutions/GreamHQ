@@ -128,7 +128,7 @@ const exampleSchema = z.object({
 const listSchema = z.object({ id: z.string(), items: z.array(z.string()) });
 
 // ---------- Loaders ----------
-type Entry<T> = { slug: string; data: T; html: string };
+type Entry<T> = { slug: string; data: T; html: string; minutes: number };
 
 function loadMarkdown<T>(dir: string, schema: z.ZodType<T>): Entry<T>[] {
   const folder = join(ROOT, dir);
@@ -138,7 +138,8 @@ function loadMarkdown<T>(dir: string, schema: z.ZodType<T>): Entry<T>[] {
       const { data, content } = matter(readFileSync(join(folder, f), "utf8"));
       const parsed = schema.safeParse(data);
       if (!parsed.success) throw new Error(`content/${dir}/${f}: ${z.prettifyError(parsed.error)}`);
-      return { slug: f.replace(/\.md$/, ""), data: parsed.data, html: marked.parse(content.trim(), { async: false }) };
+      const words = content.split(/\s+/).filter(Boolean).length;
+      return { slug: f.replace(/\.md$/, ""), data: parsed.data, html: marked.parse(content.trim(), { async: false }), minutes: Math.max(1, Math.ceil(words / 200)) };
     });
 }
 

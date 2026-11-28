@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Article({ params }: Params) {
   const { slug } = await params;
   const all = getInsights();
-  const { data: d, html } = bySlug(all, slug, "insights");
+  const { data: d, html, minutes } = bySlug(all, slug, "insights");
   const related = d.related.map((r) => all.find((x) => x.slug === r)).filter((x): x is (typeof all)[number] => !!x).slice(0, 3);
   return (
     <>
@@ -30,7 +30,7 @@ export default async function Article({ params }: Params) {
       <article>
         <header className={`ledger-grid ${s.article}`}>
           <div className="wrap">
-            <SectionHeading eyebrow={d.type} heading={d.title} level={1} size="display" id="art-h" />
+            <SectionHeading eyebrow={`${d.type} · ${minutes} min read`} heading={d.title} level={1} size="display" id="art-h" />
             <aside className={s.answer} aria-label="The short answer">
               <p className={`t-label ${s.answerLabel}`}>The short answer</p>
               <p className="t-lede">{d.shortAnswer}</p>
@@ -38,7 +38,14 @@ export default async function Article({ params }: Params) {
           </div>
         </header>
         <div className="section tight-top">
-          <div className="wrap"><div className={`t-body ${s.body}`} dangerouslySetInnerHTML={{ __html: html }} /></div>
+          <div className="wrap">
+            <div className={`t-body ${s.body}`} dangerouslySetInnerHTML={{ __html: html }} />
+            <aside className={s.next} aria-label="Talk it through">
+              <p className="t-title">Want a second pair of eyes on this?</p>
+              <p className="t-body muted">That&rsquo;s what the free business check is for. We&rsquo;ll look at how this works in your business today, and if you don&rsquo;t need us, we&rsquo;ll say so.</p>
+              <Link className="arr-slide" href="/#contact">Book a free business check <span aria-hidden="true">→</span></Link>
+            </aside>
+          </div>
         </div>
       </article>
       {related.length > 0 && (
@@ -48,7 +55,7 @@ export default async function Article({ params }: Params) {
             <div className={s.latest}>
               {related.map((x) => (
                 <Link key={x.slug} className={`lift ${s.card}`} href={`/insights/${x.slug}`}>
-                  <span className="t-label">{x.data.type}</span>
+                  <span className="t-label">{x.data.type} · {x.minutes} min read</span>
                   <span className="t-title">{x.data.title}</span>
                 </Link>
               ))}

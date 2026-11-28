@@ -24,7 +24,7 @@ export default function Insights() {
         <section className="section tight-top" aria-label="Featured">
           <div className={`wrap ${s.top}`}>
             <Link className={`lift dark ledger-grid ${s.feature}`} href={`/insights/${featured.slug}`}>
-              <span className={`t-label ${s.featureKind}`}>Featured {featured.data.type.toLowerCase()}</span>
+              <span className={`t-label ${s.featureKind}`}>Featured {featured.data.type.toLowerCase()} · {featured.minutes} min read</span>
               <span className="t-section">{featured.data.title}</span>
               <span className="t-body muted">{featured.data.summary}</span>
               <span className={s.featureGo}>Read the {featured.data.type.toLowerCase()} →</span>
@@ -32,7 +32,7 @@ export default function Insights() {
             <div className={s.list}>
               {side.map((x) => (
                 <Link key={x.slug} className={s.item} href={`/insights/${x.slug}`}>
-                  <span className="t-label">{x.data.type}</span>
+                  <span className="t-label">{x.data.type} · {x.minutes} min read</span>
                   <span className="t-title">{x.data.title}</span>
                 </Link>
               ))}
@@ -47,7 +47,7 @@ export default function Insights() {
             <div className={s.latest}>
               {latest.map((x) => (
                 <Link key={x.slug} className={`lift ${s.card}`} href={`/insights/${x.slug}`}>
-                  <span className="t-label">{x.data.type}</span>
+                  <span className="t-label">{x.data.type} · {x.minutes} min read</span>
                   <span className="t-title">{x.data.title}</span>
                 </Link>
               ))}
