@@ -1,14 +1,13 @@
 ---
 name: "PaidUp"
 audience: "For small shops"
-status: "Live"
+status: "Early access"
 summary: "Know what you sold, what is left on the shelf and who still owes you, from your phone."
-price: "From $9 a month"
-cta: "Start free trial"
+price: "From $— a month"
+cta: "Request access"
 order: 1
-example: true
 ---
 
 PaidUp shows what you sold today, what's left on the shelf and which customers still owe you, all from your phone. Add a sale in seconds, and see your numbers whenever you want them.
 
-Start with a free trial, then a simple monthly plan. Cancel any time, and your data stays yours.
+PaidUp is in early access. Request access and we'll set it up with you.

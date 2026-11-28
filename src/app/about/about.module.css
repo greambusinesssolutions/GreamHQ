@@ -27,3 +27,4 @@
 .dirLabel { color: var(--label-on-dark); }
 .first .dirLabel { color: var(--accent-on-dark); }
 @container page (max-width: 1100px) { .directions { grid-template-columns: minmax(0, 1fr); } }
+@container page (max-width: 640px) { .strip { margin-top: 44px; } }

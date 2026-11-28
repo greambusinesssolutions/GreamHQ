@@ -48,6 +48,3 @@ Every push builds a Vercel preview, and that preview URL is where the new site i
 
 `main` deploys greamhq.com. Leave greamhq.com unchanged until the team says to switch.
 
-## Illustrative examples
-
-Sample clients, figures, quotes, products and prices from the designs carry `example: true` in their content file, which shows an "Illustrative example" label on the page. When a real, approved case, figure or price replaces one, delete that line and the label disappears.

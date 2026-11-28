@@ -10,4 +10,4 @@
   .item:nth-child(n + 3) { border-bottom: 0; }
 }
 .suffix { font-size: 0.5em; color: var(--text-muted); }
-.note { margin-top: var(--space-3); }
+@container page (max-width: 640px) { .num { font-size: 44px; } }

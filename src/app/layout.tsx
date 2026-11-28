@@ -7,6 +7,7 @@ import { serif, sans, mono } from "./fonts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
+import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
 import { site, previewMode } from "@/data/site";
 import { organizationLd } from "@/lib/seo";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <Footer />
           <MobileBar />
+          <Reveal />
         </div>
         <Analytics />
       </body>

@@ -15,7 +15,7 @@ hero:
 stats:
   - { value: "6", label: "Ways to partner" }
   - { value: "Day 1", label: "Terms in writing" }
-  - { value: "16", label: "Countries" }
+  - { value: "—", label: "Countries" }
   - { value: "1", label: "Team that stays" }
 stages:
   eyebrow: "Where ideas get stuck"

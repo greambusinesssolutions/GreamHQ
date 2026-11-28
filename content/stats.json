@@ -3,89 +3,76 @@
   "id": "home",
   "items": [
    {
-    "value": "140+",
+    "value": "—",
     "label": "Projects delivered"
    },
    {
-    "value": "16",
+    "value": "—",
     "label": "Countries served"
    },
    {
-    "value": "9 in 10",
+    "value": "—",
     "label": "Clients stay on support"
    },
    {
-    "value": "4.9",
-    "label": "Average client rating",
-    "suffix": "/5"
+    "value": "—",
+    "label": "Average client rating"
    }
-  ],
-  "example": true
+  ]
  },
  {
   "id": "about",
   "items": [
    {
-    "value": "140+",
+    "value": "—",
     "label": "Projects delivered"
    },
    {
-    "value": "16",
+    "value": "—",
     "label": "Countries"
    },
    {
-    "value": "4",
-    "label": "Products"
-   },
-   {
-    "value": "9 in 10",
+    "value": "—",
     "label": "Clients stay with us"
    }
-  ],
-  "example": true
+  ]
  },
  {
   "id": "work",
   "items": [
    {
-    "value": "142",
+    "value": "—",
     "label": "Projects delivered"
    },
    {
-    "value": "16",
+    "value": "—",
     "label": "Countries"
    },
    {
-    "value": "4",
+    "value": "—",
     "label": "Continents"
    },
    {
-    "value": "9 in 10",
+    "value": "—",
     "label": "Clients stay on support"
    }
-  ],
-  "example": true
+  ]
  },
  {
   "id": "partners",
   "items": [
    {
-    "value": "6",
-    "label": "Ways to partner"
-   },
-   {
-    "value": "16",
+    "value": "—",
     "label": "Countries"
    },
    {
-    "value": "10%",
+    "value": "—",
     "label": "Referral share"
    },
    {
     "value": "Day 1",
     "label": "Terms in writing"
    }
-  ],
-  "example": true
+  ]
  }
 ]

@@ -1,7 +1,7 @@
 "use client";
 
-// Sticky business-check button on phones. Hidden while another Vermilion button or
-// the business check form is on screen, so there is only one per screen.
+// Under 640px: a fixed "Book a free business check" button on every page.
+// It steps aside while the booking form itself (#contact) is on screen.
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -9,25 +9,18 @@ import { bookHref } from "@/data/nav";
 import s from "./MobileBar.module.css";
 
 export default function MobileBar() {
-  const [hidden, setHidden] = useState(false);
   const path = usePathname();
-
+  const [hidden, setHidden] = useState(false);
   useEffect(() => {
-    if (!("IntersectionObserver" in window)) return;
-    const seen = new Set<Element>();
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)));
-      setHidden(seen.size > 0);
-    });
-    document.querySelectorAll("main .btn-primary, #contact").forEach((el) => io.observe(el));
+    const form = document.getElementById("contact");
+    if (!form || !("IntersectionObserver" in window)) return setHidden(false);
+    const io = new IntersectionObserver(([e]) => setHidden(e.isIntersecting), { threshold: 0.15 });
+    io.observe(form);
     return () => io.disconnect();
   }, [path]);
-
   return (
-    <div className={`${s.bar} ${hidden ? s.hidden : ""}`}>
-      <Link className="btn btn-primary" href={bookHref}>
-        Book a free business check
-      </Link>
-    </div>
+    <Link className={`${s.bar} ${hidden ? s.hidden : ""} btn btn-primary`} href={bookHref} aria-hidden={hidden || undefined} tabIndex={hidden ? -1 : undefined}>
+      Book a free business check <span className="arr" aria-hidden="true">→</span>
+    </Link>
   );
 }

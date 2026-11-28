@@ -13,9 +13,9 @@ hero:
   cta: "Book a free business check"
   secondary: { label: "See our work", href: "/work" }
 stats:
-  - { value: "−72%", label: "Time reconciling payments" }
-  - { value: "+41%", label: "Overdue invoices collected" }
-  - { value: "0", label: "Unpaid stays since launch" }
+  - { value: "—", label: "Time reconciling payments" }
+  - { value: "—", label: "Overdue invoices collected" }
+  - { value: "—", label: "Unpaid stays since launch" }
   - { value: "100%", label: "Yours to keep" }
 stages:
   eyebrow: "Where businesses are"
@@ -52,7 +52,7 @@ shortAnswer:
     - { label: "On time", text: "Follow-ups that don't rely on memory." }
     - { label: "Typed once", text: "Details move from quote to invoice." }
     - { label: "Clear numbers", text: "Sales and what's owed, any time." }
-story: "harbourline-hotels"
+story: "case-01"
 questions:
   heading: "Six questions to ask before you choose a system"
   items:

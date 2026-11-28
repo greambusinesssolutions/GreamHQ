@@ -1,0 +1,31 @@
+.scene { background: var(--paper); border: 1px solid var(--line); }
+.head { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.ex { color: var(--accent-text); }
+.dot { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: var(--radius-round); background: var(--status-paid-fg); vertical-align: 1px; animation: pulse 1.6s ease-in-out infinite; }
+.chat { display: flex; flex-direction: column; gap: 10px; min-height: 236px; padding: 18px; background: var(--sage); }
+.from { margin-bottom: 2px; }
+.bubble { max-width: 82%; padding: 11px 14px; font-size: 15px; line-height: 1.45; }
+.in { align-self: flex-start; background: var(--paper); color: var(--green); border-radius: var(--radius-bubble) var(--radius-bubble) var(--radius-bubble) 3px; }
+.out { align-self: flex-end; background: var(--green); color: var(--ink-on-dark); border-radius: var(--radius-bubble) var(--radius-bubble) 3px var(--radius-bubble); }
+.outWrap { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.approved { color: var(--status-paid-fg); }
+.typing { display: inline-flex; gap: 5px; padding: 14px 16px; }
+.typing i { width: 6px; height: 6px; border-radius: var(--radius-round); background: var(--ink-on-dark); animation: pulse 1s ease-in-out infinite; }
+.typing i:nth-child(2) { animation-delay: 0.15s; }
+.typing i:nth-child(3) { animation-delay: 0.3s; }
+.rows { border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 1.2fr 1fr auto; gap: var(--space-3); align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); opacity: 0.35; transform: translateX(-6px); transition: opacity 0.5s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.row:last-child { border-bottom: 0; }
+.row.on { opacity: 1; transform: none; }
+.muted { color: var(--text-muted); }
+.amount { font-variant-numeric: tabular-nums; font-weight: 600; }
+.tagSwap { display: grid; justify-items: end; }
+.tagSwap > span { grid-area: 1 / 1; transition: opacity 0.4s, transform 0.4s; }
+.done { opacity: 0; transform: scale(0.8); }
+.paid .waiting { opacity: 0; }
+.paid .done { opacity: 1; transform: none; animation: pop 0.6s ease-out; }
+@container page (max-width: 760px) {
+  .chat { min-height: 260px; }
+  .row { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .muted { grid-column: 1 / -1; grid-row: 2; }
+}

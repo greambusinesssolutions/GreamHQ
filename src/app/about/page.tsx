@@ -3,7 +3,7 @@ import SectionHeading from "@/components/SectionHeading";
 import NumberStrip from "@/components/NumberStrip";
 import IndexRows from "@/components/IndexRows";
 import DarkCta from "@/components/DarkCta";
-import { getStatStrip } from "@/lib/content";
+import { getStats } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import s from "./about.module.css";
 
@@ -50,7 +50,7 @@ export default function About() {
           <p className={`t-lede ${s.lede}`}>
             GREAM Business Solutions helps businesses around the world stop losing customers, get paid on time and see how they are really doing, through products, solutions and long-term partnerships.
           </p>
-          <NumberStrip items={getStatStrip("about").items} example={getStatStrip("about").example} className={s.strip} />
+          <NumberStrip items={getStats("about")} className={s.strip} />
         </div>
       </section>
 
@@ -126,10 +126,10 @@ export default function About() {
 
       <section className="section tight-top" aria-label="Partners">
         <div className="wrap">
-          <Link className={s.linkCard} href="/partners">
+          <Link className={`lift ${s.linkCard}`} href="/partners">
             <span className="t-label">Partners</span>
             <span className="t-section">Build products and grow with us</span>
-            <span className={s.linkGo}>Become a partner →</span>
+            <span className={s.linkGo}>Become a partner <span className="arr-slide">→</span></span>
           </Link>
         </div>
       </section>

@@ -13,9 +13,9 @@ hero:
   cta: "Book a free business check"
   secondary: { label: "See our work", href: "/work" }
 stats:
-  - { value: "2 hrs", label: "Per quote, down from 2 days" }
-  - { value: "−60%", label: "Admin time per new client" }
-  - { value: "2×", label: "Enquiries from the website" }
+  - { value: "—", label: "Time per quote" }
+  - { value: "—", label: "Admin time per new client" }
+  - { value: "—", label: "Enquiries from the website" }
   - { value: "100%", label: "Yours to keep" }
 stages:
   eyebrow: "Where businesses are"
@@ -52,9 +52,7 @@ shortAnswer:
     - { label: "Costly", text: "It eats hours or loses customers." }
     - { label: "Specific", text: "No ready-made app does it well." }
     - { label: "Clear", text: "You can describe how it should work." }
-story: "atlas-and-oak"
-storyCard:
-  text: "2 days → 2 hours per quote"
+story: "case-04"
 questions:
   heading: "Six questions to ask before you build"
   items:

@@ -23,7 +23,7 @@ export default function Insights() {
       {featured && (
         <section className="section tight-top" aria-label="Featured">
           <div className={`wrap ${s.top}`}>
-            <Link className={`dark ledger-grid ${s.feature}`} href={`/insights/${featured.slug}`}>
+            <Link className={`lift dark ledger-grid ${s.feature}`} href={`/insights/${featured.slug}`}>
               <span className={`t-label ${s.featureKind}`}>Featured {featured.data.type.toLowerCase()}</span>
               <span className="t-section">{featured.data.title}</span>
               <span className="t-body muted">{featured.data.summary}</span>
@@ -46,7 +46,7 @@ export default function Insights() {
             <h2 className={`t-label ${s.latestLabel}`} id="latest-h">Latest</h2>
             <div className={s.latest}>
               {latest.map((x) => (
-                <Link key={x.slug} className={s.card} href={`/insights/${x.slug}`}>
+                <Link key={x.slug} className={`lift ${s.card}`} href={`/insights/${x.slug}`}>
                   <span className="t-label">{x.data.type}</span>
                   <span className="t-title">{x.data.title}</span>
                 </Link>

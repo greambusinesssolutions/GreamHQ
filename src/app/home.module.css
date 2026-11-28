@@ -1,12 +1,6 @@
 .hero { padding: var(--space-24) 0 0; }
 .heroGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-18); align-items: end; margin-top: var(--space-12); }
 .heroActions { margin-top: 36px; }
-.ledger { background: var(--paper); border: 1px solid var(--line); }
-.ledgerHead { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); }
-.ledgerHead .ex { color: var(--accent-text); }
-.ledgerRow { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: var(--space-3); align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); }
-.ledgerRow:last-child { border-bottom: 0; }
-.ledgerWhat { color: var(--text-muted); }
 .strip { margin-top: var(--space-24); }
 .featured { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
 .compact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); margin-top: var(--space-6); }
@@ -34,11 +28,17 @@
   .hero { padding-top: var(--space-12); }
   .featured, .promises { grid-template-columns: minmax(0, 1fr); }
   .heroActions > * { width: 100%; }
-  .ledgerRow { grid-template-columns: minmax(0, 1fr) auto; }
-  .ledgerWhat { grid-column: 1; grid-row: 2; }
   .strip { margin-top: var(--space-18); }
   .partner { padding: var(--space-section-phone) 0; }
 }
 .contactForm { margin-top: var(--space-12); max-width: 880px; }
 .contactMail { margin-top: var(--space-8); font-weight: 600; }
 .contactMail a { display: inline-flex; min-height: var(--touch-min); align-items: center; }
+
+@container page (max-width: 640px) { .strip { margin-top: 44px; } }
+
+/* Final call to action: one bold Vermilion band. Text on Vermilion is always white. */
+.band { background: var(--action); color: var(--paper); }
+.band :global(.eyebrow), .band h2, .band h2 em { color: var(--paper); }
+.band .contactMail a { color: var(--paper); }
+.band .contactMail a:hover { color: var(--green); }

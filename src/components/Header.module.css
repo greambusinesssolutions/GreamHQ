@@ -7,14 +7,23 @@
 .links a { color: var(--green); text-decoration: none; padding: 12px 0; position: relative; }
 .links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 8px; height: 1px; background: var(--action); transition: right 0.25s; }
 .links a:hover::after, .links a[aria-current="page"]::after { right: 0; }
-.menuBtn { display: none; width: 48px; height: 48px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: var(--radius-sm); background: transparent; color: var(--green); cursor: pointer; }
-.mnav { display: flex; flex-direction: column; padding: 0 var(--gutter-phone) var(--space-6); border-top: 1px solid var(--line); background: var(--mist); }
-.mnav a { display: flex; justify-content: space-between; align-items: center; min-height: 64px; border-bottom: 1px solid var(--line); color: var(--green); text-decoration: none; }
-.num { color: var(--accent-text); }
+.actions { display: flex; align-items: center; gap: var(--space-2); }
+.short { display: none; }
+.menuBtn { display: none; min-height: var(--touch-min); align-items: center; padding: 0 14px; border: 1px solid rgba(13, 43, 35, 0.3); border-radius: var(--radius-sm); background: transparent; color: var(--green); font: 600 15px var(--font-sans); cursor: pointer; }
+.menuBtn[aria-expanded="true"] { background: var(--green); border-color: var(--green); color: var(--ink-on-dark); }
+.mnav { position: absolute; left: 0; right: 0; top: 100%; display: flex; flex-direction: column; padding: var(--space-2) var(--gutter-phone) var(--space-6); background: var(--mist); border-bottom: 2px solid var(--line-strong); animation: rise 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.mnav[hidden] { display: none; }
+.mnav a { padding: var(--space-3) 0; border-bottom: 1px solid var(--line); color: var(--green); text-decoration: none; font: 400 34px / 1.15 var(--font-display); }
+.mnav a[aria-current="page"] { color: var(--accent-text); }
 @container page (max-width: 1100px) { .links { gap: var(--space-6); } }
 @container page (max-width: 1000px) {
-  .links, .cta { display: none; }
+  .links { display: none; }
   .menuBtn { display: inline-flex; }
 }
 @container page (min-width: 1001px) { .mnav { display: none !important; } }
 @container page (max-width: 760px) { .in { min-height: 64px; } }
+@container page (max-width: 640px) {
+  .long { display: none; }
+  .short { display: inline; }
+  .cta { padding: 0 14px; white-space: nowrap; }
+}

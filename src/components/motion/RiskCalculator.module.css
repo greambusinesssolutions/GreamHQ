@@ -1,0 +1,22 @@
+.calc { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-18); align-items: center; border-top: 2px solid var(--line-strong); padding-top: var(--space-12); }
+.inputs { display: flex; flex-direction: column; gap: var(--space-8); }
+.field { display: flex; flex-direction: column; gap: var(--space-3); }
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+.value { font: 600 17px/1.2 var(--font-sans); font-variant-numeric: tabular-nums; color: var(--green); }
+.range { width: 100%; height: 44px; margin: 0; background: transparent; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.range::-webkit-slider-runnable-track { height: 2px; background: linear-gradient(to right, var(--green) var(--fill), var(--line) var(--fill)); }
+.range::-moz-range-track { height: 2px; background: var(--line); }
+.range::-moz-range-progress { height: 2px; background: var(--green); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -10px; border-radius: var(--radius-round); background: var(--paper); border: 2px solid var(--green); transition: transform 0.15s; }
+.range::-moz-range-thumb { width: 20px; height: 20px; border-radius: var(--radius-round); background: var(--paper); border: 2px solid var(--green); }
+.range:active::-webkit-slider-thumb { transform: scale(1.15); }
+.curRow { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); }
+.curs { display: inline-flex; border: 1px solid rgba(13, 43, 35, 0.3); border-radius: var(--radius-sm); }
+.cur, .curOn { min-width: 48px; min-height: var(--touch-min); border: 0; background: transparent; color: var(--green); font: 600 16px var(--font-sans); cursor: pointer; }
+.cur + .cur, .cur + .curOn, .curOn + .cur { border-left: 1px solid rgba(13, 43, 35, 0.3); }
+.curOn { background: var(--green); color: var(--ink-on-dark); }
+.result { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.figure { font-size: clamp(56px, 9cqi, 100px); line-height: 0.95; font-variant-numeric: tabular-nums; color: var(--green); overflow-wrap: anywhere; }
+.note { color: var(--text); max-width: 460px; }
+@container page (max-width: 1100px) { .calc { grid-template-columns: minmax(0, 1fr); gap: var(--space-12); } }
+@container page (max-width: 640px) { .figure { font-size: 56px; } .result .btn { width: 100%; } }

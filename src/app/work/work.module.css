@@ -17,4 +17,4 @@
   .strip { margin-top: var(--space-18); }
   .grid, .related, .blocks { grid-template-columns: minmax(0, 1fr); }
 }
-.exampleNote { margin-bottom: var(--space-6); }
+@container page (max-width: 640px) { .strip { margin-top: 44px; } }

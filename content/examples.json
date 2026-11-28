@@ -9,7 +9,7 @@
     "status": "New"
    },
    {
-    "who": "Lindqvist Studio · Email",
+    "who": "Customer · Email",
     "what": "Follow-up 10:00",
     "status": "Due today"
    },
@@ -24,5 +24,18 @@
     "status": "Part paid"
    }
   ]
+ },
+ {
+  "id": "home-scene",
+  "label": "Today · Live",
+  "rows": [],
+  "customer": "Amara O. · WhatsApp",
+  "message": "Hi, do you deliver on Saturdays? I need 20 cartons.",
+  "reply": "Yes, we deliver on Saturdays. Here's your payment link for 20 cartons.",
+  "approved": "Approved by your team",
+  "linkSent": "Payment link sent",
+  "order": "Order 2041 · 20 cartons",
+  "currency": "$",
+  "amount": 1240
  }
 ]
