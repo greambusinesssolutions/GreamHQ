@@ -111,7 +111,20 @@ const partnerModelSchema = z.object({
 });
 const statsSchema = z.object({ id: z.string(), items: z.array(stat) });
 const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]) });
-const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })) });
+const exampleSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })).default([]),
+  // Home hero scene (content/examples.json, id "home-scene")
+  customer: z.string().optional(),
+  message: z.string().optional(),
+  reply: z.string().optional(),
+  approved: z.string().optional(),
+  linkSent: z.string().optional(),
+  order: z.string().optional(),
+  currency: z.string().optional(),
+  amount: z.number().optional(),
+});
 const listSchema = z.object({ id: z.string(), items: z.array(z.string()) });
 
 // ---------- Loaders ----------
