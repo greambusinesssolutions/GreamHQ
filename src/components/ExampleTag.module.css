@@ -1,2 +1,0 @@
-.tag { display: inline-flex; align-items: center; padding: 5px 8px; border: 1px dashed currentColor; border-radius: var(--radius-sm); font: 500 11.5px/1 var(--font-mono); letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
-:global(.dark) .tag { color: var(--label-on-dark); }

@@ -3,8 +3,7 @@ import NumberStrip from "@/components/NumberStrip";
 import IndexRows from "@/components/IndexRows";
 import Faq from "@/components/Faq";
 import PartnerForm from "@/components/PartnerForm";
-import { getFaqs, getList, getPartnerModels, getStatStrip } from "@/lib/content";
-import ExampleTag from "@/components/ExampleTag";
+import { getFaqs, getList, getPartnerModels, getStats } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import s from "./partners.module.css";
 
@@ -37,7 +36,7 @@ export default function Partners() {
           <SectionHeading eyebrow="Partner programme" heading="More for your clients. More for both of us." accent="More for both of us." level={1} size="display" id="pt-h" />
           <p className={`t-lede ${s.lede}`}>Whether you advise businesses, run an agency, build software or offer a platform, we can deliver more value together than apart. Clear terms, in writing, from the first deal.</p>
           <a className={`btn btn-primary ${s.cta}`} href="#apply">Become a partner <span className="arr" aria-hidden="true">→</span></a>
-          <NumberStrip items={getStatStrip("partners").items} example={getStatStrip("partners").example} className={s.strip} />
+          <NumberStrip items={getStats("partners")} className={s.strip} />
         </div>
       </section>
 
@@ -51,7 +50,6 @@ export default function Partners() {
                 <h3 className="t-title">{m.title}</h3>
                 <p className={`t-small ${s.text}`}>{m.text}</p>
                 <p className={`t-label ${s.earns}`}>{m.earns}</p>
-                {m.example && <ExampleTag label="Illustrative example terms" />}
               </article>
             ))}
           </div>

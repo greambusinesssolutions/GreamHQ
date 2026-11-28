@@ -4,7 +4,6 @@ import SectionHeading from "@/components/SectionHeading";
 import Accent from "@/components/Accent";
 import NumberStrip from "@/components/NumberStrip";
 import IndexRows from "@/components/IndexRows";
-import ExampleTag from "@/components/ExampleTag";
 import Faq from "@/components/Faq";
 import DarkCta from "@/components/DarkCta";
 import { bySlug, getFaqs, getServices, getWork } from "@/lib/content";
@@ -44,7 +43,7 @@ export default async function ServicePage({ params }: Params) {
                 <Link className="btn btn-primary" href={bookHref}>{h.cta} <span className="arr" aria-hidden="true">→</span></Link>
                 {h.secondary && <Link className="btn btn-line" href={h.secondary.href}>{h.secondary.label}</Link>}
               </div>
-              {h.proof && <p className={`t-label ${s.proof}`}>{h.proof} {d.example && <ExampleTag />}</p>}
+              {h.proof && <p className={`t-label ${s.proof}`}>{h.proof}</p>}
             </div>
             {h.example && (
               <figure className={`dark ${s.example}`} aria-label={`Example: ${h.example.label}`}>
@@ -58,7 +57,7 @@ export default async function ServicePage({ params }: Params) {
               </figure>
             )}
           </div>
-          {d.stats && <NumberStrip items={d.stats} example={d.example} className={s.strip} />}
+          {d.stats && <NumberStrip items={d.stats} className={s.strip} />}
         </div>
       </section>
 
@@ -129,7 +128,6 @@ export default async function ServicePage({ params }: Params) {
             {story && (
               <article className={s.story}>
                 <p className="t-label">Client story · {story.data.industry} · {story.data.region}</p>
-                {story.data.example && <ExampleTag />}
                 <h2 className="t-title">{d.storyCard?.title ?? story.data.title}</h2>
                 <p className="t-small muted">{d.storyCard?.text ?? <><b>{story.data.result.value}</b> {story.data.result.label}</>}</p>
                 <Link className={`t-small ${s.storyLink}`} href={`/work/${story.slug}`}>Read the case →</Link>
@@ -151,7 +149,6 @@ export default async function ServicePage({ params }: Params) {
             <div>
               <SectionHeading eyebrow={d.pricing ? "Pricing and timeline" : "Questions"} heading={d.pricing?.heading ?? "Questions buyers ask us."} id="price-h" />
               {d.pricing && <p className={`t-lede ${s.pricingText}`}>{d.pricing.text}</p>}
-              {d.pricing && d.example && <p className={s.pricingText}><ExampleTag label="Illustrative example price" /></p>}
             </div>
             {faqs.length > 0 && <Faq items={faqs} />}
           </div>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CaseCard from "@/components/CaseCard";
 import Quote from "@/components/Quote";
-import ExampleTag from "@/components/ExampleTag";
 import DarkCta from "@/components/DarkCta";
 import { bySlug, getWork } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
@@ -29,7 +28,6 @@ export default async function CasePage({ params }: Params) {
     <>
       <section className={`ledger-grid ${s.hero}`} aria-labelledby="case-h">
         <div className="wrap">
-          {c.example && <p className={s.exampleNote}><ExampleTag label="Illustrative example case study" /></p>}
           <SectionHeading eyebrow={`Work · ${c.service}`} heading={c.title} level={1} size="display" id="case-h" />
           <dl className={s.facts}>
             {[["Client", c.client], ["Industry", c.industry], ["Region", c.region], ["What we did", c.service]].map(([k, v]) => (
@@ -55,7 +53,7 @@ export default async function CasePage({ params }: Params) {
 
       {c.quote && (
         <section className="section ground-sage" aria-label={`What ${c.client} says`}>
-          <div className="wrap"><Quote {...c.quote} example={c.example} /></div>
+          <div className="wrap"><Quote {...c.quote} /></div>
         </section>
       )}
 

@@ -6,7 +6,6 @@ summary: "An assistant that answers common questions on WhatsApp and the web, an
 price: "Join the waitlist"
 cta: "Notify me"
 order: 4
-example: true
 ---
 
 Front Desk answers your customers' common questions on WhatsApp and your website, at any hour, and hands anything unusual to your team.

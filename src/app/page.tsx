@@ -9,7 +9,7 @@ import SixSteps from "@/components/SixSteps";
 import Faq from "@/components/Faq";
 import StatusTag from "@/components/StatusTag";
 import BusinessCheckForm from "@/components/BusinessCheckForm";
-import { getExample, getFaqs, getInsights, getServices, getStatStrip, getWork } from "@/lib/content";
+import { getExample, getFaqs, getInsights, getServices, getStats, getWork } from "@/lib/content";
 import { site } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 import s from "./home.module.css";
@@ -58,7 +58,7 @@ export default function Home() {
               ))}
             </figure>
           </div>
-          <NumberStrip items={getStatStrip("home").items} example={getStatStrip("home").example} className={s.strip} />
+          <NumberStrip items={getStats("home")} className={s.strip} />
         </div>
       </section>
 
@@ -91,7 +91,7 @@ export default function Home() {
 
       {quoted?.data.quote && (
         <section className="section ground-sage" aria-label="What a client says">
-          <div className="wrap"><Quote {...quoted.data.quote} example={quoted.data.example} /></div>
+          <div className="wrap"><Quote {...quoted.data.quote} /></div>
         </section>
       )}
 

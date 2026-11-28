@@ -13,7 +13,7 @@ hero:
   lede: "Routine replies, follow-ups, payment checks and your daily numbers, handled for you. Your team approves anything that matters."
   cta: "Book a free workflow check"
   secondary: { label: "See the agents", href: "#agents" }
-  proof: "140+ projects · 16 countries · A person approves what matters"
+  proof: "A person approves what matters"
   example:
     label: "Enquiry agent · 9:42 PM"
     customer: "Hi, do you deliver on Saturdays? I need 20 cartons."
@@ -21,9 +21,8 @@ hero:
     note: "Drafted by the agent · Bulk price needs approval"
     tags: ["Logged as new enquiry", "Follow-up set · 10:00"]
 stats:
-  - { value: "3×", label: "Faster replies" }
-  - { value: "24/7", label: "Enquiries answered" }
-  - { value: "−60%", label: "Manual admin" }
+  - { value: "—", label: "Faster replies" }
+  - { value: "—", label: "Manual admin" }
   - { value: "100%", label: "Sensitive replies approved" }
 stages:
   eyebrow: "Where businesses are"
@@ -60,10 +59,9 @@ shortAnswer:
     - { label: "Predictable", text: "The right answer is usually clear." }
     - { label: "Costly when missed", text: "A slip loses a customer or money." }
     - { label: "Easy to check", text: "A person can see if it's right." }
-story: "kestrel-dental"
+story: "case-02"
 storyCard:
-  title: "Kestrel Dental: an agent that books and reschedules, day and night"
-  text: "Replies went from hours to minutes. 3× faster responses, and 1 in 5 bookings now made outside office hours."
+  text: "Result to come."
 questions:
   heading: "Six questions to ask any AI provider"
   items:
@@ -75,12 +73,11 @@ questions:
     - "Who keeps it working after launch?"
 pricing:
   heading: "Start small, with a fixed price."
-  text: "Pilots start from $2,500 and take about three weeks. You get a fixed price in writing after the free check."
+  text: "Pilots start from $— and take about — weeks. You get a fixed price in writing after the free check."
 faqs: ["agent-alone", "existing-tools", "agent-ownership", "time-zones"]
 cta:
   heading: "Find the first job worth automating."
   accent: "automating."
   text: "A free 20-minute workflow check. We'll tell you honestly if an agent is worth it."
   button: "Book a free workflow check"
-example: true
 ---

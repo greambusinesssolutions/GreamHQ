@@ -5,8 +5,7 @@
   "kind": "Referral",
   "title": "Introduce a business",
   "text": "You make the introduction. We scope, sell and deliver.",
-  "earns": "You earn: 10% of paid invoices",
-  "example": true
+  "earns": "You earn: —% of paid invoices"
  },
  {
   "id": "delivery",
