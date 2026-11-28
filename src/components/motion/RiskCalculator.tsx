@@ -26,6 +26,7 @@ export default function RiskCalculator() {
   const [share, setShare] = useState(20);
   const out = useRef<HTMLSpanElement>(null);
   const last = useRef(0);
+  const missed = Math.round(enquiries * (share / 100));
   const risk = enquiries * (share / 100) * sale;
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function RiskCalculator() {
   return (
     <div className={s.calc}>
       <div className={s.inputs}>
-        {slider("Enquiries per month", enquiries, setEnquiries, 10, 1000, 10, enquiries.toLocaleString("en-GB"))}
+        {slider("Enquiries you get each month", enquiries, setEnquiries, 10, 1000, 10, enquiries.toLocaleString("en-GB"))}
         <div className={s.curRow}>
           <span className="t-label">Currency</span>
           <div className={s.curs} role="radiogroup" aria-label="Currency">
@@ -69,14 +70,19 @@ export default function RiskCalculator() {
             ))}
           </div>
         </div>
-        {slider("Average sale value", sale, setSale, range.min, range.max, range.step, money(cur, sale))}
+        {slider("What an average sale is worth", sale, setSale, range.min, range.max, range.step, money(cur, sale))}
         {slider("Share that never gets a reply", share, setShare, 0, 60, 1, `${share}%`)}
+        <p className={`t-caption ${s.hint}`}>Not sure? Leave it at 20%. Finding your real share is part of the free check.</p>
       </div>
-      <div className={s.result} aria-live="polite">
-        <p className="t-label">Estimated revenue at risk per month</p>
-        <p className={`t-display ${s.figure}`}><span ref={out}>{money(cur, risk)}</span></p>
-        <p className={`t-small ${s.note}`}>An estimate: enquiries a month × the share that never gets a reply × your average sale.</p>
-        <Link className="btn btn-primary" href={bookHref}>Book a free business check <span className="arr" aria-hidden="true">→</span></Link>
+      <div className={s.result}>
+        <p className="t-label">Estimated revenue at risk each month</p>
+        <p className={`t-display ${s.figure}`} aria-live="polite"><span ref={out}>{money(cur, risk)}</span></p>
+        <p className={`t-body ${s.year}`}>That&apos;s about <b>{money(cur, risk * 12)}</b> a year.</p>
+        <p className={`t-small ${s.working}`}>
+          <b>{missed.toLocaleString("en-GB")}</b> of your {enquiries.toLocaleString("en-GB")} enquiries a month get no reply. At {money(cur, sale)} each, that&apos;s {money(cur, risk)} that could be walking away every month.
+        </p>
+        <p className={`t-caption ${s.note}`}>A rough estimate, assuming each unanswered enquiry would have bought once. On the free check we work out your real number together.</p>
+        <Link className="btn btn-primary" href={bookHref}>Find out your real number <span className="arr" aria-hidden="true">→</span></Link>
       </div>
     </div>
   );

@@ -70,7 +70,10 @@ export default function Home() {
 
       <section className="section tight-top" aria-labelledby="risk-h">
         <div className="wrap">
-          <p className="eyebrow" id="risk-h">Money at risk · Estimate</p>
+          <div className="head-split">
+            <SectionHeading eyebrow="Money at risk · Estimate" heading="What are unanswered enquiries costing you?" accent="costing you?" id="risk-h" />
+            <p className="t-lede">Move the sliders to match your business. You&apos;ll see roughly how much slips away each month when enquiries go unanswered.</p>
+          </div>
           <RiskCalculator />
         </div>
       </section>

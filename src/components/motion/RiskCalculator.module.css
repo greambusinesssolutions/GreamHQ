@@ -20,3 +20,12 @@
 .note { color: var(--text); max-width: 460px; }
 @container page (max-width: 1100px) { .calc { grid-template-columns: minmax(0, 1fr); gap: var(--space-12); } }
 @container page (max-width: 640px) { .figure { font-size: 56px; } .result .btn { width: 100%; } }
+
+.result { padding: var(--space-8); background: var(--paper); border: 1px solid var(--line); }
+.year { color: var(--green); }
+.year b { font-weight: 600; }
+.working { color: var(--text); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.working b { color: var(--accent-text); font-weight: 600; }
+.note { color: var(--text-muted); }
+.hint { color: var(--text-muted); margin-top: calc(-1 * var(--space-4)); }
+@container page (max-width: 640px) { .result { padding: var(--space-6); } }
