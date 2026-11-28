@@ -6,7 +6,7 @@ import s from "./ProductCard.module.css";
 export default function ProductCard({ entry }: { entry: Product }) {
   const p = entry.data;
   return (
-    <article className={s.card}>
+    <article className={`lift ${s.card}`}>
       <div className={s.top}>
         <span className="t-label">{p.audience}</span>
         <StatusTag status={p.status} />
@@ -16,7 +16,7 @@ export default function ProductCard({ entry }: { entry: Product }) {
       <div className={s.foot}>
         <span className={`t-small ${s.price}`}>{p.price}</span>
         <Link className={`t-small ${s.link}`} href={`/products/${entry.slug}`}>
-          {`${p.cta} →`}<span className="sr-only"> for {p.name}</span>
+          {p.cta} <span className="arr-slide">→</span><span className="sr-only"> for {p.name}</span>
         </Link>
       </div>
     </article>

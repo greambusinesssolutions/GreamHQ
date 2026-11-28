@@ -45,7 +45,7 @@ export default function Partners() {
           <SectionHeading eyebrow="Ways to partner" heading="Six ways to work together, for the long term." accent="for the long term." id="ways-h" className="head-block" />
           <div className={s.models}>
             {getPartnerModels().map((m) => (
-              <article key={m.id} className={`${s.model} ${m.highlight ? s.highlight : ""}`}>
+              <article key={m.id} className={`lift ${s.model} ${m.highlight ? s.highlight : ""}`}>
                 <p className={`t-label ${s.kind}`}>{`0${m.order} · ${m.kind}`}</p>
                 <h3 className="t-title">{m.title}</h3>
                 <p className={`t-small ${s.text}`}>{m.text}</p>

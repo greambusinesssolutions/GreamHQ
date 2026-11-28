@@ -24,7 +24,7 @@ export default function CaseCard({ entry, variant = "grid", dark = false, level 
     );
   }
   return (
-    <Link className={`${s.card} ${variant === "featured" ? s.featured : ""} ${dark ? s.dark : ""}`} href={href}>
+    <Link className={`lift ${s.card} ${variant === "featured" ? s.featured : ""} ${dark ? s.dark : ""}`} href={href}>
       <CaseVisual kind={c.visual} size={variant === "featured" ? "large" : "small"} chat={home ? c.homeChat : undefined} />
       <span className={s.body}>
         <span className={`t-label ${s.meta}`}>{meta}</span>
@@ -33,7 +33,7 @@ export default function CaseCard({ entry, variant = "grid", dark = false, level 
           <b className={`t-section ${s.big}`}>{result.value}</b>
           <span className={`t-small ${s.resLabel}`}>{result.label}</span>
         </span>
-        {variant === "grid" && <span className={`t-small ${s.more}`}>Read the case →</span>}
+        {variant === "grid" && <span className={`t-small ${s.more}`}>Read the case <span className="arr-slide">→</span></span>}
       </span>
     </Link>
   );

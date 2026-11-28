@@ -29,7 +29,7 @@ export default async function InsightType({ params }: Params) {
           {items.length ? (
             <div className={s.latest}>
               {items.map((x) => (
-                <Link key={x.slug} className={s.card} href={`/insights/${x.slug}`}>
+                <Link key={x.slug} className={`lift ${s.card}`} href={`/insights/${x.slug}`}>
                   <span className="t-label">{x.data.type}</span>
                   <span className="t-title">{x.data.title}</span>
                 </Link>

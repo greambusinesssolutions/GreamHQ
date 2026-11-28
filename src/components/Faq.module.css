@@ -10,3 +10,4 @@
 .item[open] .pm::after { display: none; }
 .a { padding: 0 64px var(--space-6) 0; margin-top: calc(-1 * var(--space-3)); }
 @container page (max-width: 760px) { .a { padding-right: 0; } }
+@media (hover: hover) { .q { transition: background-color 0.25s, padding 0.25s; } .q:hover { background: var(--mist-deep); padding-left: var(--space-3); padding-right: var(--space-3); } }

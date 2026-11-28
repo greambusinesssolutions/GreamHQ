@@ -1,3 +1,4 @@
+import CountUp from "./motion/CountUp";
 import s from "./NumberStrip.module.css";
 
 /** The large serif number strip under a hero. */
@@ -7,7 +8,7 @@ export default function NumberStrip({ items, className = "" }: { items: { value:
       {items.map((x) => (
         <div className={s.item} key={x.label}>
           <dt className="t-label">{x.label}</dt>
-          <dd className={`t-section ${s.num}`}>{x.value}{x.suffix && <span className={s.suffix}>{x.suffix}</span>}</dd>
+          <dd className={`t-section ${s.num}`}><CountUp value={x.value} />{x.suffix && <span className={s.suffix}>{x.suffix}</span>}</dd>
         </div>
       ))}
     </dl>

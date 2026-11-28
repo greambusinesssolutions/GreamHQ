@@ -372,21 +372,23 @@ textarea {
 @keyframes pop { 0%, 82%, 100% { transform: scale(1); } 88% { transform: scale(1.12); } }
 
 /* The page's headline rises in on load; what follows it comes 0.18s later. */
-main h1 { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-main h1 ~ *, main :has(> h1) ~ * { animation: rise 0.9s 0.18s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+/* Movement only (no fade from invisible), so the page's largest text paints straight away. */
+@keyframes riseIn { from { transform: translateY(24px); } to { transform: none; } }
+main h1 { animation: riseIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+main h1 ~ *, main :has(> h1) ~ * { animation: riseIn 0.9s 0.18s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 
 /* Sections after the hero fade and rise in as they scroll into view. */
 @supports (animation-timeline: view()) {
-  main section:not(:first-of-type) > .wrap > *,
-  main section:not(:first-of-type) > .wrap > div > * {
+  main section:not(:first-of-type) > .wrap > :not(h2, .eyebrow, :has(h2)),
+  main section:not(:first-of-type) > .wrap > div > :not(h2, .eyebrow, :has(h2)) {
     animation: rev linear both;
     animation-timeline: view();
     animation-range: entry 0% cover 22%;
   }
 }
 /* Fallback for browsers without scroll-driven animations (see components/Reveal.tsx). */
-.reveal-js main section:not(:first-of-type) > .wrap > *:not(.revealed) { opacity: 0; transform: translateY(36px); }
-.reveal-js main section:not(:first-of-type) > .wrap > * { transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal-js main section:not(:first-of-type) > .wrap > :not(h2, .eyebrow, :has(h2)):not(.revealed) { opacity: 0; transform: translateY(36px); }
+.reveal-js main section:not(:first-of-type) > .wrap > :not(h2, :has(h2)) { transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
 
 /* Links, buttons and cards press in slightly when tapped. */
 a, button, summary { transition: transform 0.15s ease, background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s; }
@@ -401,7 +403,28 @@ a:active, button:active, summary:active { transform: scale(0.97); }
   .head-block { margin-bottom: 44px; }
 }
 
+
+
+/* Section headings reveal line by line (words grouped into lines by components/Reveal.tsx). */
+.split-heading .w { display: inline-block; opacity: 0; transform: translateY(0.5em); transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--l, 0) * 110ms); }
+.split-heading.shown .w { opacity: 1; transform: none; }
+
+/* A faint ledger grid drifts slowly behind each page's hero. */
+@keyframes drift { to { transform: translateX(110px); } }
+main > section:first-of-type.ledger-grid { position: relative; isolation: isolate; overflow: hidden; background-image: none; }
+main > section:first-of-type.ledger-grid::before { content: ""; position: absolute; inset: 0 0 0 -110px; z-index: -1; pointer-events: none; background-image: repeating-linear-gradient(90deg, rgba(13, 43, 35, 0.05) 0 1px, transparent 1px 110px); animation: drift 60s linear infinite; }
+
+/* Hover and touch: cards lift with a soft shadow; arrows slide 4px. */
+@media (hover: hover) {
+  .lift { transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s, border-color 0.2s, background-color 0.2s; }
+  .lift:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -28px rgba(13, 43, 35, 0.45); }
+  .lift:hover .arr-slide, a:hover > .arr-slide { transform: translateX(4px); }
+}
+.arr-slide { display: inline-block; transition: transform 0.2s; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal-js main section > .wrap > * { opacity: 1 !important; transform: none !important; }
+  .split-heading .w { opacity: 1 !important; transform: none !important; }
+  .lift:hover { transform: none; }
 }

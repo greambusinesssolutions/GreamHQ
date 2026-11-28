@@ -126,10 +126,10 @@ export default function About() {
 
       <section className="section tight-top" aria-label="Partners">
         <div className="wrap">
-          <Link className={s.linkCard} href="/partners">
+          <Link className={`lift ${s.linkCard}`} href="/partners">
             <span className="t-label">Partners</span>
             <span className="t-section">Build products and grow with us</span>
-            <span className={s.linkGo}>Become a partner →</span>
+            <span className={s.linkGo}>Become a partner <span className="arr-slide">→</span></span>
           </Link>
         </div>
       </section>
