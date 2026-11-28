@@ -5,9 +5,11 @@ import Marquee from "@/components/Marquee";
 import IndexRows from "@/components/IndexRows";
 import CaseCard from "@/components/CaseCard";
 import Quote from "@/components/Quote";
-import SixSteps from "@/components/SixSteps";
+import HeroScene, { type SceneCopy } from "@/components/motion/HeroScene";
+import RiskCalculator from "@/components/motion/RiskCalculator";
+import StepsScroll from "@/components/motion/StepsScroll";
+import { steps } from "@/data/steps";
 import Faq from "@/components/Faq";
-import StatusTag from "@/components/StatusTag";
 import BusinessCheckForm from "@/components/BusinessCheckForm";
 import { getExample, getFaqs, getInsights, getServices, getStats, getWork } from "@/lib/content";
 import { site } from "@/data/site";
@@ -29,7 +31,6 @@ export default function Home() {
   // The three insights the home design shows, in its order.
   const all = getInsights();
   const insights = ["what-growing-businesses-run-on", "what-an-ai-agent-should-do", "stop-losing-enquiries"].map((slug) => all.find((x) => x.slug === slug)).filter((x): x is (typeof all)[number] => !!x);
-  const ledger = getExample("home-ledger");
 
   return (
     <>
@@ -49,14 +50,7 @@ export default function Home() {
                 <Link className="btn btn-line" href="/work">See our work</Link>
               </div>
             </div>
-            <figure className={s.ledger} aria-label="Example: a live ledger of enquiries moving to payment">
-              <div className={s.ledgerHead}><span className="t-label"><i className={s.dot} aria-hidden="true" />{ledger.label}</span><span className={`t-label ${s.ex}`}>Example</span></div>
-              {ledger.rows.map((r) => (
-                <div className={`t-small ${s.ledgerRow}`} key={r.who}>
-                  <span>{r.who}</span><span className={s.ledgerWhat}>{r.what}</span><StatusTag status={r.status} />
-                </div>
-              ))}
-            </figure>
+            <HeroScene copy={getExample("home-scene") as SceneCopy} />
           </div>
           <NumberStrip items={getStats("home")} className={s.strip} />
         </div>
@@ -71,6 +65,13 @@ export default function Home() {
             <p className="t-lede">We start with how your business really runs, then build what makes the biggest difference.</p>
           </div>
           <IndexRows size="large" rows={services.map((x) => ({ title: x.data.title, accent: x.data.titleAccent, text: x.data.summary, href: `/what-we-do/${x.slug}` }))} />
+        </div>
+      </section>
+
+      <section className="section tight-top" aria-labelledby="risk-h">
+        <div className="wrap">
+          <p className="eyebrow" id="risk-h">Money at risk · Estimate</p>
+          <RiskCalculator />
         </div>
       </section>
 
@@ -95,10 +96,10 @@ export default function Home() {
         </section>
       )}
 
-      <section className="section" aria-labelledby="how-h">
+      <section className="section dark" aria-labelledby="how-h">
         <div className="wrap">
           <SectionHeading eyebrow="How we work" heading="Six clear steps. You see progress throughout." accent="throughout." id="how-h" className="head-block" />
-          <SixSteps />
+          <StepsScroll steps={steps} />
         </div>
       </section>
 
@@ -158,7 +159,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section dark ledger-grid" id="contact" aria-labelledby="contact-h">
+      <section className={`section ${s.band}`} id="contact" aria-labelledby="contact-h">
         <div className="wrap">
           <p className="eyebrow">Your next step</p>
           <h2 className="t-display" id="contact-h">Let&apos;s find what&apos;s costing you <em>customers.</em></h2>
