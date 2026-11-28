@@ -1,7 +1,7 @@
 "use client";
 
 // Shows the first `initial` items with a "Show more work" button, as in the Work design.
-// Without JavaScript every item stays visible. The button hides once everything is shown.
+// Without JavaScript every item stays visible. The button only appears when there is more to show.
 import { Children, useEffect, useState, type ReactNode } from "react";
 
 export default function ShowMore({ initial, className, children, label = "Show more work" }: { initial: number; className?: string; children: ReactNode; label?: string }) {
@@ -12,7 +12,7 @@ export default function ShowMore({ initial, className, children, label = "Show m
   return (
     <>
       <div className={className}>{items.slice(0, limit)}</div>
-      {!expanded && (
+      {!expanded && items.length > initial && (
         <div className="show-more">
           <button type="button" className="btn btn-line" onClick={() => { setLimit(items.length); setExpanded(true); }}>{label}</button>
         </div>
