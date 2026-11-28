@@ -7,11 +7,15 @@ import Logo from "./Logo";
 import { nav, bookHref } from "@/data/nav";
 import s from "./Header.module.css";
 
+// Phone menu: under 1000px a "Menu" button opens a full-width panel of large serif links.
+const mobileLinks = [{ href: "/", label: "Home", match: "" }, ...nav];
+
 export default function Header() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const btn = useRef<HTMLButtonElement>(null);
 
+  useEffect(() => setOpen(false), [path]);
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -24,7 +28,7 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const current = (match: string) => (path.startsWith(match) ? "page" : undefined);
+  const current = (match: string, href: string) => (match ? path.startsWith(match) : path === href) ? "page" : undefined;
 
   return (
     <header className={s.nav}>
@@ -34,26 +38,25 @@ export default function Header() {
         </Link>
         <nav className={s.links} aria-label="Main">
           {nav.map((l) => (
-            <Link key={l.href} href={l.href} aria-current={current(l.match)}>
+            <Link key={l.href} href={l.href} aria-current={current(l.match, l.href)}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <Link className={`btn btn-ink btn-sm ${s.cta}`} href={bookHref}>
-          Book a free business check
-        </Link>
-        <button ref={btn} className={s.menuBtn} type="button" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen((o) => !o)}>
-          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" aria-hidden="true">
-            {open ? <path d="M5 5l14 14M19 5L5 19" /> : <path d="M3 7h18M3 12h18M3 17h12" />}
-          </svg>
-        </button>
+        <div className={s.actions}>
+          <button ref={btn} className={s.menuBtn} type="button" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen((o) => !o)}>
+            Menu
+          </button>
+          <Link className={`btn btn-ink btn-sm ${s.cta}`} href={bookHref}>
+            <span className={s.long}>Book a free business check</span>
+            <span className={s.short}>Book a check</span>
+          </Link>
+        </div>
       </div>
       <nav className={s.mnav} id="mobile-menu" aria-label="Mobile" hidden={!open}>
-        {nav.map((l, i) => (
-          <Link key={l.href} href={l.href} aria-current={current(l.match)} onClick={() => setOpen(false)}>
-            <span className="t-title">{l.label}</span>
-            <span className={`t-label ${s.num}`}>0{i + 1}</span>
+        {mobileLinks.map((l) => (
+          <Link key={l.href} href={l.href} aria-current={current(l.match, l.href)} onClick={() => setOpen(false)}>
+            {l.label}
           </Link>
         ))}
       </nav>
