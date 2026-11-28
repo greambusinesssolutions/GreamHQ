@@ -10,8 +10,6 @@ import { marked } from "marked";
 import { z } from "zod";
 
 const ROOT = join(process.cwd(), "content");
-// `example: true` marks sample content from the designs: it shows an "Illustrative example" label.
-const example = z.boolean().default(false);
 const stat = z.object({ value: z.string(), label: z.string(), suffix: z.string().optional() });
 
 // ---------- Schemas ----------
@@ -58,7 +56,6 @@ const serviceSchema = z.object({
   pricing: z.object({ heading: z.string(), text: z.string() }).optional(),
   faqs: z.array(z.string()).default([]),
   cta: z.object({ heading: z.string(), accent: z.string().optional(), text: z.string().optional(), button: z.string(), href: z.string().optional() }),
-  example,
 });
 
 const workSchema = z.object({
@@ -77,7 +74,6 @@ const workSchema = z.object({
   visual: z.enum(["bars", "chat", "ledger"]),
   featured: z.boolean().default(false),
   order: z.number().default(99),
-  example,
 });
 
 const productSchema = z.object({
@@ -88,7 +84,6 @@ const productSchema = z.object({
   price: z.string(),
   cta: z.string(),
   order: z.number().default(99),
-  example,
 });
 
 export const insightTypes = ["Guide", "AI agents", "Report", "Case notes", "Talks"] as const;
@@ -113,10 +108,9 @@ const partnerModelSchema = z.object({
   text: z.string(),
   earns: z.string(),
   highlight: z.boolean().default(false),
-  example,
 });
-const statsSchema = z.object({ id: z.string(), items: z.array(stat), example });
-const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]), example });
+const statsSchema = z.object({ id: z.string(), items: z.array(stat) });
+const clientSchema = z.object({ id: z.string(), name: z.string(), style: z.enum(["serif", "serif-italic", "sans", "sans-caps", "mono"]) });
 const exampleSchema = z.object({ id: z.string(), label: z.string(), rows: z.array(z.object({ who: z.string(), what: z.string(), status: z.string() })) });
 const listSchema = z.object({ id: z.string(), items: z.array(z.string()) });
 
@@ -165,7 +159,6 @@ function one<T extends { id: string }>(list: T[], id: string, file: string): T {
   return found;
 }
 export const getStats = (id: string) => one(loadJson("stats.json", statsSchema), id, "stats.json").items;
-export const getStatStrip = (id: string) => one(loadJson("stats.json", statsSchema), id, "stats.json");
 export const getExample = (id: string) => one(loadJson("examples.json", exampleSchema), id, "examples.json");
 export const getList = (id: string) => one(loadJson("lists.json", listSchema), id, "lists.json").items;
 export function getFaqs(ids: string[]) {
