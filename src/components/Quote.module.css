@@ -5,3 +5,4 @@
 .sinceLabel { margin: var(--space-6) 0 var(--space-2); }
 .since { font-size: 40px; line-height: 1; }
 @container page (max-width: 1100px) { .q { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); } }
+@container page (max-width: 640px) { .quote { font-size: 30px; } .who { padding-left: var(--space-6); } }

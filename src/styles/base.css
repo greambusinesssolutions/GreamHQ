@@ -363,3 +363,45 @@ textarea {
 .text-page ul { padding-left: 20px; }
 .text-page li + li { margin-top: var(--space-2); }
 @container page (max-width: 760px) { .text-page table { display: block; overflow-x: auto; } }
+
+/* ---------- Motion (from the updated designs) ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes rev { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+@keyframes rowin { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes pop { 0%, 82%, 100% { transform: scale(1); } 88% { transform: scale(1.12); } }
+
+/* The page's headline rises in on load; what follows it comes 0.18s later. */
+main h1 { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+main h1 ~ *, main :has(> h1) ~ * { animation: rise 0.9s 0.18s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* Sections after the hero fade and rise in as they scroll into view. */
+@supports (animation-timeline: view()) {
+  main section:not(:first-of-type) > .wrap > *,
+  main section:not(:first-of-type) > .wrap > div > * {
+    animation: rev linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+}
+/* Fallback for browsers without scroll-driven animations (see components/Reveal.tsx). */
+.reveal-js main section:not(:first-of-type) > .wrap > *:not(.revealed) { opacity: 0; transform: translateY(36px); }
+.reveal-js main section:not(:first-of-type) > .wrap > * { transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+/* Links, buttons and cards press in slightly when tapped. */
+a, button, summary { transition: transform 0.15s ease, background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s; }
+a:active, button:active, summary:active { transform: scale(0.97); }
+
+/* ---------- Phone (under 640px), from the updated designs ---------- */
+@container page (max-width: 640px) {
+  .t-display { font-size: 46px; line-height: 1; }
+  .t-section { font-size: 38px; line-height: 1.04; }
+  .section { padding: 64px 0; }
+  .section.tight-top { padding-top: 0; }
+  .head-block { margin-bottom: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal-js main section > .wrap > * { opacity: 1 !important; transform: none !important; }
+}

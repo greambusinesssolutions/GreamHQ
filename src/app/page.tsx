@@ -50,7 +50,7 @@ export default function Home() {
               </div>
             </div>
             <figure className={s.ledger} aria-label="Example: a live ledger of enquiries moving to payment">
-              <div className={s.ledgerHead}><span className="t-label">{ledger.label}</span><span className={`t-label ${s.ex}`}>Example</span></div>
+              <div className={s.ledgerHead}><span className="t-label"><i className={s.dot} aria-hidden="true" />{ledger.label}</span><span className={`t-label ${s.ex}`}>Example</span></div>
               {ledger.rows.map((r) => (
                 <div className={`t-small ${s.ledgerRow}`} key={r.who}>
                   <span>{r.who}</span><span className={s.ledgerWhat}>{r.what}</span><StatusTag status={r.status} />

@@ -25,3 +25,4 @@
   .models, .steps { grid-template-columns: minmax(0, 1fr); }
   .cta { width: 100%; }
 }
+@container page (max-width: 640px) { .strip { margin-top: 44px; } }
