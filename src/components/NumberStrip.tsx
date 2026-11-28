@@ -4,7 +4,7 @@ import s from "./NumberStrip.module.css";
 /** The large serif number strip under a hero. */
 export default function NumberStrip({ items, className = "" }: { items: { value: string; label: string; suffix?: string }[]; className?: string }) {
   return (
-    <dl className={`${s.strip} ${className}`}>
+    <dl className={`${s.strip} ${className}`} style={{ ["--n" as string]: items.length }}>
       {items.map((x) => (
         <div className={s.item} key={x.label}>
           <dt className="t-label">{x.label}</dt>

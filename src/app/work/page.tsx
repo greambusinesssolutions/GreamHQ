@@ -30,7 +30,7 @@ export default function Work() {
       <section className="section tight-top" aria-label="Case studies">
         <div className="wrap">
           <p className={`t-label ${s.count}`}>Showing {total} projects · Featured first</p>
-          <ShowMore initial={9} className={s.grid}>
+          <ShowMore initial={9} className={`${s.grid} ${work.length === 4 || work.length === 2 ? s.grid2 : ""}`}>
             {work.map((w) => <CaseCard key={w.slug} entry={w} variant="grid" level={2} />)}
           </ShowMore>
         </div>

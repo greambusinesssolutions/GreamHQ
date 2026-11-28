@@ -1,5 +1,6 @@
 .hero { padding: var(--space-24) 0 0; }
-.heroGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-18); align-items: center; }
+.heroGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-18); align-items: start; }
+.heroGrid > figure { margin-top: var(--space-12); }
 .lede { margin-top: 28px; }
 .actions { margin-top: 36px; }
 .proof { margin-top: 28px; }
@@ -47,3 +48,4 @@
 .heroSolo { grid-template-columns: minmax(0, 1fr); }
 .heroSolo .lede { max-width: 660px; }
 @container page (max-width: 640px) { .strip { margin-top: 44px; } }
+@container page (max-width: 1100px) { .heroGrid > figure { margin-top: 0; max-width: 640px; } }
